@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  thing_image_array: 
+  thing_comment: MyString
+  thing_frequency: 1
+  thing_assessment: 1
+  thing_type_array: 
+  thing_name: MyString
+  thing_shear: false
+  thing_favorite: false
+  thing_price: 1
+  thing_number: 1
+  thing_number_remaining: 1
+  thing_purchase_place: MyString
+  thing_maker: MyString
+  thing_memo: MyString
+
+two:
+  user_id: 1
+  thing_image_array: 
+  thing_comment: MyString
+  thing_frequency: 1
+  thing_assessment: 1
+  thing_type_array: 
+  thing_name: MyString
+  thing_shear: false
+  thing_favorite: false
+  thing_price: 1
+  thing_number: 1
+  thing_number_remaining: 1
+  thing_purchase_place: MyString
+  thing_maker: MyString
+  thing_memo: MyString
