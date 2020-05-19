@@ -2,11 +2,11 @@
 
 one:
   user_id: 1
-  thing_image_array: 
+  thing_image: Mystring
   thing_comment: MyString
   thing_frequency: 1
   thing_assessment: 1
-  thing_type_array: 
+  thing_type: 1
   thing_name: MyString
   thing_shear: false
   thing_favorite: false
@@ -19,11 +19,11 @@ one:
 
 two:
   user_id: 1
-  thing_image_array: 
+  thing_image: Mystring
   thing_comment: MyString
   thing_frequency: 1
   thing_assessment: 1
-  thing_type_array: 
+  thing_type: 1
   thing_name: MyString
   thing_shear: false
   thing_favorite: false
