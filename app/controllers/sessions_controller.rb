@@ -7,9 +7,11 @@ class SessionsController < ApplicationController
     user = login_text_check(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
+      log_in user
+      redirect_to user
     else
       # エラーメッセージを作成する
-      flash[:danger] = 'ログイン失敗' # 本当は正しくない
+      flash.now[:danger] = 'ログイン失敗' # 本当は正しくない
       render 'new'
     end
   end
