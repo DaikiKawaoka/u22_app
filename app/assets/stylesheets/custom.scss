@@ -8,6 +8,28 @@
   box-sizing:         border-box;
 }
 
+/* universal */
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
 /* header */
 
 #logo {
@@ -24,6 +46,9 @@
 #logo:hover {
   color: #fff;
   text-decoration: none;
+}
+.dropdown-menu{
+  display: block;
 }
 
 

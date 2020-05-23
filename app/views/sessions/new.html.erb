@@ -1,4 +1,4 @@
-<br><br>
+
 <h1>ログインページだよ</h1>
 
 <div class="row">
@@ -6,7 +6,7 @@
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
 
       <%= f.label :email ,"メールアドレス"%>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.text_field :email, class: 'form-control' %>
 
       <%= f.label :password ,"パスワード"%>
       <%= f.password_field :password, class: 'form-control' %>

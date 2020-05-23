@@ -17,6 +17,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 
 
@@ -24,8 +26,11 @@ class SessionsController < ApplicationController
 
   #  user_name か email かをチェック
     def login_text_check(text)
-      unless user = User.find_by(email: text.downcase) then
+      user = User.find_by(email: text.downcase)
+      unless user then
         user = User.find_by(user_name: text)
+        return user
       end
+      return user
     end
 end
