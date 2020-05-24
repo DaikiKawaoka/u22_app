@@ -17,6 +17,9 @@ gem 'turbolinks',                 '5.2.0'
 gem 'jbuilder',                   '2.9.1'
 gem 'devise'
 gem 'omniauth-twitter'
+# Image Uploader
+gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
 gem 'bootsnap',                   '1.4.5', require: false
 
 group :development, :test do

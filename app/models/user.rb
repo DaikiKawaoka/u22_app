@@ -19,7 +19,8 @@ class User < ApplicationRecord
   validates :sex, presence: true
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+    #パスワードが空のままでも更新できるようにする
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)             #self.メソッド名はクラスメソッド(共有メソッド)

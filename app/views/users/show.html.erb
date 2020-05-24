@@ -1,3 +1,21 @@
 
-<h1>特定のユーザーを表示するページだよ</h1>
-<%= @user.name %>, <%= @user.email %>
+<h1>特定のユーザーを表示するページ</h1>
+
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>ユーザーネーム</th>
+    <td><%= @user.user_name %></td>
+  </tr>
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+    <td><%= @user.user_comment %></td>
+  </tr>
+</table>

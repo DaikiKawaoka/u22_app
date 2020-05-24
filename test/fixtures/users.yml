@@ -4,4 +4,10 @@ michael:
   password_digest: <%= User.digest('password') %>
   user_name: Michael Example00
   sex: 1
-  
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
+  user_name: Michael Example002
+  sex: 1
