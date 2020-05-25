@@ -1,4 +1,10 @@
 class User < ApplicationRecord
+  has_one_attached :image
+
+  validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
+                                      message: "その画像は使用できません。" },
+                      size:         { less_than: 5.megabytes,
+                                      message: "サイズが大きすぎます。" }
 
   attr_accessor :remember_token
 

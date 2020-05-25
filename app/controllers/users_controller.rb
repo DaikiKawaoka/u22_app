@@ -48,8 +48,14 @@ class UsersController < ApplicationController
     end
 
     def user_params_update
+      # if params[:user_image]
+      #   #データベースに保存するファイル名はユーザーのid.jpgとする
+      #   @user.user_image = "#{@user.id}.jpg"
+      #   image = params[:user_image]
+      #   File.binwrite("public/user_images/#{@user.user_image}",image.read)
+      # end
       params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation,:sex,:user_name,:user_comment)
+                                  :password_confirmation,:sex,:user_name,:user_comment,:image)
     end
 
    # beforeアクション
