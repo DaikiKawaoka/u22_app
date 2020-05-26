@@ -1,10 +1,16 @@
 class User < ApplicationRecord
+  has_many :things
   has_one_attached :image
 
   validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
                                       message: "その画像は使用できません。" },
                       size:         { less_than: 5.megabytes,
                                       message: "サイズが大きすぎます。" }
+
+  # 表示用のりサイズ済み画像を返す
+  def display_image
+    image.variant(resize_to_limit: [240, 240])
+  end
 
   attr_accessor :remember_token
 

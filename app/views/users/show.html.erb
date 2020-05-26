@@ -1,12 +1,22 @@
 
 <h1>特定のユーザーを表示するページ</h1>
 
+<div class="col-md-8">
+    <% if @user.things.any? %>
+      <h3>Things (<%= @user.things.count %>)</h3>
+      <ol>
+        <%= render @things %>
+      </ol>
+      <%= will_paginate @things %>
+    <% end %>
+  </div>
+
 <table border="1">
   <tr>
       <th>画像</th>
       <td>
         <% if @user.image.attached? %>
-          <%= image_tag @user.image.variant(combine_options:{resize:"240x240^",crop:"640x640+0+0",gravity: :center}).processed %>
+          <%= image_tag @user.display_image if @user.image.attached? %>
         <% end %>
       </td>
   </tr>

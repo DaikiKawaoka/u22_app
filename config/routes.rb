@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'  #新しいセッションのページ (ログイン)
   post   '/login',   to: 'sessions#create'  #新しいセッションの作成 (ログイン)
   delete '/logout',  to: 'sessions#destroy'  #セッションの削除 (ログアウト)
-  
+  resources :things,          only: [:create, :destroy]
   # GET	/users	index	users_path すべてのユーザーを一覧するページ
   # GET	/users/1	show	user_path(user) 特定のユーザーを表示するページ
   # GET	/users/new	new	new_user_path ユーザーを新規作成するページ (ユーザー登録)

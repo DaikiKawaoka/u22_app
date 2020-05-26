@@ -1,7 +1,6 @@
 class CreateThings < ActiveRecord::Migration[6.0]
   def change
     create_table :things do |t|
-      t.integer :user_id
       t.string :thing_image
       t.string :thing_comment
       t.integer :thing_frequency
@@ -16,8 +15,10 @@ class CreateThings < ActiveRecord::Migration[6.0]
       t.string :thing_purchase_place
       t.string :thing_maker
       t.string :thing_memo
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
+    add_index :things, [:user_id, :created_at]
   end
 end

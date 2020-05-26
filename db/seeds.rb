@@ -6,6 +6,13 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar")
 
+User.create!(name:  "daiki",
+             email: "kawadaiki@icloud.com",
+             user_name: "daiki",
+             sex: 1,
+             password:              "daiki0807",
+             password_confirmation: "daiki0807")
+
 # 追加のユーザーをまとめて生成する
 99.times do |n|
   name  = Faker::Name.name
@@ -19,4 +26,11 @@ User.create!(name:  "Example User",
                sex: sex,
                password:              password,
                password_confirmation: password)
+end
+
+# ユーザーの一部を対象にマイクロポストを生成する
+users = User.find_by(email:"kawadaiki@icloud.com")
+thing_name = "机"
+50.times do
+  users.things.create!(thing_name:thing_name)
 end

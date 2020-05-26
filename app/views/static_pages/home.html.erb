@@ -1,5 +1,17 @@
-
-<h1>homeページ</h1>
 <% if logged_in? %>
-  <h1>ログイン済<h1>
-<%end%>
+  <div>
+    <aside>
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/thing_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <h1>homeページ</h1>
+  <% if logged_in? %>
+    <h1>ログイン済<h1>
+  <%end%>
+<% end %>

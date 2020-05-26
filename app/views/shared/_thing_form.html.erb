@@ -1,0 +1,45 @@
+<%= form_with(model: @thing, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :thing_image,"画像"%>
+    <%= f.file_field :thing_image%>
+
+    <%= f.label :thing_name,"物品名" %>
+    <%= f.text_field :thing_name %>
+
+    <%= f.label :thing_comment,"コメント" %>
+    <%= f.text_field :thing_comment %>
+
+    <%= f.label :thing_frequency,"使用頻度" %>
+    <%= f.number_field :thing_frequency %>
+
+    <%= f.label :thing_assessment,"評価" %>
+    <%= f.number_field :thing_assessment %>
+
+    <%= f.label :thing_type,"タイプ" %>
+    <%= f.text_field :thing_type %>
+
+    <%= f.label :thing_shear,"共有する" %>
+    <%= f.radio_button :thing_shear ,true%>
+    <%= f.label :thing_shear,"共有しない" %>
+    <%= f.radio_button :thing_shear ,false%>
+
+    <%= f.label :thing_favorite,"お気に入り" %>
+    <%= f.radio_button :thing_favorite ,true%>
+    <%= f.label :thing_favorite,"お気に入りではない" %>
+    <%= f.radio_button :thing_favorite ,false%>
+
+    <%= f.label :thing_price,"価格" %>
+    <%= f.number_field :thing_price %>
+
+    <%= f.label :thing_number,"個数" %>
+    <%= f.text_field :thing_number %>
+
+    <%= f.label :thing_purchase_place,"購入場所" %>
+    <%= f.text_field :thing_purchase_place %>
+
+    <%= f.label :thing_maker,"メーカー" %>
+    <%= f.text_field :thing_maker %>
+
+  <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>

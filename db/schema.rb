@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_25_045030) do
+ActiveRecord::Schema.define(version: 2020_05_25_082140) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_05_25_045030) do
   end
 
   create_table "things", force: :cascade do |t|
-    t.integer "user_id"
     t.string "thing_image"
     t.string "thing_comment"
     t.integer "thing_frequency"
@@ -63,8 +62,11 @@ ActiveRecord::Schema.define(version: 2020_05_25_045030) do
     t.string "thing_purchase_place"
     t.string "thing_maker"
     t.string "thing_memo"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_things_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_things_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +85,5 @@ ActiveRecord::Schema.define(version: 2020_05_25_045030) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "things", "users"
 end
