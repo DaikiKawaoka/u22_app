@@ -16,7 +16,7 @@ class ThingsController < ApplicationController
 
 
  private
-
+    #データベースに登録
     def thing_params_new
       params.require(:thing).permit(:thing_name, :thing_comment, :thing_frequency,
                                   :thing_assessment,:thing_type,:thing_shear,:thing_favorite,:thing_price,
