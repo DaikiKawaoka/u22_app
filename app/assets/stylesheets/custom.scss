@@ -13,55 +13,55 @@
 
 /* universal */
 
-body {
-  padding-top: 60px;
-}
+// body {
+//   padding-top: 60px;
+// }
 
-section {
-  overflow: auto;
-}
+// section {
+//   overflow: auto;
+// }
 
-textarea {
-  resize: vertical;
-}
+// textarea {
+//   resize: vertical;
+// }
 
-.center {
-  text-align: center;
-}
+// .center {
+//   text-align: center;
+// }
 
-.center h1 {
-  margin-bottom: 10px;
-}
+// .center h1 {
+//   margin-bottom: 10px;
+// }
 
 /* header */
 
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-.dropdown-menu{
-  display: block;
-}
-.kensaku_name{
-  width: 30%;
-  margin: 20px auto 0 auto;
-}
-// .kensaku_btn{
-//   width: 30%;
+// #logo {
+//   float: left;
+//   margin-right: 10px;
+//   font-size: 1.7em;
+//   color: #fff;
+//   text-transform: uppercase;
+//   letter-spacing: -1px;
+//   padding-top: 9px;
+//   font-weight: bold;
+//   cursor: pointer;
 // }
+
+// #logo:hover {
+//   color: #fff;
+//   text-decoration: none;
+// }
+// .dropdown-menu{
+//   display: block;
+// }
+// .kensaku_name{
+//   width: 30%;
+//   margin: 20px auto 0 auto;
+// }
+// // .kensaku_btn{
+// //   width: 30%;
+// // }
 
 
 /* forms */
@@ -103,4 +103,185 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+
+
+// =======================================================================
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  letter-spacing : 0.2em;
+}
+.top {
+display: flex;
+}
+.header {
+left: 0;
+top: 0;
+width: 100%;
+height: 100px;
+background-color: black;
+box-shadow: 0 4px 12px rgba(0,0,0,.16);
+}
+.header_title{
+color: white;
+padding-top: 30px;
+padding-left: 40px;
+}
+
+.header_title:hover {
+  color: #fff;
+  text-decoration: none;
+}
+/*ハンバーガーメニュー欄*/
+.global-nav { 
+position: fixed;
+right: -320px; /* これで隠れる */
+top: 0;
+width: 300px; /* スマホに収まるくらい */
+height: 100vh;
+padding-top: 40px;
+background-color: white;
+transition: all .6s;
+z-index: 200;
+overflow-y: auto; /* メニューが多くなったらスクロールできるように */
+}
+.hamburger {
+position: absolute;
+right: 0;
+top: 0;
+width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
+height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
+cursor: pointer;
+z-index: 300;
+margin-top: 30px;
+margin-right: 60px;
+}
+.global-nav__list {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.global-nav__item {
+text-align: center;
+padding: 0 14px;
+}
+.global-nav__item a {
+display: block;
+padding: 8px 0;
+border-bottom: 1px solid #eee;
+text-decoration: none;
+color: #111;
+}
+.global-nav__item a:hover {
+background-color: #eee;
+}
+.hamburger__line {
+position: absolute;
+left: 11px;
+width: 18px;
+height: 1px;
+background-color: white;
+transition: all .6s;
+}
+.hamburger__line--1 {
+top: 14px;
+}
+.hamburger__line--2 {
+top: 20px;
+}
+.hamburger__line--3 {
+top: 26px;
+}
+.black-bg {
+position: fixed;
+left: 0;
+top: 0;
+width: 100vw;
+height: 100vh;
+z-index: 100;
+background-color: #000;
+opacity: 0;
+visibility: hidden;
+transition: all .6s;
+cursor: pointer;
+}
+/* 表示された時用のCSS */
+.nav-open .global-nav {
+right: 0;
+}
+.nav-open .black-bg {
+opacity: .8;
+visibility: visible;
+}
+.nav-open .hamburger__line--1 {
+top: 20px;
+}
+.nav-open .hamburger__line--2 {
+width: 0;
+left: 50%;
+}
+.nav-open .hamburger__line--3 {
+top: 20px;
+}
+/*　検索欄　*/
+.search_container{  
+box-sizing: border-box;
+position: relative;
+border: 1px solid #999;
+padding: 3px 10px;
+border-radius: 20px;
+height: 2.3em;
+width: 350px;
+overflow: hidden;
+background: white;
+margin: 0 auto;
+margin-top: 30px;
+margin-left: 300px;
+}
+.search_container input[type="search"]{
+border: none;
+height: 2.0em;
+}
+.search_container input[type="search"]:focus {
+outline: 0;
+}
+
+/*本文*/
+.container {
+margin-top: 20px;
+margin-left: 10px;
+width: 100%;
+height: 100%;
+min-height: 100vh;
+position: relative;/*←相対位置*/
+padding-bottom: 20px;
+box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+
+/*フッター*/  
+footer{
+width: 100%;
+height: 100px;
+background-color: black;
+color: white;
+text-align: center;
+margin-bottom: 0px;
+}
+ul.footer-menu li {
+display: inline;
+}
+ul li.footer-item a{
+color: white;
+text-decoration: none;
 }

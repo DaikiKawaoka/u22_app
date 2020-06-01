@@ -5,6 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+  <!--英語ページから日本語ページに（これでgoogle翻訳の翻訳しますかの確認が出なくなる）-->
+    <meta http-equiv="content-language" content="ja">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>

@@ -1,35 +1,37 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Portfolio", root_path, id: "logo" %>
-
+<%# <header class="navbar navbar-fixed-top navbar-inverse"> %>
+<header class="header">
+  <div class="top">
+    <h1> <%= link_to "ＴＩＴＬＥ", root_path, id: "logo", class:"header_title"%> </h1>
+      <!--検索欄-->
     <%= form_with(url: '/kensaku',method: :get,local: true) do |f| %>
       <%#= f.label :user_name ,"ユーザネーム"%>
-      <%= f.text_field :user_name, class: 'form-control kensaku_name',placeholder: "ユーザー検索"%>
+      <%= f.text_field :user_name, class: 'search_container',placeholder: "ユーザー検索",size: "40"%>
       <%#= f.submit '検索' , class: "btn btn-primary kensaku_btn"%>
     <%end%>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "ホーム", root_path %></li>
-        <li><%= link_to "ヘルプ", help_path %></li>
-        <% if logged_in? %>
-          <li><%= link_to "ユーザー", users_path %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              アカウント <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "プロフィール", current_user %></li>
-              <li><%= link_to "プロフィール編集", edit_user_path(current_user)  %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "ログアウト", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "ログイン", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
   </div>
+
+
+<!--ハンバーガーメニュー　内部-->
+  <nav class="global-nav">
+    <ul class="global-nav__list">
+      <li class="global-nav__item"><%= link_to "ホーム", root_path%></li>
+      <li class="global-nav__item"><%= link_to "ヘルプ", help_path%></li>
+      <% if logged_in? %>
+        <li class="global-nav__item"><%= link_to "ユーザー", users_path%></li>
+        <li class="global-nav__item"><%= link_to "プロフィール", current_user%></li>
+        <li class="global-nav__item"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
+        <li class="global-nav__item"><%= link_to "ログアウト", logout_path, method: :delete%></li>
+      <% else %>
+        <li class="global-nav__item"><%= link_to "ログイン", login_path%></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div class="hamburger" id="js-hamburger">
+    <span class="hamburger__line hamburger__line--1"></span>
+    <span class="hamburger__line hamburger__line--2"></span>
+    <span class="hamburger__line hamburger__line--3"></span>
+  </div>
+  <div class="black-bg" id="js-black-bg"></div>
+  <%= javascript_pack_tag 'header/script' %>
 </header>
