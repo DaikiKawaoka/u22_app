@@ -1,7 +1,28 @@
 <li id="micropost-<%= thing.id %>">
   <span class="user"><%= link_to thing.user.name, thing.user %></span>
   <span class="content"><%= thing.thing_name %></span>
-  <div>
 
-  </div>
 </li>
+<table border="1">
+<tr>
+  <th>
+    タイトル
+  </th>
+  <td>
+    <span class="content"><%= thing.thing_name %></span>
+  </td>
+</tr>
+
+<tr>
+  <th>
+    画像
+  </th>
+  <td>
+      <% if thing.thingImage.attached? %>
+        <%= image_tag thing.display_image if thing.thingImage.attached? %>
+      <% else%>
+        なし
+      <% end %>
+  </td>
+</tr>
+</table>

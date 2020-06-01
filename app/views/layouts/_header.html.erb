@@ -1,6 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "Portfolio", root_path, id: "logo" %>
+
+    <%= form_with(url: '/kensaku',method: :get,local: true) do |f| %>
+      <%#= f.label :user_name ,"ユーザネーム"%>
+      <%= f.text_field :user_name, class: 'form-control kensaku_name',placeholder: "ユーザー検索"%>
+      <%#= f.submit '検索' , class: "btn btn-primary kensaku_btn"%>
+    <%end%>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ホーム", root_path %></li>

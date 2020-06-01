@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+
+  #index,edit,updateの前にlogged_in_userを実行するよのコード
   before_action :logged_in_user, only: [:index,:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
 
-#test
+#testt
   def index
-    
+    @users = User.all
   end
 
   def show
@@ -38,6 +40,16 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'edit'
+    end
+  end
+
+  def kensaku
+    if(user=User.find_by(user_name: params[:user_name]))
+      flash[:success] = "検索成功"
+      redirect_to user
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:danger] = '検索失敗'
     end
   end
 

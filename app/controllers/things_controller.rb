@@ -20,6 +20,6 @@ class ThingsController < ApplicationController
     def thing_params_new
       params.require(:thing).permit(:thing_name, :thing_comment, :thing_frequency,
                                   :thing_assessment,:thing_type,:thing_shear,:thing_favorite,:thing_price,
-                                  :thing_number,:thing_purchase_place,:thing_maker)
+                                  :thing_number,:thing_purchase_place,:thing_maker,:thingImage)
     end
 end

@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.label :thing_image,"画像"%>
-    <%= f.file_field :thing_image%>
+    <%= f.file_field :thingImage%>
 
     <%= f.label :thing_name,"物品名" %>
     <%= f.text_field :thing_name %>
@@ -21,11 +21,13 @@
 
     <%= f.label :thing_shear,"共有する" %>
     <%= f.radio_button :thing_shear ,true%>
+
     <%= f.label :thing_shear,"共有しない" %>
     <%= f.radio_button :thing_shear ,false%>
 
     <%= f.label :thing_favorite,"お気に入り" %>
     <%= f.radio_button :thing_favorite ,true%>
+
     <%= f.label :thing_favorite,"お気に入りではない" %>
     <%= f.radio_button :thing_favorite ,false%>
 

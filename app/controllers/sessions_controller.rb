@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_back_or user
     else
       # エラーメッセージを作成する
-      flash.now[:danger] = 'ログイン失敗' # 本当は正しくない
+      flash.now[:danger] = 'ログイン失敗'
       render 'new'
     end
   end
