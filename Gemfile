@@ -18,8 +18,8 @@ gem 'jbuilder',                   '2.9.1'
 gem 'devise'
 gem 'omniauth-twitter'
 # Image Uploader
-gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
+# gem 'carrierwave'
+# gem 'rmagick', require: 'RMagick'
 gem 'bootsnap',                   '1.4.5', require: false
 
 group :development, :test do
@@ -49,3 +49,5 @@ group :production do
   gem 'pg',         '1.1.4'
   gem 'aws-sdk-s3', '1.46.0', require: false
 end
+
+gem 'tzinfo-data',platforms:[:mingw,:mswin,:x64_mingw,:jruby]
