@@ -1,39 +1,47 @@
 
 <h1>特定のユーザーを表示するページ</h1>
 
-<div class="col-md-8">
-    <% if @user.things.any? %>
-      <h3>Things (<%= @user.things.count %>)</h3>
-      <ol>
-        <%= render @things %>
-      </ol>
-      <%= will_paginate @things %>
-    <% end %>
-  </div>
+<div class="div-show">
+  <section class="stats">
+        <%= render 'shared/stats' %>
+  </section>
 
-<table border="1">
-  <tr>
-      <th>画像</th>
-      <td>
-        <% if @user.image.attached? %>
-          <%= image_tag @user.display_image if @user.image.attached? %>
-        <% end %>
-      </td>
-  </tr>
-  <tr>
-    <th>名前</th>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <th>ユーザーネーム</th>
-    <td><%= @user.user_name %></td>
-  </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td><%= @user.email %></td>
-  </tr>
-  <tr>
-    <th>自己紹介</th>
-    <td><%= @user.user_comment %></td>
-  </tr>
-</table>
+  <%= render 'follow_form' if logged_in? %>
+
+  <div class="col-md-8">
+      <% if @user.things.any? %>
+        <h3>Things (<%= @user.things.count %>)</h3>
+        <ol>
+          <%= render @things %>
+        </ol>
+        <%= will_paginate @things %>
+      <% end %>
+    </div>
+
+  <table border="1">
+    <tr>
+        <th>画像</th>
+        <td>
+          <% if @user.image.attached? %>
+            <%= image_tag @user.display_image if @user.image.attached? %>
+          <% end %>
+        </td>
+    </tr>
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>ユーザーネーム</th>
+      <td><%= @user.user_name %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <td><%= @user.user_comment %></td>
+    </tr>
+  </table>
+</div>

@@ -28,9 +28,17 @@ User.create!(name:  "daiki",
                password_confirmation: password)
 end
 
-# ユーザーの一部を対象にマイクロポストを生成する
+# ユーザーの一部を対象にthingを生成する
 users = User.find_by(email:"kawadaiki@icloud.com")
 thing_name = "机"
 50.times do
   users.things.create!(thing_name:thing_name)
 end
+
+# 以下のリレーションシップを作成する
+users = User.all
+user  = users.second
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

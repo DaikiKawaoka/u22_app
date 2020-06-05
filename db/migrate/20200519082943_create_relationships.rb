@@ -1,10 +1,13 @@
 class CreateRelationships < ActiveRecord::Migration[6.0]
   def change
     create_table :relationships do |t|
-      t.integer :user_id
-      t.integer :follow_id
+      t.integer :follower_id  #フォローされた人
+      t.integer :followed_id  #フォローした人
 
       t.timestamps
     end
+    add_index :relationships, :follower_id
+    add_index :relationships, :followed_id
+    add_index :relationships, [:follower_id, :followed_id], unique: true
   end
 end

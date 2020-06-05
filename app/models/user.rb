@@ -1,4 +1,28 @@
 class User < ApplicationRecord
+
+  has_many :active_relationships, class_name:  "Relationship",
+  foreign_key: "follower_id",
+  dependent:   :destroy #ユーザーを削除したら、ユーザーのリレーションシップも同時に削除される
+
+  #:throughオプションは「Userモデルに割り付けられた、RelationshipモデルからUserモデルをどう参照するかの関係性」をシンボルで記述
+  has_many :following, through: :active_relationships, source: :followed
+  # 以下のような操作を行えるようになる
+
+  # フォローしているユーザーの集合を調べる
+  # 関連付けを通して、フォローしている特定のユーザーを検索する
+  # 配列と同様にして、フォローしているユーザーを新規追加する
+  # 特定のユーザーをフォローから削除する
+
+
+  has_many :passive_relationships, class_name:  "Relationship",
+  foreign_key: "followed_id",
+  dependent:   :destroy#ユーザーを削除したら、ユーザーのリレーションシップも同時に削除される
+
+  has_many :followers, through: :passive_relationships, source: :follower
+
+
+
+
   has_many :things
   has_one_attached :image
 
@@ -62,4 +86,19 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+    # ユーザーをフォローする
+    def follow(other_user)
+      following << other_user
+    end
+
+    # ユーザーをフォロー解除する
+    def unfollow(other_user)
+      active_relationships.find_by(followed_id: other_user.id).destroy
+    end
+
+    # 現在のユーザーがフォローしてたらtrueを返す
+    def following?(other_user)
+      following.include?(other_user)
+    end
 end
