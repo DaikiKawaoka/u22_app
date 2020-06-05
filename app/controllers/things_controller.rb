@@ -6,7 +6,11 @@ class ThingsController < ApplicationController
     end
 
     def show
-      
+      @thing = Thing.find(params[:id])
+    end
+
+    def new
+      @thing = current_user.things.build if logged_in?
     end
 
     def create

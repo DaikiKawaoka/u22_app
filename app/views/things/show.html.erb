@@ -1,0 +1,108 @@
+<div class="thing-show-div">
+  <h1><%=@thing.thing_name%></h1>
+
+  <table border="1" class="thing-show-table">
+  <tr>
+    <th>
+      type
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_type %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      画像
+    </th>
+    <td>
+    <% if @thing.thingImage.attached? %>
+        <%= image_tag @thing.display_image if @thing.thingImage.attached? %>
+    <% else%>
+        なし
+    <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      コメント
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_comment %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      評価
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_assessment %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      価格
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_price %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      評価
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_assessment %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      共有
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_shear %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      お気に入り
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_favorite %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      個数
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_number %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      購入場所
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_purchase_place %></span>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      メーカー
+    </th>
+    <td>
+      <span class="content"><%= @thing.thing_maker %></span>
+    </td>
+  </tr>
+  </table>
+</div>

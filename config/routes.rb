@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'  #新しいセッションのページ (ログイン)
   post   '/login',   to: 'sessions#create'  #新しいセッションの作成 (ログイン)
   delete '/logout',  to: 'sessions#destroy'  #セッションの削除 (ログアウト)
-  resources :things,          only: [:create, :destroy]
+  resources :things
   get   '/kensaku', to:'users#kensaku'
+
 
 #/users/1/following的な
   resources :users do

@@ -15,9 +15,8 @@
   <nav class="global-nav">
     <ul class="global-nav__list">
       <li class="global-nav__item"><%= link_to "ホーム", root_path%></li>
-      <li class="global-nav__item"><%= link_to "ヘルプ", help_path%></li>
       <% if logged_in? %>
-        <li class="global-nav__item"><%= link_to "ユーザー", users_path%></li>
+        <li class="global-nav__item"><%= link_to "物登録", new_thing_path%></li>
         <li class="global-nav__item"><%= link_to "プロフィール", current_user%></li>
         <li class="global-nav__item"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
         <li class="global-nav__item"><%= link_to "ログアウト", logout_path, method: :delete%></li>
