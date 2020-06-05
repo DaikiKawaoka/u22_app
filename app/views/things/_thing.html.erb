@@ -1,14 +1,10 @@
-<li id="micropost-<%= thing.id %>">
-  <span class="user"><%= link_to thing.user.name, thing.user %></span>
-  <span class="content"><%= link_to thing.thing_name, thing_path(thing) %></span>
-</li>
 <table border="1">
 <tr>
   <th>
     タイトル
   </th>
   <td>
-    <span class="content"><%= thing.thing_name %></span>
+    <span class="content"><%= link_to thing.thing_name, thing_path(thing) %></span>
   </td>
 </tr>
 
@@ -25,3 +21,4 @@
   </td>
 </tr>
 </table>
+<br>

@@ -3,7 +3,6 @@ class Thing < ApplicationRecord
   validates :user_id, presence: true
   default_scope -> { order(created_at: :desc) }
   has_one_attached :thingImage
-
   validates :thingImage,   content_type: { in: %w[image/jpeg image/gif image/png image/jpg],
   message: "その画像は使用できません。" },
   size:         { less_than: 5.megabytes,

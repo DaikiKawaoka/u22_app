@@ -68,121 +68,147 @@ usersall = User.all
 
 # ユーザーの一部を対象にthingを生成する
 users = User.find_by(email:"kawadaiki@icloud.com")
-following = usersall[2..50]
-followers = usersall[3..40]
+following = usersall[0..50]
 following.each { |followed| users.follow(followed) }
-followers.each { |follower| follower.follow(users) }
 users.things.create!(
   thing_name:"java2の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5621.jpg")
-  )
+)
+thing = Thing.find_by(thing_name:"java2の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5621.jpg"), filename: 'IMG_5621.jpg')
+
 users.things.create!(
   thing_name:"SQLの本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5622.jpg")
   )
+thing = Thing.find_by(thing_name:"SQLの本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5622.jpg"), filename: 'IMG_5622.jpg')
+
 users.things.create!(
   thing_name:"応用情報対策の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5623.jpg")
   )
+thing = Thing.find_by(thing_name:"応用情報対策の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5623.jpg"), filename: 'IMG_5623.jpg')
 
 users = User.find_by(email:"keita@icloud.com")
 following.each { |followed| users.follow(followed) }
-followers.each { |follower| follower.follow(users) }
 users.things.create!(
   thing_name:"基本情報の本『kitamisiki』",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5624.jpg")
   )
+thing = Thing.find_by(thing_name:"基本情報の本『kitamisiki』")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5624.jpg"), filename: 'IMG_5624.jpg')
+
 users.things.create!(
   thing_name:"応用情報の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5625.jpg")
   )
+thing = Thing.find_by(thing_name:"応用情報の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5625.jpg"), filename: 'IMG_5625.jpg')
+
 users.things.create!(
   thing_name:"応用情報午後の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5626.jpg")
   )
+thing = Thing.find_by(thing_name:"応用情報午後の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5626.jpg"), filename: 'IMG_5626.jpg')
 
 
 users = User.find_by(email:"zyunia@icloud.com")
 following.each { |followed| users.follow(followed) }
-followers.each { |follower| follower.follow(users) }
 users.things.create!(
   thing_name:"Java1の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5627.jpg")
   )
+thing = Thing.find_by(thing_name:"Java1の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5627.jpg"), filename: 'IMG_5627.jpg')
+
 users.things.create!(
   thing_name:"応用情報テキスト",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5628.jpg")
   )
+thing = Thing.find_by(thing_name:"応用情報テキスト")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5628.jpg"), filename: 'IMG_5628.jpg')
+
 users.things.create!(
   thing_name:"HTML,CSSの本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5629.jpg")
   )
+thing = Thing.find_by(thing_name:"HTML,CSSの本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5629.jpg"), filename: 'IMG_5629.jpg')
 
 
 users = User.find_by(email:"okityan@icloud.com")
 following.each { |followed| users.follow(followed) }
-followers.each { |follower| follower.follow(users) }
 users.things.create!(
-  thing_name:"Rubyの本",
+  thing_name:"Ruby on Rails の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5630.jpg")
   )
+thing = Thing.find_by(thing_name:"Ruby on Rails の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5630.jpg"), filename: 'IMG_5630.jpg')
+
 users.things.create!(
   thing_name:"Androidアプリ開発",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5631.jpg")
   )
+thing = Thing.find_by(thing_name:"Androidアプリ開発")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5631.jpg"), filename: 'IMG_5631.jpg')
+
 users.things.create!(
   thing_name:"面接、ビジネスマナーの本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5632.jpg")
   )
+thing = Thing.find_by(thing_name:"面接、ビジネスマナーの本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5632.jpg"), filename: 'IMG_5632.jpg')
 
 
 users = User.find_by(email:"seiitirou@icloud.com")
 following.each { |followed| users.follow(followed) }
-followers.each { |follower| follower.follow(users) }
 users.things.create!(
   thing_name:"Linuxの本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5633.jpg")
   )
+thing = Thing.find_by(thing_name:"Linuxの本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5633.jpg"), filename: 'IMG_5633.jpg')
+
 users.things.create!(
-  thing_name:"JavaScript",
+  thing_name:"JavaScript の本",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5634.jpg")
   )
+thing = Thing.find_by(thing_name:"JavaScript の本")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5634.jpg"), filename: 'IMG_5634.jpg')
+
 users.things.create!(
   thing_name:"Linuxのコマンド ",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5636.jpg")
   )
+thing = Thing.find_by(thing_name:"Linuxのコマンド ")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5636.jpg"), filename: 'IMG_5636.jpg')
 
 
 users = User.find_by(email:"bezi-ta@icloud.com")
 following.each { |followed| users.follow(followed) }
-followers.each { |follower| follower.follow(users) }
 users.things.create!(
   thing_name:"アルゴリズムのテキスト",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5637.jpg")
   )
+
+thing = Thing.find_by(thing_name:"アルゴリズムのテキスト")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5637.jpg"), filename: 'IMG_5637.jpg')
+
 users.things.create!(
   thing_name:"文章力のテキスト",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5638.jpg")
   )
+
+thing = Thing.find_by(thing_name:"文章力のテキスト")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5638.jpg"), filename: 'IMG_5638.jpg')
+
 users.things.create!(
   thing_name:"ネットワークの本 ",
   thing_comment:"とてもいい",
-  thingImage: open("./db/fixtures/IMG_5640.jpg")
   )
+
+thing = Thing.find_by(thing_name:"ネットワークの本 ")
+thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5640.jpg"), filename: 'IMG_5640.jpg')
