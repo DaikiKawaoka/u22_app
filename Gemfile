@@ -47,7 +47,7 @@ end
 
 group :production do
   gem 'pg',         '1.1.4'
-  gem 'aws-sdk-s3', '1.46.0', require: false
+  gem 'aws-sdk-s3', require: false
 end
 
 gem 'tzinfo-data',platforms:[:mingw,:mswin,:x64_mingw,:jruby]

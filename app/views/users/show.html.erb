@@ -11,9 +11,9 @@
   <div class="col-md-8">
       <% if @user.things.any? %>
         <h3>Things (<%= @user.things.count %>)</h3>
-        <ol>
+        <div class="home-things-div">
           <%= render @things %>
-        </ol>
+        </div>
         <%= will_paginate @things %>
       <% end %>
     </div>
