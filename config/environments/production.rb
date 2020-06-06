@@ -37,8 +37,15 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
 
+
+
+
     # herokuでactive_storageを使う設定
-  config.active_storage.service = :amazon
+  # config.active_storage.service = :amazon
+
+
+
+  
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
