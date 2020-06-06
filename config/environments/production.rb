@@ -41,11 +41,11 @@ Rails.application.configure do
 
 
     # herokuでactive_storageを使う設定
-  # config.active_storage.service = :amazon
+    # config.active_storage.service = :amazon
+    
+   config.active_storage.service = :local
 
 
-
-  
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
