@@ -6,10 +6,9 @@ class SessionsController < ApplicationController
   def create
     user = login_text_check(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      # ユーザーログイン後にユーザー情報のページにリダイレクトする
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
+      redirect_back_or root_url
     else
       # エラーメッセージを作成する
       flash.now[:danger] = 'ログイン失敗'

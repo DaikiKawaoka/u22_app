@@ -7,13 +7,4 @@ class StaticPagesController < ApplicationController
                      OR user_id = :user_id", user_id: current_user.id)
     end
   end
-
-  def help
-    
-  end
-
-  def about
-    
-  end
-
 end
