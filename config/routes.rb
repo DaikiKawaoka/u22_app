@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'  #セッションの削除 (ログアウト)
   resources :things
   get   '/kensaku', to:'users#kensaku'
-
+  post '/likes/:thing_id/create', to:'likes#create'#いいね
+  delete '/likes/:thing_id/destroy', to:'likes#destroy' #いいねを外す
 
 #/users/1/following的な
   resources :users do

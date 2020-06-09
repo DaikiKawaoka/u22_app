@@ -104,5 +104,23 @@
       <span class="content"><%= @thing.thing_maker %></span>
     </td>
   </tr>
+  <tr>
+    <td colspan="2">
+      <% if @current_user.id != @thing.user.id %>
+        <% if Like.find_by(user_id: @current_user.id,thing_id: @thing.id) %>
+          <%= link_to("/likes/#{@thing.id}/destroy",method: :delete,remote: true) do %>
+           <span class="fa fa-heart like-btn-unlike"></span>
+          <% end %>
+        <% else %>
+          <%= link_to("/likes/#{@thing.id}/create",method: :post,remote: true) do %>
+            <span class="fa fa-heart like-btn"></span>
+          <% end %>
+        <% end %>
+      <% else %>
+        <span class="fa fa-heart like-btn-unlike"></span>
+      <% end %>
+      <%= Like.where(thing_id: @thing.id).count %>
+    </td>
+  </tr>
   </table>
 </div>
