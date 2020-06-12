@@ -21,7 +21,7 @@
         <li class="global-nav__item"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
         <li class="global-nav__item"><%= link_to "ログアウト", logout_path, method: :delete%></li>
       <% else %>
-        <li class="global-nav__item"><%= link_to "ログイン", login_path%></li>
+        <li class="global-nav__item" id="login-show">ログイン</li>
       <% end %>
     </ul>
   </nav>
@@ -32,5 +32,4 @@
     <span class="hamburger__line hamburger__line--3"></span>
   </div>
   <div class="black-bg" id="js-black-bg"></div>
-  <%= javascript_pack_tag 'header/script' %>
 </header>

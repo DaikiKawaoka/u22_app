@@ -19,7 +19,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 # Image Uploader
 # gem 'carrierwave'
-# gem 'rmagick', require: 'RMagick'
+gem 'rmagick', require: 'RMagick'
 gem 'bootsnap',                   '1.4.5', require: false
 
 group :development, :test do

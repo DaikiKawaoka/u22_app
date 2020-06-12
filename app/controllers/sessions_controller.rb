@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       redirect_back_or root_url
     else
       # エラーメッセージを作成する
-      flash.now[:danger] = 'ログイン失敗'
-      render 'new'
+      flash[:danger] = 'ログイン失敗'
+      redirect_to root_url
     end
   end
 
