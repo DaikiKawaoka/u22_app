@@ -13,26 +13,15 @@
     <%= f.label :thing_assessment,"評価" %>
     <%= f.number_field :thing_assessment %>
 
-    <%= f.label :thing_type,"タイプ" %>
-    <%= f.text_field :thing_type %>
+    <%= f.label :thing_type ,"タイプ"%>
+    <%= f.select :thing_type,[['ファッション', 1], ['書籍', 2],['ゲーム',3], ['コスメ', 4],['家電',5], ['食料品', 6],['音楽',7],
+     ['日用品', 8],['薬',9], ['文房具', 10],['スポーツ＆アウトドア',11], ['車、バイク', 12],['ベビー、おもちゃ',13], ['家具', 14],['パソコン、オフィス用品',15],['その他',16]], { id: "user_id", class: "user_class" 'form-control'}%>
 
-    <%= f.label :thing_shear,"共有する" %>
+    <%= f.label :thing_shear,"友達に共有する" %>
     <%= f.radio_button :thing_shear ,true%>
-
-    <%= f.label :thing_shear,"共有しない" %>
-    <%= f.radio_button :thing_shear ,false%>
 
     <%= f.label :thing_favorite,"お気に入り" %>
     <%= f.radio_button :thing_favorite ,true%>
-
-    <%= f.label :thing_favorite,"お気に入りではない" %>
-    <%= f.radio_button :thing_favorite ,false%>
-
-    <%= f.label :thing_price,"価格" %>
-    <%= f.number_field :thing_price %>
-
-    <%= f.label :thing_maker,"メーカー" %>
-    <%= f.text_field :thing_maker %>
 
   <%= f.submit "登録", class: "btn btn-primary" %>
 <% end %>

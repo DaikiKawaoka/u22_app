@@ -8,6 +8,11 @@ class Thing < ApplicationRecord
   size:         { less_than: 5.megabytes,
   message: "サイズが大きすぎます。" }
 
+  validates :thing_name, presence: true,length: { maximum: 50 }
+  validates :thing_comment,length: { maximum: 255 }
+  validates :thing_type, presence: true
+  validates :thing_assessment, presence: true
+
   # 表示用のりサイズ済み画像を返す
   def display_image
     thingImage.variant(resize_to_limit: [240, 240])

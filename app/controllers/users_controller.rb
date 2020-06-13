@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params_new)
     if @user.save
+      #　性別ごとに画像挿入
+      @user.icon_image
       log_in @user
       flash[:success] = "ユーザ作成成功！"
       redirect_to root_path
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
 
     def user_params_new
       params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation,:sex,:user_name)
+                                  :password_confirmation,:sex,:user_name,:image)
     end
 
     def user_params_update

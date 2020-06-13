@@ -44,15 +44,6 @@
 
   <tr>
     <th>
-      価格
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_price %></span>
-    </td>
-  </tr>
-
-  <tr>
-    <th>
       共有
     </th>
     <td>
@@ -69,33 +60,6 @@
     </td>
   </tr>
 
-  <tr>
-    <th>
-      個数
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_number %></span>
-    </td>
-  </tr>
-
-  <tr>
-    <th>
-      購入場所
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_purchase_place %></span>
-    </td>
-  </tr>
-
-  <tr>
-    <th>
-      メーカー
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_maker %></span>
-    </td>
-  </tr>
-  <tr>
     <td colspan="2">
       <% if @current_user.id != @thing.user.id %>
         <% if Like.find_by(user_id: @current_user.id,thing_id: @thing.id) %>

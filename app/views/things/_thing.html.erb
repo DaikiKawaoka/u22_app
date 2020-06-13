@@ -1,5 +1,14 @@
 <table border="1">
-<caption><%= link_to thing.user.name, user_path(thing.user) %></caption>
+<caption class="icon-image-user-name">
+<%= link_to user_path(thing.user) do %>
+  <span class="mini-icon-image">
+    <% if thing.user.image.attached? %>
+      <%= image_tag thing.user.display_image2 if thing.user.image.attached? %>
+    <% end %>
+  </span>
+  <span><%= thing.user.name %></span>
+  <% end %>
+</caption>
 <tr>
   <th>
     タイトル

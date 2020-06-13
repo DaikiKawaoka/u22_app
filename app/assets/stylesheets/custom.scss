@@ -212,6 +212,13 @@ input {
   margin-left: 0;
 }
 
+// アイコン画像css
+.mini-icon-image img{
+  border-radius: 20px;
+}
+.icon-image-user-name a{
+  text-decoration: none;
+}
 
 
 // staticコントローラーのcss

@@ -20,7 +20,7 @@ class ThingsController < ApplicationController
         flash[:success] = "物登録完了しました"
         redirect_to root_url
       else
-        render 'static_pages/home'
+        render 'new'
       end
     end
 
@@ -41,7 +41,7 @@ class ThingsController < ApplicationController
     def destroy
       Thing.find(params[:id]).destroy
       flash[:success] = "削除しました。"
-      redirect_to root_url
+      redirect_to user_path(current_user)
     end
 
 

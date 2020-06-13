@@ -36,6 +36,16 @@ class User < ApplicationRecord
     image.variant(resize_to_limit: [240, 240])
   end
 
+  def icon_image
+    if self.sex == 1
+      self.image.attach(io: File.open("#{Rails.root}/db/fixtures/icon_man.jpg"), filename: 'icon_man.jpg')
+    elsif self.sex == 2
+      self.image.attach(io: File.open("#{Rails.root}/db/fixtures/icon_woman.jpg"), filename: 'icon_woman.jpg')
+    else
+      self.image.attach(io: File.open("#{Rails.root}/db/fixtures/icon_other.jpg"), filename: 'icon_other.jpg')
+    end
+  end
+
   attr_accessor :remember_token
 
   before_save { self.email = email.downcase }
