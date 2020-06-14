@@ -11,153 +11,235 @@
   box-sizing:         border-box;
 }
 
-// header_css
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+
+/* pc全画面 */
+@media screen and (min-width:1279px) {
+  .title {
+    padding-left: 50px;
+  }
+  .search_container {
+    width: 350px;
+    height: 30px;
+    padding: 3px 15px;
+  }
+  .login {
+    width: 100px;
+  }
+  .fa-home {
+    width: 50px;
+  }
+  .fa-heart {
+    width: 50px;
+  }
+  .fa-comment {
+    width: 50px;
+  }
+  .header-menu ul li { 
+    margin: 20px;
+  }
+}
+
+/* pc3/4画面 */
+@media screen and (min-width:960px) and (max-width:1279px) {
+  .title {
+    padding-left: 40px;
+  }
+  .search_container {
+    width: 350px;
+    height: 30px;
+    padding: 3px 15px;
+  }
+  .login {
+    width: 100px;
+  }
+  .fa-home {
+    width: 50px;
+  }
+  .fa-heart {
+    width: 50px;
+  }
+  .fa-comment {
+    width: 50px;
+  }
+  .header-menu ul li { 
+    margin: 10px;
+  }
+}
+
+/*タブレット pc半画面*/
+@media screen and (min-width:600px) and (max-width:959px) {
+  .title {
+    padding-left: 30px;
+  }
+  .search_container {
+    height: 30px;
+    width: 240px;
+    padding: 2px 5px;
+  }
+  .login {
+    width: 100px;
+  }
+  .fa-home {
+    width: 50px;
+  }
+  .fa-heart {
+    width: 50px;
+  }
+  .fa-comment {
+    width: 50px;
+  }
+  .header-menu ul li { 
+    margin: 10px;
+  }
+}
+
+
+/*480px〜599px　pc1/3画面*/
+@media screen and (min-width:480px) and (max-width:599px) { 
+  .title {
+    padding-left: 20px;
+  }
+  .search_container {
+    height: 30px;
+    width: 130px;
+    padding: 2px 5px;
+  }
+  .login {
+    width: 80px;
+  }
+  .fa-home {
+    width: 35px;
+  }
+  .fa-heart {
+    width: 35px;
+  }
+  .fa-comment {
+    width: 35px;
+  }
+  .header-menu ul li { 
+    font-size: 5px;
+    margin: 1px;
+  }
+}
+
+/*スマートフォン*/
+@media screen and (max-width:479px) { 
+  .title {
+    padding-left: 20px;
+  }
+  .search_container {
+    height: 30px;
+    width: 130px;
+    padding: 2px 5px;
+  }
+  .login {
+    width: 80px;
+  }
+  .fa-home {
+    width: 35px;
+  }
+  .fa-heart {
+    width: 35px;
+  }
+  .fa-comment {
+    width: 35px;
+    margin-right: 10px;
+  }
+  .header-menu ul li { 
+    font-size: 5px;
+    margin: 1px;
+  }
+}
+
+// header_css
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
   letter-spacing : 0.2em;
 }
-.top {
-display: flex;
-}
 .header {
-left: 0;
-top: 0;
-width: 100%;
-height: 100px;
-background-color: black;
-box-shadow: 0 4px 12px rgba(0,0,0,.16);
+  display: flex;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: white;
+  border-bottom: 1px solid rgb(202, 202, 200);
 }
-.header_title{
-color: white;
-padding-top: 30px;
-padding-left: 40px;
+.header span img{
+  margin-right: 20px;
+  margin-top: 15px;
 }
 
-.header_title:hover {
-  color: #fff;
-  text-decoration: none;
+/* タイトル */
+.title {
+  padding-top: 5px;
+  color: rgb(245, 243, 108);
 }
-/*ハンバーガーメニュー欄*/
-.global-nav { 
-position: fixed;
-right: -320px; /* これで隠れる */
-top: 0;
-width: 300px; /* スマホに収まるくらい */
-height: 100vh;
-padding-top: 40px;
-background-color: white;
-transition: all .6s;
-z-index: 200;
-overflow-y: auto; /* メニューが多くなったらスクロールできるように */
-}
-.hamburger {
-position: absolute;
-right: 0;
-top: 0;
-width: 40px; /* クリックしやすいようにちゃんと幅を指定する */
-height: 40px; /* クリックしやすいようにちゃんと高さを指定する */
-cursor: pointer;
-z-index: 300;
-margin-top: 30px;
-margin-right: 60px;
-}
-.global-nav__list {
-margin: 0;
-padding: 0;
-list-style: none;
-}
-.global-nav__item{
-text-align: center;
-padding: 0 14px;
-display: block;
-padding: 8px 0;
-border-bottom: 1px solid #eee;
-color: #111;
-cursor: pointer;
-}
-.global-nav__item a{
-  color: #111;
-  text-decoration: none;
-}
-.global-nav__item:hover {
-background-color: #eee;
-}
-.hamburger__line {
-position: absolute;
-left: 11px;
-width: 18px;
-height: 1px;
-background-color: white;
-transition: all .6s;
-}
-.hamburger__line--1 {
-top: 14px;
-}
-.hamburger__line--2 {
-top: 20px;
-}
-.hamburger__line--3 {
-top: 26px;
-}
-.black-bg {
-position: fixed;
-left: 0;
-top: 0;
-width: 100vw;
-height: 100vh;
-z-index: 100;
-background-color: #000;
-opacity: 0;
-visibility: hidden;
-transition: all .6s;
-cursor: pointer;
-}
-/* 表示された時用のCSS */
-.nav-open .global-nav {
-right: 0;
-}
-.nav-open .black-bg {
-opacity: .8;
-visibility: visible;
-}
-.nav-open .hamburger__line--1 {
-top: 20px;
-}
-.nav-open .hamburger__line--2 {
-width: 0;
-left: 50%;
-}
-.nav-open .hamburger__line--3 {
-top: 20px;
-}
+
 /*　検索欄　*/
-.search_container{
-// text-align: center;
-box-sizing: border-box;
-position: relative;
-border: 1px solid #999;
-padding: 3px 10px;
-border-radius: 20px;
-height: 2.3em;
-width: 350px;
-overflow: hidden;
-background: white;
-margin: 0 auto;
-margin-top: 30px;
-margin-left: 300px;
+.search_container{  
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  overflow: hidden;
+  background: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 20px;
 }
 .search_container input[type="search"]{
-border: none;
-height: 2.0em;
+  border: none;
 }
 .search_container input[type="search"]:focus {
-outline: 0;
+  outline: 0;
+}
+
+/* ログイン */
+.login {
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  padding-top: 22px;
+}
+.login:hover {
+  background: rgb(202, 202, 200);
+}
+/* ホーム */
+.fa-home {
+  text-align: center;
+  color: black;
+  padding-top: 25px;
+}
+.home-link:hover {
+  background:rgb(202, 202, 200);
+}
+/* ハート */
+.fa-heart {
+  text-align: center;
+  height: 100%;
+  color: black;
+  padding-top: 25px;
+}
+.fa-heart:hover {
+  background: rgb(202, 202, 200);
+}
+/* コメント */
+.fa-comment {
+  text-align: center;
+  height: 100%;
+  color: black;
+  padding-top: 25px;
+}
+.fa-comment:hover {
+  background: rgb(202, 202, 200);
 }
 
 // table_css

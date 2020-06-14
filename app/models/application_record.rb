@@ -3,6 +3,6 @@ class ApplicationRecord < ActiveRecord::Base
 
   # 表示用のりサイズ済み画像を返す
   def display_image2
-    image.variant(resize_to_limit: [40, 40])
+    image.variant(resize_to_limit: [27, 27])
   end
 end

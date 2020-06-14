@@ -1,35 +1,27 @@
-<%# <header class="navbar navbar-fixed-top navbar-inverse"> %>
-<header class="header">
-  <div class="top">
-    <h1> <%= link_to "ＴＩＴＬＥ", root_path, id: "logo", class:"header_title"%> </h1>
+  <header class="header">
+    <i class="fab fa-cuttlefish fa-3x title"></i>
+
       <!--検索欄-->
-    <%= form_with(url: '/kensaku',method: :get,local: true) do |f| %>
-      <%#= f.label :user_name ,"ユーザネーム"%>
-      <%= f.text_field :user_name, class: 'search_container',placeholder: "ユーザー検索",size: "40"%>
-      <%#= f.submit '検索' , class: "btn btn-primary kensaku_btn"%>
-    <%end%>
-  </div>
+      <form method="get" action="/kensaku" class="search_container">
+        <input type="search" size="40" placeholder="ユーザー検索" name=<%=:user_name %>>
+      </form>
 
-
-<!--ハンバーガーメニュー　内部-->
-  <nav class="global-nav">
-    <ul class="global-nav__list">
-      <li class="global-nav__item"><%= link_to "ホーム", root_path%></li>
-      <% if logged_in? %>
-        <li class="global-nav__item"><%= link_to "物登録", new_thing_path%></li>
-        <li class="global-nav__item"><%= link_to "プロフィール", current_user%></li>
-        <li class="global-nav__item"><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
-        <li class="global-nav__item"><%= link_to "ログアウト", logout_path, method: :delete%></li>
-      <% else %>
-        <li class="global-nav__item" id="login-show">ログイン</li>
+      <%= link_to root_path,{class: "home-link"} do %>
+        <i class="fas fa-home fa-lg fa-home"title="ホーム"></i>
       <% end %>
-    </ul>
-  </nav>
 
-  <div class="hamburger" id="js-hamburger">
-    <span class="hamburger__line hamburger__line--1"></span>
-    <span class="hamburger__line hamburger__line--2"></span>
-    <span class="hamburger__line hamburger__line--3"></span>
-  </div>
-  <div class="black-bg" id="js-black-bg"></div>
-</header>
+      <% if logged_in? %>
+        <i class="fas fa-heart fa-lg fa-heart"title="いいね"></i>
+        <i class="fas fa-comment-dots fa-lg fa-comment"title="メッセージ"></i>
+        <%= link_to current_user do%>
+          <span class="mini-icon-image">
+            <% if @current_user.image.attached? %>
+              <%= image_tag @current_user.display_image2 if @current_user.image.attached? %>
+            <% end %>
+          </span>
+        <%end%>
+      <% else %>
+        <i class="login" id="login-show">ログイン</i>
+      <% end %>
+
+  </header>

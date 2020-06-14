@@ -44,4 +44,7 @@
       <td><%= @user.user_comment %></td>
     </tr>
   </table>
+  <% if current_user.id == @user.id%>
+  <li><%= link_to "ログアウト", logout_path, method: :delete%></li>
+  <% end %>
 </div>
