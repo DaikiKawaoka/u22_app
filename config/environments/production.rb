@@ -47,7 +47,8 @@ Rails.application.configure do
   # }
 
 
-  #本番環境のメール設定
+ #本番環境のメール設定
+  config.action_mailer.default_url_options = { host: 'u22-app-mail-server.conoha.io' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'u22-app-mail-server.conoha.io'
@@ -55,12 +56,16 @@ Rails.application.configure do
     :address        => 'smtp.u22-app-mail-server.conoha.io',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :user_name      => ENV['MAIL_SERVER_NAME'],
+    :password       => ENV['MAIL_SERVER_KEY'],
     :domain         => 'u22-app-mail-server.conoha.io',
-    :enable_starttls_auto => true
-  }
+    :enable_starttls_auto => false
+  } 
 
+
+ 
+  config.hosts << "ozoz.wjg.jp"
+  
 
     # herokuでactive_storageを使う設定
     # config.active_storage.service = :amazon

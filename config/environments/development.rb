@@ -39,6 +39,32 @@ Rails.application.configure do
   host = 'localhost:3000'                     # ローカル環境
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
+
+
+
+
+
+ #本番環境のメール設定
+  config.action_mailer.default_url_options = { host: 'u22-app-mail-server.conoha.io' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'u22-app-mail-server.conoha.io'
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.u22-app-mail-server.conoha.io',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['MAIL_SERVER_NAME'],
+    :password       => ENV['MAIL_SERVER_KEY'],
+    :domain         => 'u22-app-mail-server.conoha.io',
+    :enable_starttls_auto => false
+  }
+
+
+
+
+
+
+
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
@@ -64,4 +90,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+
+ config.hosts << "ozoz.wjg.jp"
+
 end
