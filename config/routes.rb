@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'static_pages#home'
   get  '/signup',  to: 'users#new'
   resources :users
@@ -16,8 +18,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-
-  resources :relationships,       only: [:create, :destroy]
+#パスワードをリセットするパス
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   # GET	/users	index	users_path すべてのユーザーを一覧するページ
   # GET	/users/1	show	user_path(user) 特定のユーザーを表示するページ

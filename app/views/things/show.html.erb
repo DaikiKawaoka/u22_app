@@ -77,5 +77,20 @@
       <%= Like.where(thing_id: @thing.id).count %>
     </td>
   </tr>
+  <tr>
+  <td colspan="2">
+    <% if @thing.user_id == @current_user.id %>
+  <% if Like.find_by(thing_id: @thing.id,user_id: @thing.user_id) %>
+    <%= link_to("/likes/#{@thing.id}/destroy_favorite",method: :delete) do %>
+      <span class="far fa-star favorite"></span>
+    <% end %>
+  <% else %>
+    <%= link_to("/likes/#{@thing.id}/create_favorite",method: :post) do %>
+      <span class="far fa-star not_favorite"></span>
+    <% end %>
+  <% end %>
+<% end %>
+</td>
+ </tr>
   </table>
 </div>

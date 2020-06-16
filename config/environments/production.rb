@@ -37,7 +37,29 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
 
+  # config.action_mailer.smtp_settings = {
+  #   :address => <smtp.u22-app-mail-server.conoha.io>,
+  #   :port => 587,
+  #   :user_name => Rails.application.credentials.mail[:address],
+  #   :password => Rails.application.credentials.mail[:password],
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => false
+  # }
 
+
+  #本番環境のメール設定
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'u22-app-mail-server.conoha.io'
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.u22-app-mail-server.conoha.io',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'u22-app-mail-server.conoha.io',
+    :enable_starttls_auto => true
+  }
 
 
     # herokuでactive_storageを使う設定
