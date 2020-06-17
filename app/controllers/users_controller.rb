@@ -20,9 +20,12 @@ class UsersController < ApplicationController
     if @user.save
       #　性別ごとに画像挿入
       @user.icon_image
-      log_in @user
-      flash[:success] = "ユーザ作成成功！"
-      redirect_to root_path
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "メールを確認して、アカウントを有効にしてください"
+      redirect_to root_url
+      # log_in @user
+      # flash[:success] = "ユーザ作成成功！"
+      # redirect_to root_path
     else
       render 'new'
     end

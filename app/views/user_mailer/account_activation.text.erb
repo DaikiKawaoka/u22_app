@@ -1,3 +1,5 @@
-User#account_activation
+<%= @user.name %>様,
 
-<%= @greeting %>, find me in app/views/user_mailer/account_activation.text.erb
+下記のリンクを押してください。
+
+<%= link_to "Activate", "http://ozoz.wjg.jp/password_resets/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>

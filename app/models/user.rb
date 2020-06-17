@@ -3,6 +3,7 @@ class User < ApplicationRecord
   before_save   :downcase_email
   before_create :create_activation_digest
 
+
   has_many :active_relationships, class_name:  "Relationship",
   foreign_key: "follower_id",
   dependent:   :destroy #ユーザーを削除したら、ユーザーのリレーションシップも同時に削除される
@@ -15,7 +16,6 @@ class User < ApplicationRecord
   # 関連付けを通して、フォローしている特定のユーザーを検索する
   # 配列と同様にして、フォローしているユーザーを新規追加する
   # 特定のユーザーをフォローから削除する
-
 
   has_many :passive_relationships, class_name:  "Relationship",
   foreign_key: "followed_id",
@@ -51,9 +51,9 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase }
 
-  validates :name, presence: true,length: { minimum: 4, maximum: 20 }
+  validates :name, presence: true,length: { minimum: 5, maximum: 30 }
 
-  validates :user_name, presence: true,length: { minimum: 4, maximum: 20 },uniqueness: true
+  validates :user_name, presence: true,length: { minimum: 5, maximum: 30 },uniqueness: true
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
