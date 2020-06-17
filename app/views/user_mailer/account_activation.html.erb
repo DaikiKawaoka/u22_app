@@ -6,4 +6,4 @@
 下記のリンクをクリックしてください
 </p>
 
-<%= link_to "Activate", "http://ozoz.wjg.jp/password_resets/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>
+<%= link_to "Activate", "http://ozoz.wjg.jp/account_activation/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>
