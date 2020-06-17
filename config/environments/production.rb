@@ -60,16 +60,16 @@ Rails.application.configure do
     :password       => ENV['MAIL_SERVER_KEY'],
     :domain         => 'u22-app-mail-server.conoha.io',
     :enable_starttls_auto => false
-  } 
+  }
 
 
- 
+
   config.hosts << "ozoz.wjg.jp"
-  
+
 
     # herokuでactive_storageを使う設定
     # config.active_storage.service = :amazon
-    
+
    config.active_storage.service = :local
 
 
