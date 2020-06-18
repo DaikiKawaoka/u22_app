@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
     @things = @user.things.paginate(page: params[:page])
   end
 
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       #　性別ごとに画像挿入
       @user.icon_image
-      UserMailer.account_activation(@user).deliver_now
+      @user.send_activation_email
       flash[:info] = "メールを確認して、アカウントを有効にしてください"
       redirect_to root_url
       # log_in @user

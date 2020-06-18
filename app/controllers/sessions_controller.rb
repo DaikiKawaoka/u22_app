@@ -6,20 +6,25 @@ class SessionsController < ApplicationController
   def create
     user = login_text_check(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or root_url
+      if user.activated?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_back_or user
+      else
+        message  = "アカウントがまだアクティブ化されていません。 "
+        message += "先ほど送られたメールを確認してください。"
+        flash[:warning] = message
+        redirect_to root_url
+      end
     else
       # エラーメッセージを作成する
       flash[:danger] = 'ログイン失敗'
       redirect_to root_url
     end
-  end
-
-  def destroy
-    log_out if logged_in?
-    redirect_to root_url
-  end
+    def destroy
+      log_out if logged_in?
+      redirect_to root_url
+    end
 
 
   private

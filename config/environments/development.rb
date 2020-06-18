@@ -35,9 +35,9 @@ Rails.application.configure do
 
 
   #ローカルのメール設定
-  config.action_mailer.raise_delivery_errors = false
-  host = 'localhost:3000'                     # ローカル環境
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  #config.action_mailer.raise_delivery_errors = false
+  #host = 'localhost:3000'                     # ローカル環境
+  #config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
 
 
@@ -45,19 +45,20 @@ Rails.application.configure do
 
 
  #本番環境のメール設定
-  # config.action_mailer.default_url_options = { host: 'u22-app-mail-server.conoha.io' }
-  # config.action_mailer.raise_delivery_errors = true
-  # config.action_mailer.delivery_method = :smtp
-  # host = 'u22-app-mail-server.conoha.io'
-  # ActionMailer::Base.smtp_settings = {
-  #   :address        => 'smtp.u22-app-mail-server.conoha.io',
-  #   :port           => '587',
-  #   :authentication => :plain,
-  #   :user_name      => ENV['MAIL_SERVER_NAME'],
-  #   :password       => ENV['MAIL_SERVER_KEY'],
-  #   :domain         => 'u22-app-mail-server.conoha.io',
-  #   :enable_starttls_auto => false
-  # }
+
+   config.action_mailer.default_url_options = { host: 'u22-app-mail-server.conoha.io' }
+   config.action_mailer.raise_delivery_errors = true
+   config.action_mailer.delivery_method = :smtp
+   #host = 'u22-app-mail-server.conoha.io'
+   ActionMailer::Base.smtp_settings = {
+     :address        => 'smtp.u22-app-mail-server.conoha.io',
+     :port           => '587',
+     :authentication => :plain,
+     :user_name      => 'kbc19a11@u22-app-mail-server.conoha.io',
+     :password       => 'Daiki0807',
+     :domain         => 'u22-app-mail-server.conoha.io',
+     :enable_starttls_auto => false
+   }
 
 
 
