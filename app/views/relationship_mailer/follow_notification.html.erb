@@ -1,0 +1,9 @@
+<p>Hi <%= @user.name %>様</p>
+
+<p>
+  <%= @follower.name %> があなたをフォローしました!
+  以下のリンクから確認できます。:
+</p>
+
+<%= link_to @user.name+" 様のプロフィール一覧",
+      followers_user_url(@user) %>

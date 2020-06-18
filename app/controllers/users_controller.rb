@@ -72,7 +72,7 @@ class UsersController < ApplicationController
 
     def user_params_new
       params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation,:sex,:user_name,:image)
+                                  :password_confirmation,:sex,:user_name,:image,:user_notification)
     end
 
     def user_params_update
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
       #   File.binwrite("public/user_images/#{@user.user_image}",image.read)
       # end
       params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation,:sex,:user_name,:user_comment,:image)
+                                  :password_confirmation,:sex,:user_name,:user_comment,:image,:user_notification)
     end
 
     # 正しいユーザーかどうか確認

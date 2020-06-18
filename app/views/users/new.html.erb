@@ -23,7 +23,12 @@
       <%= f.password_field :password_confirmation , class: 'form-control' %>
 
       <%= f.label :sex ,"性別"%>
-     <%= f.select :sex,[['男', 1], ['女', 2],['その他',3]],{ include_blank: false, selected: 1 }, { id: "user_id", class: "user_class" 'form-control'}%>
+      <%= f.select :sex,[['男', 1], ['女', 2],['その他',3]],{ include_blank: false, selected: 1 }, { id: "user_id", class: "user_class" 'form-control'}%>
+
+      <%= f.label :user_notification, class:"checkbox inline" do %>
+        <%= f.check_box :user_notification %>
+        <span>通知をオンにする</span>
+      <% end %>
 
       <%= f.submit "送信", class: "btn btn-primary" %>
     <% end %>

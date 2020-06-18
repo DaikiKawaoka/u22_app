@@ -3,7 +3,6 @@ class User < ApplicationRecord
   before_save   :downcase_email
   before_create :create_activation_digest
 
-
   has_many :active_relationships, class_name:  "Relationship",
   foreign_key: "follower_id",
   dependent:   :destroy #ユーザーを削除したら、ユーザーのリレーションシップも同時に削除される
@@ -107,11 +106,19 @@ class User < ApplicationRecord
     # ユーザーをフォローする
     def follow(other_user)
       following << other_user
+      #フォロー通知
+      if other_user.user_notification
+        Relationship.send_follow_email(other_user, self)
+      end
     end
 
     # ユーザーをフォロー解除する
     def unfollow(other_user)
       active_relationships.find_by(followed_id: other_user.id).destroy
+      #フォロー解除通知
+      if other_user.user_notification
+        Relationship.send_unfollow_email(other_user, self)
+      end
     end
 
     # 現在のユーザーがフォローしてたらtrueを返す
