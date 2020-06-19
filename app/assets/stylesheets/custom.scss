@@ -34,6 +34,12 @@
   .fa-home {
     width: 50px;
   }
+  .fa-globe {
+    width: 45px;
+  }
+  .fa-plus-square {
+    width: 45px;
+  }
   .fa-heart {
     width: 50px;
   }
@@ -60,6 +66,12 @@
   }
   .fa-home {
     width: 50px;
+  }
+  .fa-globe {
+    width: 45px;
+  }
+  .fa-plus-square {
+    width: 45px;
   }
   .fa-heart {
     width: 50px;
@@ -88,6 +100,12 @@
   .fa-home {
     width: 50px;
   }
+  .fa-globe {
+    width: 45px;
+  }
+  .fa-plus-square {
+    width: 45px;
+  }
   .fa-heart {
     width: 50px;
   }
@@ -114,6 +132,12 @@
     width: 80px;
   }
   .fa-home {
+    width: 35px;
+  }
+  .fa-globe {
+    width: 35px;
+  }
+  .fa-plus-square {
     width: 35px;
   }
   .fa-heart {
@@ -144,6 +168,12 @@
   .fa-home {
     width: 35px;
   }
+  .fa-globe {
+    width: 35px;
+  }
+  .fa-plus-square {
+    width: 35px;
+  }
   .fa-heart {
     width: 35px;
   }
@@ -165,6 +195,7 @@ body {
   letter-spacing : 0.2em;
 }
 .header {
+  position: fixed;
   display: flex;
   left: 0;
   top: 0;
@@ -220,6 +251,26 @@ body {
 }
 .home-link:hover {
   background:rgb(202, 202, 200);
+}
+/* 地球 */
+.fa-globe {
+  text-align: center;
+  height: 100%;
+  color: #000;
+  padding-top: 25px;
+}
+.fa-globe:hover {
+  background: rgb(202, 202, 200);
+}
+/* 追加 */
+.fa-plus-square {
+  text-align: center;
+  height: 100%;
+  color: #000;
+  padding-top: 25px;
+}
+.fa-plus-square:hover {
+  background: rgb(202,202,200);
 }
 /* ハート */
 .fa-heart {
@@ -301,6 +352,47 @@ input {
 .icon-image-user-name a{
   text-decoration: none;
 }
+
+//home index div
+#con {
+  width: 1200px;
+  margin-top: 60px;
+  margin-left: 5px;
+  height: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+//絞り込みcss
+.side-menu {
+  // margin-top: 20px;
+  position: fixed;
+  left: -200px;
+  width: 215px;
+  height: 100%;
+  padding: 20px 0 0 0;
+  background: rgb(202, 202, 200);
+  .side-menu-inner {
+    padding-left: 20px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    a {
+      color: #333;
+    }
+    li {
+      width: 100%;
+      height: 30px;
+      line-height: 75px;
+      font-size: 12px;
+      list-style-type: none;
+    }
+  }
+}
+
+
+
+
 
 
 // staticコントローラーのcss

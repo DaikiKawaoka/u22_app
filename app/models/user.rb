@@ -142,7 +142,7 @@ class User < ApplicationRecord
   def password_reset_expired?
     reset_sent_at < 0.5.hours.ago
   end
- 
+
 
   # アカウントを有効にする
   def activate

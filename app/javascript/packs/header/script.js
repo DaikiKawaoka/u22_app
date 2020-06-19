@@ -1,6 +1,6 @@
 'use strict';
 
-
+//ログインフォームjs
 $(function() {
   $("#login-show").click(function(){
     $('#login-modal').fadeIn();
@@ -22,4 +22,18 @@ $(document).ready(function(){
   $('.formLabel').click(function(){
        $(this).parent().children('.form-control').focus();
   });
+});
+
+//絞り込みjs
+$(function() {
+  $('.side-menu').hover(
+      function(){
+        $(this).stop(true).animate({'margin-left':'200px' }, 400);
+        $('.container').stop(true).animate({'margin-left':'200px' }, 400);
+      },
+      function () {
+        $(this).animate({'margin-left':'0px'}, 500);
+        $('.container').animate({'margin-left':'0px'}, 500);
+      }
+ );
 });

@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
-  root 'static_pages#home'
+  #管理ページ
+  root 'static_pages#index'
   get  '/signup',  to: 'users#new'
+  #世界ページ
+  get "static_pages/home"=> "static_pages#home"
+  #世界ページ絞り込み
+  get  "/static_pages/:id"  => "static_pages#home_narrow"
+  #管理ページ絞り込み
+  get  "/static_pages/:id/index"  => "static_pages#index_narrow"
+
+
   resources :users
   get    '/login',   to: 'sessions#new'  #新しいセッションのページ (ログイン)
   post   '/login',   to: 'sessions#create'  #新しいセッションの作成 (ログイン)

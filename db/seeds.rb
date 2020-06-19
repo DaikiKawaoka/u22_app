@@ -79,6 +79,16 @@ User.create!(name:  "bezi-ta",
   user.icon_image
 end
 
+User.create!(name:  "daikon",
+  email: "kbc19a11@stu.kawahara.ac.jp",
+  user_name: "daikon",
+  sex: 3,
+  password:              "daikon0000",
+  password_confirmation: "daikon0000",
+  activated: true,
+  activated_at: Time.zone.now)
+
+
 # 以下のリレーションシップを作成する
 usersall = User.all
 

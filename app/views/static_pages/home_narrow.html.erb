@@ -1,0 +1,11 @@
+<%= render 'static_pages/narrow_home' %>
+
+<div id="con" class="container" id="js-continer">
+<% if(@things.any?)%>
+  <div class="home-things-div">
+    <%= render @things %>
+  </div>
+  <% else%>
+  <h3>なし</h3>
+<%end%>
+</div>
