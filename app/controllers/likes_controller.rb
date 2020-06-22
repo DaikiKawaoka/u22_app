@@ -14,6 +14,10 @@ class LikesController < ApplicationController
   def create #いいね
     if Like.where(thing_id: params[:thing_id],user_id: @current_user.id).count == 0
       like=Like.create(thing_id: params[:thing_id],user_id: @current_user.id)
+      #通知処理
+      @thing = Thing.find(params[:thing_id])
+      #通知の作成
+      @thing.create_notification_by(current_user)
     end
     redirect_to("/things/#{params[:thing_id]}")
   end

@@ -1,39 +1,45 @@
   <header class="header">
     <i class="fab fa-cuttlefish fa-3x title"></i>
 
-      <!--検索欄-->
-      <form method="get" action="/kensaku" class="search_container">
-        <input type="search" size="40" placeholder="ユーザー検索" name=<%=:user_name %>>
-      </form>
-      <!--管理ホーム（ホーム）へのリンク-->
-      <%= link_to root_path,{class: "home-link"} do %>
-        <i class="fas fa-home fa-lg fa-home"title="ホーム"></i>
+    <!--検索欄-->
+    <form method="get" action="/kensaku" class="search_container">
+      <input type="search" size="40" placeholder="ユーザー検索" name=<%=:user_name %>>
+    </form>
+    <!--管理ホーム（ホーム）へのリンク-->
+    <%= link_to root_path,{class: "home-link"} do %>
+    <i class="fas fa-home fa-lg fa-home" title="ホーム"></i>
+    <% end %>
+
+    <% if logged_in? %>
+    <!--地球ホームへのリンク-->
+    <%= link_to "/static_pages/home",{class: "home-link"} do %>
+    <i class="fas fa-globe fa-lg fa-globe" title="グローバル"></i>
+    <% end %>
+
+    <!--アイテム追加ページへのリンク-->
+    <%= link_to new_thing_path,{class: "home-link"} do %>
+    <i class="fas fa-plus-square fa-lg fa-plus-square" title="追加"></i>
+    <% end %>
+
+    <%= link_to "/likes/#{current_user.id}",{class: "home-link"} do %>
+    <i class="fas fa-heart fa-lg fa-heart" title="いいね"></i>
+    <% end %>
+    <!--通知マーク-->
+    <% if unchecked_notifications.any? %>
+    <i class="fa fa-circle" style="color: gold;"></i>
+    <% end %>
+    <%= link_to "/notifications",{class: "home-link"} do %>
+    <i class="fas fa-comment-dots fa-lg fa-comment" title="メッセージ"></i>
+    <% end %>
+
+    <%= link_to current_user do%>
+    <span class="mini-icon-image">
+      <% if @current_user.image.attached? %>
+      <%= image_tag @current_user.display_image2 if @current_user.image.attached? %>
       <% end %>
-
-      <% if logged_in? %>
-        <!--地球ホームへのリンク-->
-        <%= link_to "/static_pages/home",{class: "home-link"} do %>
-          <i class="fas fa-globe fa-lg fa-globe" title="グローバル"></i>
-        <% end %>
-
-        <!--アイテム追加ページへのリンク-->
-        <%= link_to new_thing_path,{class: "home-link"} do %>
-          <i class="fas fa-plus-square fa-lg fa-plus-square" title="追加"></i>
-        <% end %>
-
-        <%= link_to "/likes/#{current_user.id}",{class: "home-link"} do %>
-          <i class="fas fa-heart fa-lg fa-heart"title="いいね"></i>
-         <% end %>
-
-        <i class="fas fa-comment-dots fa-lg fa-comment"title="メッセージ"></i>
-        <%= link_to current_user do%>
-          <span class="mini-icon-image">
-            <% if @current_user.image.attached? %>
-              <%= image_tag @current_user.display_image2 if @current_user.image.attached? %>
-            <% end %>
-          </span>
-        <%end%>
-      <% else %>
-        <i class="login" id="login-show">ログイン</i>
-      <% end %>
+    </span>
+    <%end%>
+    <% else %>
+    <i class="login" id="login-show">ログイン</i>
+    <% end %>
   </header>

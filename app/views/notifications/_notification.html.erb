@@ -1,0 +1,18 @@
+<% visiter = notification.visiter %>
+<% thing = notification.thing %>
+
+<%= link_to user_path(notification.visiter) do %>
+  <span class="mini-icon-image">
+    <% if notification.visiter.image.attached? %>
+      <%= image_tag notification.visiter.display_image2 if notification.visiter.image.attached? %>
+    <% end %>
+  </span>
+<% end %>
+
+
+  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
+  <br>
+  <% if !@comment.nil? %>
+    <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @comment %></p>
+  <% end %>
+</div>

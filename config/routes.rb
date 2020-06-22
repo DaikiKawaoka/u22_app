@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get  "/static_pages/:id"  => "static_pages#home_narrow"
   #管理ページ絞り込み
   get  "/static_pages/:id/index"  => "static_pages#index_narrow"
+#通知ページ
+  delete "/notifications/destroy_all" , to: "notifications#destroy_all"
+  resources :notifications, only: :index
+
 
 
   resources :users

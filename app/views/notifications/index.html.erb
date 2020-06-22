@@ -1,0 +1,14 @@
+<h3 class="text-center">通知</h3>
+    <hr>
+
+<% if @notifications.exists? %>
+    <div class="users-index">
+      <%= link_to "/notifications/destroy_all", method: :delete do %>
+        <i class="fas fa-trash" style="color: black;"></i>
+        <h6 style="color: black;">全削除</h6>
+      <% end %>
+        <%= render @notifications %>
+    </div>
+<% else %>
+    <p>通知はありません</p>
+<% end %>

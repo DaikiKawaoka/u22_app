@@ -7,6 +7,8 @@ class Thing < ApplicationRecord
   message: "その画像は使用できません。" },
   size:         { less_than: 5.megabytes,
   message: "サイズが大きすぎます。" }
+  #通知機能
+  has_many :notifications, dependent: :destroy
 
   validates :thing_name, presence: true,length: { maximum: 50 }
   validates :thing_comment,length: { maximum: 255 }
@@ -21,4 +23,14 @@ class Thing < ApplicationRecord
   #タイプジャッジ
   def thing_type_judgment(thing)
   end
+  #いいねアクション
+  def create_notification_by(current_user)
+    notification = current_user.active_notifications.new(
+      thing_id: id,
+      visited_id: user_id,
+      action: "like"
+    )
+    notification.save if notification.valid?
+  end
+
 end
