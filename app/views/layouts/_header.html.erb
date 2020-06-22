@@ -21,7 +21,10 @@
           <i class="fas fa-plus-square fa-lg fa-plus-square" title="追加"></i>
         <% end %>
 
-        <i class="fas fa-heart fa-lg fa-heart"title="いいね"></i>
+        <%= link_to "/likes/#{current_user.id}",{class: "home-link"} do %>
+          <i class="fas fa-heart fa-lg fa-heart"title="いいね"></i>
+         <% end %>
+
         <i class="fas fa-comment-dots fa-lg fa-comment"title="メッセージ"></i>
         <%= link_to current_user do%>
           <span class="mini-icon-image">
@@ -33,5 +36,4 @@
       <% else %>
         <i class="login" id="login-show">ログイン</i>
       <% end %>
-
   </header>

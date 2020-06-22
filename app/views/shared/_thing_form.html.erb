@@ -18,10 +18,10 @@
      ['日用品', 8],['薬',9], ['文房具', 10],['スポーツ＆アウトドア',11], ['車、バイク', 12],['ベビー、おもちゃ',13], ['家具', 14],['パソコン、オフィス用品',15],['その他',16]], { id: "user_id", class: "user_class" 'form-control'}%>
 
     <%= f.label :thing_shear,"友達に共有する" %>
-    <%= f.check_box :thing_shear %>
+    <%= f.check_box :thing_shear ,{},checked_value = "true", unchecked_value = "false"%>
 
     <%= f.label :thing_favorite,"お気に入り" %>
-    <%= f.check_box :thing_favorite %>
+    <%= f.check_box :thing_shear ,{},checked_value = "true", unchecked_value = "false"%>
 
   <%= f.submit "登録", class: "btn btn-primary" %>
 <% end %>

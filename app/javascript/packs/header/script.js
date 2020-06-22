@@ -28,12 +28,12 @@ $(document).ready(function(){
 $(function() {
   $('.side-menu').hover(
       function(){
-        $(this).stop(true).animate({'margin-left':'200px' }, 400);
-        $('.container').stop(true).animate({'margin-left':'200px' }, 400);
+        $(this).stop(true).animate({'margin-left':'200px' }, 330);
+        $('.container').stop(true).animate({'margin-left':'200px' }, 330);
       },
       function () {
-        $(this).animate({'margin-left':'0px'}, 500);
-        $('.container').animate({'margin-left':'0px'}, 500);
+        $(this).animate({'margin-left':'0px'}, 330);
+        $('.container').animate({'margin-left':'0px'}, 330);
       }
  );
 });

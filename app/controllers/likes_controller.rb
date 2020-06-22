@@ -1,6 +1,15 @@
 class LikesController < ApplicationController
 
-  before_action :self_not_like
+  before_action :self_not_like, only:[:create,:destroy]
+
+  def show
+    thing_array = []
+    likes = Like.where(user_id: params[:id])
+     likes.each{|like|
+       thing_array << like.thing_id
+   }
+    @things = Thing.where(id: thing_array)
+  end
 
   def create #いいね
     if Like.where(thing_id: params[:thing_id],user_id: @current_user.id).count == 0

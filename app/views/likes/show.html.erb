@@ -1,9 +1,8 @@
 <% if logged_in? %>
 
-<!--絞り込み -->
-<%= render 'static_pages/narrow_home' %>
 <div id="con" class="container" id="js-continer">
-  <h1>グローバルページ</h1>
+  <h1>いいね一覧ページ</h1>
+
     <% if(@things.any?)%>
     <div class="home-things-div">
       <%= render @things %>

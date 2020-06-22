@@ -6,14 +6,16 @@ class StaticPagesController < ApplicationController
     #                  WHERE follower_id = :user_id"
     # @things=Thing.where("user_id IN (#{following_ids})
     #                  OR user_id = :user_id", user_id: current_user.id)
-    @things=Thing.all
+  #  @things =Thing.all
+    @things=thing_share()
     end
   end
 #地球絞り込みページ
   def home_narrow
     if current_user
       thing_type = params[:id]
-      @things=Thing.where(thing_type: thing_type)
+      #タイプかつ共有している物
+      @things=Thing.where(thing_type: thing_type,thing_shear: true)
     end
   end
 

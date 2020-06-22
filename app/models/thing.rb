@@ -17,4 +17,8 @@ class Thing < ApplicationRecord
   def display_image
     thingImage.variant(resize_to_limit: [240, 240])
   end
+
+  #タイプジャッジ
+  def thing_type_judgment(thing)
+  end
 end
