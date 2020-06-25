@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'  #新しいセッションのページ (ログイン)
   post   '/login',   to: 'sessions#create'  #新しいセッションの作成 (ログイン)
   delete '/logout',  to: 'sessions#destroy'  #セッションの削除 (ログアウト)
-  resources :things
+  resources :things do
+    resources :comments, only: [:create, :destroy]  #物へのコメント
+  end
   get   '/kensaku', to:'users#kensaku'
   post '/likes/:thing_id/create', to:'likes#create'#いいね
   delete '/likes/:thing_id/destroy', to:'likes#destroy' #いいねを外す

@@ -2,95 +2,122 @@
   <h1><%=@thing.thing_name%></h1>
 
   <table border="1" class="thing-show-table">
-  <tr>
-    <th>
-      type
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_type %></span>
-    </td>
-  </tr>
+    <tr>
+      <th>
+        type
+      </th>
+      <td>
+        <span class="content"><%= @thing.thing_type %></span>
+      </td>
+    </tr>
 
-  <tr>
-    <th>
-      画像
-    </th>
-    <td>
-    <% if @thing.thingImage.attached? %>
+    <tr>
+      <th>
+        画像
+      </th>
+      <td>
+        <% if @thing.thingImage.attached? %>
         <%= image_tag @thing.display_image if @thing.thingImage.attached? %>
-    <% else%>
+        <% else%>
         なし
-    <% end %>
-    </td>
-  </tr>
+        <% end %>
+      </td>
+    </tr>
 
-  <tr>
-    <th>
-      コメント
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_comment %></span>
-    </td>
-  </tr>
+    <tr>
+      <th>
+        コメント
+      </th>
+      <td>
+        <span class="content"><%= @thing.thing_comment %></span>
+      </td>
+    </tr>
 
-  <tr>
-    <th>
-      評価
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_assessment %></span>
-    </td>
-  </tr>
+    <tr>
+      <th>
+        評価
+      </th>
+      <td>
+        <span class="content"><%= @thing.thing_assessment %></span>
+      </td>
+    </tr>
 
-  <tr>
-    <th>
-      共有
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_shear %></span>
-    </td>
-  </tr>
+    <tr>
+      <th>
+        共有
+      </th>
+      <td>
+        <span class="content"><%= @thing.thing_shear %></span>
+      </td>
+    </tr>
 
-  <tr>
-    <th>
-      お気に入り
-    </th>
-    <td>
-      <span class="content"><%= @thing.thing_favorite %></span>
-    </td>
-  </tr>
+    <tr>
+      <th>
+        お気に入り
+      </th>
+      <td>
+        <span class="content"><%= @thing.thing_favorite %></span>
+      </td>
+    </tr>
 
     <td colspan="2">
       <% if @current_user.id != @thing.user.id %>
-        <% if Like.find_by(user_id: @current_user.id,thing_id: @thing.id) %>
-          <%= link_to("/likes/#{@thing.id}/destroy",method: :delete,remote: true) do %>
-           <span class="fa fa-heart like-btn-unlike"></span>
-          <% end %>
-        <% else %>
-          <%= link_to("/likes/#{@thing.id}/create",method: :post,remote: true) do %>
-            <span class="fa fa-heart like-btn"></span>
-          <% end %>
-        <% end %>
+      <% if Like.find_by(user_id: @current_user.id,thing_id: @thing.id) %>
+      <%= link_to("/likes/#{@thing.id}/destroy",method: :delete,remote: true) do %>
+      <span class="fa fa-heart like-btn-unlike"></span>
+      <% end %>
       <% else %>
-        <span class="fa fa-heart like-btn-unlike"></span>
+      <%= link_to("/likes/#{@thing.id}/create",method: :post,remote: true) do %>
+      <span class="fa fa-heart like-btn"></span>
+      <% end %>
+      <% end %>
+      <% else %>
+      <span class="fa fa-heart like-btn-unlike"></span>
       <% end %>
       <%= Like.where(thing_id: @thing.id).count %>
     </td>
-  </tr>
-  <tr>
-  <td colspan="2">
-    <% if @thing.user_id == @current_user.id %>
-  <% if Like.find_by(thing_id: @thing.id,user_id: @thing.user_id) %>
-    <%= link_to("/likes/#{@thing.id}/destroy_favorite",method: :delete) do %>
-      <span class="far fa-star favorite"></span>
-    <% end %>
-  <% else %>
-    <%= link_to("/likes/#{@thing.id}/create_favorite",method: :post) do %>
-      <span class="far fa-star not_favorite"></span>
-    <% end %>
-  <% end %>
-<% end %>
-</td>
- </tr>
-  </table>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <% if @thing.user_id == @current_user.id %>
+        <% if Like.find_by(thing_id: @thing.id,user_id: @thing.user_id) %>
+        <%= link_to("/likes/#{@thing.id}/destroy_favorite",method: :delete) do %>
+        <span class="far fa-star favorite"></span>
+        <% end %>
+        <% else %>
+        <%= link_to("/likes/#{@thing.id}/create_favorite",method: :post) do %>
+        <span class="far fa-star not_favorite"></span>
+        <% end %>
+        <% end %>
+        <% end %>
+      </td>
+    </tr>
+    <% @comments.each do |comment| %>
+    <tr>
+      <td colspan="2">
+        <span class="mini-icon-image">
+          <% if comment.user.image.attached? %>
+          <%= image_tag comment.user.display_image2 if comment.user.image.attached? %>
+          <% end %>
+        </span>
+        <%= comment.user.user_name %>
+        <%= comment.content %>
+        <%= link_to '削除', thing_comment_path(@thing, comment), method: :delete %>
+        <% end %>
+      <td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= form_with model: [@thing, @comment], local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div class='form-group'>
+          <%= f.text_area :content, class: 'form-control',　id:'content',
+         placeholder: "コメントを記入してください" %>
+        </div>
+
+        <%= f.submit "コメントする", class: "btn btn-primary" %>
+        <% end %>
+      </td>
+    </tr>
 </div>
