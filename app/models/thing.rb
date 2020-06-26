@@ -2,7 +2,7 @@ class Thing < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   validates :user_id, presence: true
-  default_scope -> { order(created_at: :desc) }
+  # default_scope -> { order(created_at: :desc) }
   has_one_attached :thingImage
   validates :thingImage,   content_type: { in: %w[image/jpeg image/gif image/png image/jpg],
   message: "その画像は使用できません。" },
@@ -10,6 +10,14 @@ class Thing < ApplicationRecord
   message: "サイズが大きすぎます。" }
   #通知機能
   has_many :notifications, dependent: :destroy
+
+  #いいね機能　thingが消えるといいねも消える
+  has_many :likes, dependent: :destroy
+  has_many :iine_users, through: :likes, source: :user
+  # 現在のユーザーがいいねしてたらtrueを返す
+  def iine?(user)
+    iine_users.include?(user)
+  end
 
   validates :thing_name, presence: true,length: { maximum: 50 }
   validates :thing_comment,length: { maximum: 255 }
@@ -32,6 +40,16 @@ class Thing < ApplicationRecord
       action: "like"
     )
     notification.save if notification.valid?
+  end
+
+  # thingをいいねする
+  def iine(user)
+    likes.create(user_id: user.id)
+  end
+
+  # thingのいいねを解除する
+  def uniine(user)
+    likes.find_by(user_id: user.id).destroy
   end
 
 end

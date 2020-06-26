@@ -16,9 +16,10 @@ class ApplicationController < ActionController::Base
     def set_current_user
       @current_user = User.find_by(id: session[:user_id])
     end
+
     #共有をtrueにしている物だけ
     def thing_share
-      @things = Thing.where(thing_shear: true)
+      @things = Thing.where(thing_shear: true).order(created_at: :desc)
     end
 
 end

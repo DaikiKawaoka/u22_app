@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_102511) do
+ActiveRecord::Schema.define(version: 2020_06_26_091332) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 2020_06_23_102511) do
     t.integer "thing_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["thing_id"], name: "index_likes_on_thing_id"
+    t.index ["user_id", "thing_id"], name: "index_likes_on_user_id_and_thing_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -89,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_102511) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "likes_count", default: 0, null: false
     t.index ["user_id", "created_at"], name: "index_things_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_things_on_user_id"
   end

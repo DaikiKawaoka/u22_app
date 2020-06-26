@@ -42,5 +42,12 @@
       <% end %>
     </th>
   </tr>
+  <tr>
+  <td id="thing-<%= thing.id %>">
+  <!-- Likesコントローラではthingのidが必要になるため、Likeビューをパーシャル化する際に、
+Thingをビューに渡してあげる必要があります。-->
+  <%= render "likes/like", thing: thing %>
+  <td>
+  </tr>
 </table>
 <br>

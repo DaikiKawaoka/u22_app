@@ -1,0 +1,2 @@
+//          変更するid名(_thingにある)                 パーシャル名,likeコントローラはidが必要だから@thingを渡す
+$("#thing-<%= @thing.id %> .like").html("<%= escape_javascript(render 'likes/like', thing: @thing) %>");

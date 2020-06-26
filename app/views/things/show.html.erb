@@ -50,7 +50,14 @@
         <span class="content"><%= @thing.thing_shear %></span>
       </td>
     </tr>
-
+    <tr>
+    <td colspan="2">
+    <!-- Likesコントローラではthingのidが必要になるため、Likeビューをパーシャル化する際に、
+Thingをビューに渡してあげる必要があります。-->
+    <%= render "likes/like", thing: @thing %>
+    </td>
+    </tr>
+<!--
     <tr>
       <th>
         お気に入り
@@ -92,6 +99,7 @@
         <% end %>
       </td>
     </tr>
+    -->
     <% @comments.each do |comment| %>
     <tr>
       <td colspan="2">

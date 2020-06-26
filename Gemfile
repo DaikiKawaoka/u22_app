@@ -21,6 +21,7 @@ gem 'omniauth-twitter'
 # gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 gem 'bootsnap',                   '1.4.5', require: false
+gem 'counter_culture'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

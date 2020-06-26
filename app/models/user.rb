@@ -16,6 +16,9 @@ class User < ApplicationRecord
   # 配列と同様にして、フォローしているユーザーを新規追加する
   # 特定のユーザーをフォローから削除する
 
+  #いいね機能 ユーザが消えるといいねも消える
+  has_many :likes, dependent: :destroy
+
   has_many :passive_relationships, class_name:  "Relationship",
   foreign_key: "followed_id",
   dependent:   :destroy#ユーザーを削除したら、ユーザーのリレーションシップも同時に削除される

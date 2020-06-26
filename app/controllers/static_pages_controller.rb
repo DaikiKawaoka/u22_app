@@ -15,14 +15,14 @@ class StaticPagesController < ApplicationController
     if current_user
       thing_type = params[:id]
       #タイプかつ共有している物
-      @things=Thing.where(thing_type: thing_type,thing_shear: true)
+      @things=Thing.where(thing_type: thing_type,thing_shear: true).order(created_at: :desc)
     end
   end
 
   #管理ページ
   def index
     if current_user
-      @things=current_user.things
+      @things=current_user.things.order(created_at: :desc)
     end
   end
 
@@ -30,7 +30,7 @@ class StaticPagesController < ApplicationController
   def index_narrow
     if current_user
       thing_type = params[:id]
-      @things=Thing.where(thing_type: thing_type)
+      @things=Thing.where(thing_type: thing_type).order(created_at: :desc)
     end
   end
 end
