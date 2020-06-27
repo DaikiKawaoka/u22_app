@@ -1,10 +1,10 @@
 # メインのサンプルユーザーを1人作成する
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             user_name: "aaaaa",
+User.create!(name:  "Guest User",
+             email: "example@u22app.jp",
+             user_name: "guest_user",
              sex: 1,
-             password:              "foobar",
-             password_confirmation: "foobar",
+             password:              "albieajasnofmg9048y723bguest_user_example_0505_u22app_osniqehapofvnaioeufpserjniewjaobwjepjapew39026849isy",
+             password_confirmation: "albieajasnofmg9048y723bguest_user_example_0505_u22app_osniqehapofvnaioeufpserjniewjaobwjepjapew39026849isy",
              activated: true,
              activated_at: Time.zone.now)
 
@@ -93,6 +93,9 @@ User.create!(name:  "daikon",
 usersall = User.all
 
 # ユーザーの一部を対象にthingを生成する
+users = User.find_by(email:"example@u22app.jp")
+users.image.attach(io: File.open("#{Rails.root}/db/fixtures/f1.png"), filename: 'f1.png')
+
 users = User.find_by(email:"kawadaiki@icloud.com")
 users.icon_image
 following = usersall[0..50]

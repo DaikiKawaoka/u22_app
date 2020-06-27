@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   before_action :logged_in_user
 
   def show
@@ -13,25 +12,33 @@ class LikesController < ApplicationController
 
   def create
     @thing = Thing.find(params[:thing_id])
-    unless @thing.iine?(current_user)
-      @thing.iine(current_user)
-      @thing.reload
-      respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
-        format.js
+    unless(guest_user?)
+      unless @thing.iine?(current_user)
+        @thing.iine(current_user)
+        @thing.reload
+        respond_to do |format|
+          format.html { redirect_to request.referrer || root_url }
+          format.js
+        end
       end
+    else
+      redirect_to "/login"
     end
   end
 
   def destroy
     @thing = Like.find(params[:id]).thing
-    if @thing.iine?(current_user)
-      @thing.uniine(current_user)
-      @thing.reload
-      respond_to do |format|
-        format.html { redirect_to request.referrer || root_url }
-        format.js
+    unless(guest_user?)
+      if @thing.iine?(current_user)
+        @thing.uniine(current_user)
+        @thing.reload
+        respond_to do |format|
+          format.html { redirect_to request.referrer || root_url }
+          format.js
+        end
       end
+    else
+      redirect_to "/login"
     end
   end
 

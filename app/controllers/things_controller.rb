@@ -13,37 +13,57 @@ class ThingsController < ApplicationController
     end
 
     def new
-      @thing = current_user.things.build if logged_in?
+      unless(guest_user?)
+        @thing = current_user.things.build if logged_in?
+      else
+        redirect_to "/login"
+      end
     end
 
     def create
-      @thing = current_user.things.new(thing_params_new)
-      if @thing.save
-        flash[:success] = "物登録完了しました"
-        redirect_to root_url
+      unless(guest_user?)
+        @thing = current_user.things.new(thing_params_new)
+        if @thing.save
+          flash[:success] = "物登録完了しました"
+          redirect_to root_url
+        else
+          render 'new'
+        end
       else
-        render 'new'
+        redirect_to "/login"
       end
     end
 
     def edit
-      @thing = Thing.find(params[:id])
+      unless(guest_user?)
+        @thing = Thing.find(params[:id])
+      else
+        redirect_to "/login"
+      end
     end
 
     def update
-      @thing = Thing.find(params[:id])
-      if @thing.update(thing_params_update)
-        flash[:success] = "投稿を更新しました！"
-        redirect_to @thing
+      unless(guest_user?)
+        @thing = Thing.find(params[:id])
+        if @thing.update(thing_params_update)
+          flash[:success] = "投稿を更新しました！"
+          redirect_to @thing
+        else
+          render 'edit'
+        end
       else
-        render 'edit'
+        redirect_to "/login"
       end
     end
 
     def destroy
-      Thing.find(params[:id]).destroy
-      flash[:success] = "削除しました。"
-      redirect_to user_path(current_user)
+      unless(guest_user?)
+        Thing.find(params[:id]).destroy
+        flash[:success] = "削除しました。"
+        redirect_to user_path(current_user)
+      else
+        redirect_to "/login"
+      end
     end
 
 

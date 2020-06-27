@@ -9,7 +9,7 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to  user_path do %>
+            <%= link_to  "/users/#{user.id}" do %>
              <span class="mini-icon-image"> <%=image_show(user)%> </span>
              <span class="mini-icon-image"> <%= user.user_name %> </span>
             <% end %>

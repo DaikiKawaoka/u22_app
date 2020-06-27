@@ -3,24 +3,32 @@ class CommentsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def create
-    @comment = current_user.comments.build(comment_params)
-    @comment.thing_id = params[:thing_id]
-    if @comment.save
-      flash[:success] = 'コメントしました'
-      redirect_to @comment.thing
+    unless(guest_user?)
+      @comment = current_user.comments.build(comment_params)
+      @comment.thing_id = params[:thing_id]
+      if @comment.save
+        flash[:success] = 'コメントしました'
+        redirect_to @comment.thing
+      else
+        @thing = Thing.find(params[:thing_id])
+        @comments = @thing.comments
+        render template: 'things/show'
+      end
     else
-      @thing = Thing.find(params[:thing_id])
-      @comments = @thing.comments
-      render template: 'things/show'
+      redirect_to "/login"
     end
   end
 
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    flash[:success] = 'コメントを削除しました'
-    redirect_to @comment.thing
+    unless(guest_user?)
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      flash[:success] = 'コメントを削除しました'
+      redirect_to @comment.thing
+    else
+      redirect_to "/login"
+    end
   end
 
  private

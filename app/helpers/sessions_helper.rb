@@ -49,6 +49,12 @@ module SessionsHelper
     user && user == current_user
   end
 
+  #ゲストユーザか確認
+  def guest_user?
+    guestUser = User.find_by(email: "example@u22app.jp")
+      current_user && guestUser.id == current_user.id
+  end
+
   # 記憶したURL (もしくはデフォルト値) にリダイレクト
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

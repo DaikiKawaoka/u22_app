@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'  #新しいセッションのページ (ログイン)
   post   '/login',   to: 'sessions#create'  #新しいセッションの作成 (ログイン)
   delete '/logout',  to: 'sessions#destroy'  #セッションの削除 (ログアウト)
+ #guest_userでログイン
+  get  '/guestlogin', to: 'sessions#guestlogin'
+
   resources :things do
     resources :comments, only: [:create, :destroy]  #物へのコメント
   end

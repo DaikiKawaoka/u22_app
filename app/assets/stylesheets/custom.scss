@@ -195,6 +195,7 @@ body {
   letter-spacing : 0.2em;
 }
 .header {
+  z-index:9999;
   position: fixed;
   display: flex;
   left: 0;
@@ -216,7 +217,7 @@ body {
 }
 
 /*　検索欄　*/
-.search_container{  
+.search_container{
   box-sizing: border-box;
   position: relative;
   border: 1px solid #999;
@@ -306,11 +307,21 @@ table{
 
 // 全ページcss
 
+//ログインしてないhome
+.home-image{
+  width: 100%;
+  // opacity: 2;
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+}
+//flash位置調整
+.flash-css{
+  margin-top: 60px;
 }
 
 input {
