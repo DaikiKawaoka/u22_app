@@ -49,11 +49,10 @@
       <i class="login" id="login-show">ログイン</i>
       <!-- ゲストユーザでログイン -->
       <%= link_to '/guestlogin' do%>
-        <i>ゲストでログイン</i>
+        <i class="login">ゲストでログイン</i>
       <% end %>
     <% end %>
   </header>
-
 
   <div class="flash-css">
     <% flash.each do |message_type, message| %>

@@ -16,6 +16,7 @@ class ThingsController < ApplicationController
       unless(guest_user?)
         @thing = current_user.things.build if logged_in?
       else
+        flash[:success] = "ログインしてください。"
         redirect_to "/login"
       end
     end
@@ -30,6 +31,7 @@ class ThingsController < ApplicationController
           render 'new'
         end
       else
+        flash[:success] = "ログインしてください。"
         redirect_to "/login"
       end
     end
@@ -52,6 +54,7 @@ class ThingsController < ApplicationController
           render 'edit'
         end
       else
+        flash[:success] = "ログインしてください。"
         redirect_to "/login"
       end
     end
@@ -62,6 +65,7 @@ class ThingsController < ApplicationController
         flash[:success] = "削除しました。"
         redirect_to user_path(current_user)
       else
+        flash[:success] = "ログインしてください。"
         redirect_to "/login"
       end
     end

@@ -32,6 +32,7 @@ class Thing < ApplicationRecord
   #タイプジャッジ
   def thing_type_judgment(thing)
   end
+
   #いいねアクション
   def create_notification_by(current_user)
     notification = current_user.active_notifications.new(

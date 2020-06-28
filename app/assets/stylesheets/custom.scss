@@ -323,6 +323,10 @@ input, textarea, select, .uneditable-input {
 .flash-css{
   margin-top: 60px;
 }
+.alert{
+  z-index:9999;
+  margin-bottom: 0px;
+}
 
 input {
   height: auto !important;
@@ -366,6 +370,8 @@ input {
 
 //home index div
 #con {
+  // background-image: url('/assets/home-image4.jpg');
+  // background-size: contain;
   width: 1200px;
   margin-top: 60px;
   margin-left: 5px;
@@ -410,7 +416,7 @@ input {
 
 
 
-
+//---------------------------------------------------------------------------------------
 // staticコントローラーのcss
 .static_pages{
   .login-modal-wrapper {
@@ -423,103 +429,119 @@ input {
     z-index: 100;
     display: none;
   }
-
-  .modal1 {
-    position: absolute;
-    top: 20%;
-    left: 36%;
-    background-color: white;
-    padding: 20px 20px 10px 40px;
-    border-radius: 10px;
-    width: 400px;
-    height: auto;
-    text-align: center;
-    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
-  }
-
-  .fa-times {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    color: rgba(128, 128, 128, 0.4);
-    cursor: pointer;
-  }
-  #top-form-item {
-    margin-top: 60px;
-    margin-bottom: 30px;
-  }
-  #signup-form, #login-form {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  #signup-form input, #login-form input {
-    width: 320px;
-    margin-bottom: 20px;
-    font-size: 12px;
-    padding: 12px 12px;
-    border-radius: 12px;
-    background: white;
-    border: none;
-    border: 2px solid #bbb;
-    color: #1d1d1d;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-  }
-  #login-form input:focus {
-    border: 2px solid #74b9ff;
-    outline: 0;
-  }
-  #submit-btn {
-    display: inline-block !important;
-    width: 200px !important;
-    padding: 15px 30px !important;
-    background-color: #1d1d1d !important;
-    border: 2px solid #1d1d1d !important;
-    border-radius: 45px !important;
-    color: white !important;
-    margin: 10px 20px 10px 0px !important;
-    cursor: pointer !important;
-  }
-  #submit-btn:hover{
-    border: 2px solid #74b9ff !important;
-    color : #74b9ff !important;
-    transition: 0.7s !important;
-  }
-  .fa-times:hover{
-    color: red;
-    transition: 0.5s ;
-  }
-  div.form-item{position: relative; display: block; margin-bottom: 40px;}
-  input{transition: all .2s ease;}
-  div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color:#74b9ff; }
-  .formLabel {
-    position: absolute;
-    left:12px;
-    top:15px;
-    transition:all .3s ease;
-    color:#bbb;
-    font-size: 13px;
-  }
-  .formTop{top:-10px !important; left:26px; background-color: white; padding:0 5px; font-size: 14px; color:#74b9ff !important;}
-  .formStatus{color:#8a8a8a !important;}
-
-  .formCheckBox{
-    position: absolute;
-    top: 220px;
-    right:150px;
-    p{
-      width: 300px;
-      position: absolute;
-      top:0px;
-      left:130px;
-    }
-  }
-  .formSinkiBtn{
-    position: absolute;
-    left:130px;
-    bottom: 19px;
+}
+//ログインページ
+.sessions{
+  .login-modal-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
   }
 }
+
+.modal1 {
+  position: absolute;
+  top: 20%;
+  left: 36%;
+  background-color: white;
+  padding: 20px 20px 10px 40px;
+  border-radius: 10px;
+  width: 400px;
+  height: auto;
+  text-align: center;
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+}
+
+.fa-times {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: rgba(128, 128, 128, 0.4);
+  cursor: pointer;
+}
+#top-form-item {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+#signup-form, #login-form {
+  width: 100%;
+  margin-bottom: 50px;
+}
+#signup-form input, #login-form input {
+  width: 320px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  background: white;
+  border: none;
+  border: 2px solid #bbb;
+  color: #1d1d1d;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+#login-form input:focus {
+  border: 2px solid #74b9ff;
+  outline: 0;
+}
+#submit-btn {
+  display: inline-block !important;
+  width: 200px !important;
+  padding: 15px 30px !important;
+  background-color: #1d1d1d !important;
+  border: 2px solid #1d1d1d !important;
+  border-radius: 45px !important;
+  color: white !important;
+  margin: 10px 20px 10px 0px !important;
+  cursor: pointer !important;
+}
+#submit-btn:hover{
+  border: 2px solid #74b9ff !important;
+  color : #74b9ff !important;
+  transition: 0.7s !important;
+}
+.fa-times:hover{
+  color: red;
+  transition: 0.5s ;
+}
+div.form-item{position: relative; display: block; margin-bottom: 40px;}
+input{transition: all .2s ease;}
+div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color:#74b9ff; }
+.formLabel {
+  position: absolute;
+  left:12px;
+  top:15px;
+  transition:all .3s ease;
+  color:#bbb;
+  font-size: 13px;
+}
+.formTop{top:-10px !important; left:26px; background-color: white; padding:0 5px; font-size: 14px; color:#74b9ff !important;}
+.formStatus{color:#8a8a8a !important;}
+
+.formCheckBox{
+  position: absolute;
+  top: 220px;
+  right:150px;
+  p{
+    width: 300px;
+    position: absolute;
+    top:0px;
+    left:130px;
+  }
+}
+.formSinkiBtn{
+  position: absolute;
+  left:130px;
+  bottom: 19px;
+}
+
+//--------------------------------------------------------------------------------------------
+
+
 
 .users{
   .stats {

@@ -11,11 +11,13 @@ class LikesController < ApplicationController
   end
 
   def create
-    @thing = Thing.find(params[:thing_id])
     unless(guest_user?)
+      @thing = Thing.find(params[:thing_id])
       unless @thing.iine?(current_user)
         @thing.iine(current_user)
         @thing.reload
+        #通知の作成
+        @thing.create_notification_by(current_user)
         respond_to do |format|
           format.html { redirect_to request.referrer || root_url }
           format.js
@@ -27,8 +29,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @thing = Like.find(params[:id]).thing
     unless(guest_user?)
+      @thing = Like.find(params[:id]).thing
       if @thing.iine?(current_user)
         @thing.uniine(current_user)
         @thing.reload
