@@ -621,7 +621,192 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
 }
 
 
+//--------------------------------modal-profile(k)-----------------------------------------
+.modal-profile {
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
 
+  .modal__bg {
+    background: rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+  }
+
+  .modal__content {
+
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 85%;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+    margin-top: 25px;
+
+    .profile_img_block img {
+      width: 45%;
+      height: 45%;
+      display: block;
+      margin: auto;
+      border-radius: 50%;
+      border: 3px solid #cccccc;
+    }
+
+    .js-modal-close-profile{
+      .fa-times {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: rgba(128, 128, 128, 0.4);
+        cursor: pointer;
+        &:hover{
+          color: red;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .profile_header {
+      position: relative;
+      height: 100px;
+      width: 100%;
+
+      .profile_name_block{
+        p {
+          font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          "MS PGothic", sans-serif;
+          text-align: center;
+        }
+        #profile_name {
+          padding-top: 9px;
+          font-weight: bolder;
+          font-size: 20px;
+          line-height: 30px;
+        }
+        #profile_user_name {
+          color: #cccccc;
+        }
+      }
+
+      .profile_follow_block {
+        position: absolute;
+        top: 12px;
+        left: 5px;
+        p{
+          font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          "MS PGothic", sans-serif;
+        }
+        #profile_follow_num {
+          text-align: center;
+        }
+      }
+
+      .profile_follower_block {
+        position: absolute;
+        top: 12px;
+        right: 5px;
+        p{
+          font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          "MS PGothic", sans-serif;
+        }
+        #profile_follower_num {
+          text-align: center;
+        }
+      }
+    }
+
+    .profile_body{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      .profile_button-wrapper {
+        display: inline-block;
+        margin: 20px 5px;
+        padding: 40px;
+      }
+      .profile_button {
+        font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          "MS PGothic", sans-serif;
+        background: #1d1d1d;
+        border: none;
+        padding: 2px;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.35s ease-in-out 0.35s;
+        margin: 0 auto;
+        width: 150px;
+        text-align: center;
+        span {
+          display: block;
+          padding: 15px 30px;
+          background: #fff;
+          z-index: 100;
+          position: relative;
+          transition: all 0.35s ease-in-out 0.35s;
+        }
+        &:hover span {
+          background: #36b4c7;
+          color: #fff;
+          transition: all 0.35s ease-in-out 0.35s;
+        }
+        &:hover:after {
+          right: 0;
+          bottom: 0;
+          transition: all ease-in-out 0.35s;
+        }
+        &:before {
+          top: -100%;
+          left: -100%;
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background: #36b4c7;
+          transition: all 0.35s ease-in-out 0.5s;
+        }
+        &:hover:before {
+          left: 0;
+          top: 0;
+          transition: all ease-in-out 0.35s;
+        }
+      }
+      .fa-cog {
+        /* display: none; */
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: rgba(128, 128, 128, 0.4);
+        cursor: pointer;
+        &:hover {
+          color: #36b4c7;
+          transition: 0.5s;
+          transition: all 0.35s ease-in-out 0.2s;
+        }
+      }
+      #profile_comment {
+        margin-top: 30px;
+        text-align: center;
+        word-wrap: break-word;
+      }
+    }
+
+  }
+
+}
+//-----------------------------------------------------------------------------------
 
 
 

@@ -37,3 +37,15 @@ $(function() {
       }
  );
 });
+
+// プロフィールモーダル
+$(function(){
+  $('.js-modal-open-profile').on('click',function(){
+      $('.js-modal-profile').fadeIn();
+      return false;
+  });
+  $('.js-modal-close-profile').on('click',function(){
+      $('.js-modal-profile').fadeOut();
+      return false;
+  });
+});

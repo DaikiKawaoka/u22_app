@@ -9,6 +9,8 @@
     <meta http-equiv="content-language" content="ja">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
@@ -17,6 +19,9 @@
   <body class='<%= controller.controller_name %>'>
     <%= render 'layouts/header' %>
     <%= yield %>
+    <% if logged_in? %>
+      <%= render 'layouts/modal_profile'%>
+    <% end %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

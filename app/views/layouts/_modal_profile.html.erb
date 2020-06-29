@@ -1,0 +1,42 @@
+<div class="modal-profile js-modal-profile">
+        <div class="modal__bg js-modal-close-profile"></div>
+        <div class="modal__content">
+            <div class="js-modal-close-profile">
+                <i class="fa fa-2x fa-times"></i>
+            </div>
+            <div class="profile_img_block">
+                <% if @current_user.image.attached? %>
+                  <%= image_tag @current_user.display_image_profile2 if @current_user.image.attached? %>
+                <% end %>
+            </div>
+            <div class="profile_header">
+                <div class="profile_name_block">
+                    <p id="profile_name"><%= current_user.name%></p>
+                    <p id="profile_user_name"><%= current_user.user_name%></p>
+                </div>
+                <div class="profile_follow_block">
+                    <p>フォロー中</p>
+                    <p id="profile_follow_num"><%= @current_user.following.count %></p>
+                </div>
+
+                <div class="profile_follower_block">
+                    <p>フォロワー</p>
+                    <p id="profile_follower_num"><%= @current_user.followers.count %></p>
+                </div>
+            </div>
+            <div class="profile_body">
+            <!--
+                <button type="submit" class="profile_button">
+                    <span>
+                        フォロー
+                    </span>
+                </button>
+                -->
+                <%= link_to current_user do%>
+                  <i class="fa fa-2x fa-cog"></i>
+                <% end %>
+                <p id="profile_comment"><%= current_user.user_comment %></p>
+            </div>
+        </div>
+        <!--modal__inner-->
+    </div>
