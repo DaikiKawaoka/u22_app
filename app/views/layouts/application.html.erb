@@ -19,9 +19,6 @@
   <body class='<%= controller.controller_name %>'>
     <%= render 'layouts/header' %>
     <%= yield %>
-    <% if logged_in? %>
-      <%= render 'layouts/modal_profile'%>
-    <% end %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

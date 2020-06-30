@@ -37,12 +37,13 @@
         <i class="fas fa-comment-dots fa-lg fa-comment" title="メッセージ"></i>
       <% end %>
 
-
-        <span class="mini-icon-image js-modal-open-profile">
+      <%= link_to current_user do%>
+        <span class="mini-icon-image">
           <% if @current_user.image.attached? %>
             <%= image_tag @current_user.display_image2 if @current_user.image.attached? %>
           <% end %>
         </span>
+      <% end %>
 
 
     <% else %>

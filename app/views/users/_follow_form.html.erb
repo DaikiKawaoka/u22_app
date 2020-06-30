@@ -1,5 +1,5 @@
 <% unless current_user?(@user) %>
-  <div id="follow_form">
+  <div id="follow_form" class="profile_button">
   <% if current_user.following?(@user) %>
     <%= render 'unfollow' %>
   <% else %>
@@ -7,3 +7,10 @@
   <% end %>
   </div>
 <% end %>
+<!--
+<button type="submit" class="profile_button">
+                    <span>
+                        フォロー
+                    </span>
+                </button>
+                -->

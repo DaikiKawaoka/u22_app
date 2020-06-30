@@ -33,7 +33,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    unless(guest_user?)
+      @user = User.find(params[:id])
+    else
+      flash[:success] = "ログインしてください。"
+      redirect_to "/login"
+    end
   end
 
   def update
