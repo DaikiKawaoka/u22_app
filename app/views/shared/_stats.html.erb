@@ -1,15 +1,13 @@
-<% @user ||= current_user %>
-<div class="stats">
-  <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
-      <%= @user.following.count %>
-    </strong>
-    フォロー
-  </a>
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    フォロワー
-  </a>
-</div>
+<% @user ||= current_user %> <!-- @userがあれば@user,なければ@userにcurrent_userを代入-->
+<%= link_to following_user_path(@user) do%>
+  <div class="profile_follow_block">
+      <p>フォロー中</p>
+      <p id="profile_follow_num"><%= @user.following.count %></p>
+  </div>
+<% end %>
+<%= link_to followers_user_path(@user) do%>
+  <div class="profile_follower_block">
+      <p>フォロワー</p>
+      <p id="profile_follower_num"><%= @user.followers.count %></p>
+  </div>
+<% end %>

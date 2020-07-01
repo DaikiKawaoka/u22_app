@@ -14,6 +14,7 @@ class StaticPagesController < ApplicationController
   def home_narrow
     if current_user
       thing_type = params[:id]
+      @thing_type_name = check_thing_type(thing_type)
       #タイプかつ共有している物
       @things=Thing.where(thing_type: thing_type,thing_shear: true).order(created_at: :desc)
     end
@@ -30,7 +31,47 @@ class StaticPagesController < ApplicationController
   def index_narrow
     if current_user
       thing_type = params[:id]
-      @things=Thing.where(thing_type: thing_type).order(created_at: :desc)
+      @thing_type_name = check_thing_type(thing_type)
+      @things=Thing.where(thing_type: thing_type,user_id: current_user.id).order(created_at: :desc)
+    end
+  end
+
+  private
+
+  def check_thing_type(thing_type)
+    case thing_type
+    when "1"
+      "Fashion"
+    when "2"
+      "Book"
+    when "3"
+      "Game"
+    when "4"
+      "Cosmetics"
+    when "5"
+      "Electrical Appliances"
+    when "6"
+      "Food"
+    when "7"
+      "Music"
+    when "8"
+      "Everyday Items"
+    when "9"
+      "Drug"
+    when "10"
+      "Stationery"
+    when "11"
+      "Sport & Outdoor"
+    when "12"
+      "Vehicle"
+    when "13"
+      "Baby & Toy"
+    when "14"
+      "Furniture"
+    when "15"
+      "PC & Office Supplies"
+    else
+      "Other"
     end
   end
 end

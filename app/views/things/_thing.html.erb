@@ -6,7 +6,7 @@
       <%= image_tag thing.user.display_image2 if thing.user.image.attached? %>
       <% end %>
     </span>
-    <span><%= thing.user.user_name %></span>
+    <span><%= user_name_print_thing(thing.user.user_name) %></span>
     <% end %>
   </caption>
   <tr>

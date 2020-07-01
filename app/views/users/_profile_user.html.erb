@@ -7,18 +7,10 @@
             </div>
             <div class="profile_header">
                 <div class="profile_name_block">
-                    <p id="profile_name"><%= @user.name %></p>
-                    <p id="profile_user_name"><%= @user.user_name %></p>
+                    <p id="profile_name"><%= name_print(@user.name) %></p>
+                    <p id="profile_user_name"><%= user_name_print(@user.user_name) %></p>
                 </div>
-                <div class="profile_follow_block">
-                    <p>フォロー中</p>
-                    <p id="profile_follow_num"><%= @user.following.count %></p>
-                </div>
-
-                <div class="profile_follower_block">
-                    <p>フォロワー</p>
-                    <p id="profile_follower_num"><%= @user.followers.count %></p>
-                </div>
+                <%= render "shared/stats"%> <!--フォロー-->
             </div>
 
             <div class="profile_body">

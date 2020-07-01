@@ -364,6 +364,8 @@ input {
 // アイコン画像css
 .mini-icon-image img{
   border-radius: 20px;
+  border-radius: 50%;
+  border: 2px solid #cccccc;
 }
 .icon-image-user-name a{
   text-decoration: none;
@@ -379,6 +381,12 @@ input {
   height: 100%;
   min-height: 100vh;
   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  h1{
+    font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          "MS PGothic", sans-serif;
+          text-align: center;
+  }
 }
 
 //絞り込みcss
@@ -693,7 +701,8 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       .profile_follow_block {
         position: absolute;
         top: 12px;
-        left: 5px;
+        left: -10px;
+        color: black;
         p{
           font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
           "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
@@ -707,7 +716,8 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       .profile_follower_block {
         position: absolute;
         top: 12px;
-        right: 5px;
+        right: -10px;
+        color: black;
         p{
           font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
           "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",

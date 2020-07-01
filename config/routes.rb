@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   #管理ページ
   root 'static_pages#index'
   get  '/signup',  to: 'users#new'
+  #管理ページ絞り込み
+  get  "/static_pages/:id/index"  => "static_pages#index_narrow"
+
   #世界ページ
   get "static_pages/home"=> "static_pages#home"
   #世界ページ絞り込み
   get  "/static_pages/:id"  => "static_pages#home_narrow"
-  #管理ページ絞り込み
-  get  "/static_pages/:id/index"  => "static_pages#index_narrow"
+
 #通知ページ
   delete "/notifications/destroy_all" , to: "notifications#destroy_all"
   resources :notifications, only: :index

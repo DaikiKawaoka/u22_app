@@ -3,13 +3,12 @@
 <!--絞り込み -->
 <%= render 'static_pages/narrow_home' %>
 <div id="con" class="container" id="js-continer">
-  <h1>グローバルページ</h1>
+  <h1>Global Page</h1>
+  <h3>All</h3>
     <% if(@things.any?)%>
     <div class="home-things-div">
       <%= render @things %>
     </div>
-    <% else%>
-    <h3>ユーザーをフォローしてみよう！！</h3>
     <%end%>
   <% else %>
   <h1>homeページ</h1>
