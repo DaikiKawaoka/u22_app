@@ -5,11 +5,10 @@
 <div id="con" class="container" id="js-continer">
   <h1>Global Page</h1>
   <h3>All</h3>
-    <% if(@things.any?)%>
+  <% if(@things.any?)%>
     <div class="home-things-div">
       <%= render @things %>
     </div>
-    <%end%>
-  <% else %>
-  <h1>homeページ</h1>
+    <%= will_paginate @things,class: "pagination justify-content-center",renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
+  <%end%>
 <%end%>

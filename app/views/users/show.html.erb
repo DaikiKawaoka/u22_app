@@ -6,13 +6,4 @@
         <%= render 'shared/stats' %>
   </section>
   -->
-
-
-
-
-  <% if current_user.id == @user.id%>
-    <li><%= link_to "物登録", new_thing_path%></li>
-    <li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
-    <li><%= link_to "ログアウト", logout_path, method: :delete%></li>
-  <% end %>
 </div>

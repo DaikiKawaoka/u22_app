@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
     #共有をtrueにしている物だけ
     def thing_share
-      @things = Thing.where(thing_shear: true).order(created_at: :desc)
+      @things = Thing.where(thing_shear: true).order(created_at: :desc).paginate(page: params[:page], per_page: 15)
     end
 
 end

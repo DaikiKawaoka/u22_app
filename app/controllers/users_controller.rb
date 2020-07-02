@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
-    @things = @user.things.paginate(page: params[:page])
+    @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   def new
@@ -87,8 +87,7 @@ class UsersController < ApplicationController
       #   image = params[:user_image]
       #   File.binwrite("public/user_images/#{@user.user_image}",image.read)
       # end
-      params.require(:user).permit(:name, :email, :password,
-                                  :password_confirmation,:sex,:user_name,:user_comment,:image,:user_notification)
+      params.require(:user).permit(:name, :email,:sex,:user_name,:user_comment,:image,:user_notification)
     end
 
     # 正しいユーザーかどうか確認

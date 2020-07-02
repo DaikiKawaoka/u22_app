@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
+
   #管理ページ
   root 'static_pages#index'
   get  '/signup',  to: 'users#new'
@@ -43,6 +44,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
 #パスワードをリセットするパス
   resources :password_resets,     only: [:new, :create, :edit, :update]
+
+  resources :password_edit,     only: [:edit,:update]
 
   resources :relationships,       only: [:create, :destroy]
 

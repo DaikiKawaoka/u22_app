@@ -17,12 +17,6 @@
       <%= f.label :email ,"メールアドレス"%>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password ,"パスワード"%>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.label :password_confirmation, "パスワード確認" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-
       <%= f.label :sex ,"性別"%>
       <%= f.select :sex,[['男', 1], ['女', 2],['その他',3]],{ include_blank: false, selected: 1 }, { id: "user_id", class: "user_class" 'form-control'}%>
 

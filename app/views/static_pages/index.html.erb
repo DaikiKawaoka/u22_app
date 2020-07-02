@@ -8,6 +8,7 @@
         <div class="home-things-div">
           <%= render @things %>
         </div>
+        <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
       <% else%>
         <h3>ユーザーをフォローしてみよう！！</h3>
       <%end%>
