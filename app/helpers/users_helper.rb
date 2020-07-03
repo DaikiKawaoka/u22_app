@@ -5,6 +5,12 @@ module UsersHelper
    end
   end
 
+  def follow_image_show(user)
+   if user.image.attached?
+     image_tag user.display_image3 if user.image.attached?
+   end
+  end
+
   def name_print(name)
       if name.encode("EUC-JP").bytesize >= 18
           return name.truncate(13)

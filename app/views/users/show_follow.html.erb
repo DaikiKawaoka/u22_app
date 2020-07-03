@@ -1,21 +1,29 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1><%= @user.user_name %></h1>
-      <span><b>物数:</b> <%= @user.things.count %></span>
-    </section>
-    <section class="stats">
-      <%= render 'shared/stats' %>
-      <% if @users.any? %>
-        <div class="user_avatars">
+
+  <h1 class="follow-user-name-h1"><%= @user.user_name %></h1>
+  <div class="follow-show">
+    <h3 class="follow-midasi"><%= @follow %>(<%= @follow_count%>)</h3>
+    <% if @users.any? %>
+        <div class="follow-div">
           <% @users.each do |user| %>
-            <%= link_to  "/users/#{user.id}" do %>
-             <span class="mini-icon-image"> <%=image_show(user)%> </span>
-             <span class="mini-icon-image"> <%= user.user_name %> </span>
-            <% end %>
-            <br><br>
+            <div class="follow-user-div">
+              <div class="follow-user-div-header">
+                <%= link_to  "/users/#{user.id}" do %>
+                  <div class="follow-user-div-user">
+                    <span class="follow-profile-image">
+                      <%=follow_image_show(user)%>
+                    </span>
+                    <div>
+                      <p><%= user.name %></p>
+                      <p class="follow-user-name"><%= user.user_name %></p>
+                    </div>
+                  </div>
+                <% end %>
+                <div>
+                </div>
+              </div>
+              <p class="follow-profile-comment"><%= user.user_comment%></p>
+            </div>
           <% end %>
-        </div>
-      <% end %>
-    </section>
-  </aside>
+      </div>
+    <% end %>
+  </div>
