@@ -813,7 +813,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
         height: 48%;
         padding: 5%;
         margin: 20px auto;
-        border: 3px solid #cccccc;
+        // border: 3px solid #cccccc;
         border-radius: 20px;
         word-wrap: break-word;
       }
@@ -849,6 +849,9 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       margin-top: 5px;
       .follow-user-div-header{
         display: flex;
+        .follow-button{
+          margin-left: auto;
+        }
         .follow-user-div-user{
           display: flex;
           .follow-profile-image{

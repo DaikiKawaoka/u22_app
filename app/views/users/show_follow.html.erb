@@ -1,7 +1,7 @@
 
   <h1 class="follow-user-name-h1"><%= @user.user_name %></h1>
   <div class="follow-show">
-    <h3 class="follow-midasi"><%= @follow %>(<%= @follow_count%>)</h3>
+    <h3 class="follow-midasi"><%= @follow %> </h3> <h3 id ="followers">(<%= @follow_count%>)</h3>
     <% if @users.any? %>
         <div class="follow-div">
           <% @users.each do |user| %>
@@ -18,7 +18,8 @@
                     </div>
                   </div>
                 <% end %>
-                <div>
+                <div class="follow-button">
+                  <%= render partial: "followpage_form", locals: {user: user} %>
                 </div>
               </div>
               <p class="follow-profile-comment"><%= user.user_comment%></p>
