@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
-    @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
+    if (current_user?(@user))
+      @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
+    else
+      @things = @user.things.paginate(page: params[:page]).order(created_at: :desc).where(thing_shear: true)
+    end
   end
 
   def new
