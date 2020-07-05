@@ -26,8 +26,11 @@ class Thing < ApplicationRecord
 
   # 表示用のりサイズ済み画像を返す
   def display_image
-    thingImage.variant(resize_to_limit: [240, 240])
+    thingImage.variant(resize_to_fill: [240, 240])
   end
+  # thingImage.variant(resize_to_limit: [240, 240])  画像全体
+  # thingImage.variant(resize_to_fill: [240, 240])  中心から正方形で切り取り
+  # thingImage.variant(combine_options:{resize:"27x27^",crop:"27x27+0+0",gravity: :center}).processed 上から正方形で切り取り
 
   #いいねアクション
   def create_notification_by(current_user)

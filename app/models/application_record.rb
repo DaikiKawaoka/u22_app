@@ -4,16 +4,16 @@ class ApplicationRecord < ActiveRecord::Base
   # 表示用のりサイズ済み画像を返す
   #header_icon
   def display_image2
-    image.variant(combine_options:{resize:"27x27^",crop:"27x27+0+0",gravity: :center}).processed
+    image.variant(resize_to_fill: [27, 27])
   end
 
   def display_image3
-    image.variant(combine_options:{resize:"45x45^",crop:"45x45+0+0",gravity: :center}).processed
+    image.variant(resize_to_fill: [45, 45])
   end
 
   #profile_icon
   def display_image_profile2
-    image.variant(combine_options:{resize:"240x240^",crop:"240x240+0+0",gravity: :center}).processed
+    image.variant(resize_to_fill: [240, 240])
   end
 
 end
