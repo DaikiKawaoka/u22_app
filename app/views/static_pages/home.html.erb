@@ -2,7 +2,7 @@
 
 <!--絞り込み -->
 <%= render 'static_pages/narrow_home' %>
-<div id="con" class="container" id="js-continer">
+<div class="static-content-div">
   <h1>Global Page</h1>
   <h3>All</h3>
   <% if(@things.any?)%>
@@ -11,4 +11,5 @@
     </div>
     <%= will_paginate @things,class: "pagination justify-content-center",renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
   <%end%>
+</div>
 <%end%>

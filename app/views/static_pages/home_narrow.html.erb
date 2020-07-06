@@ -1,12 +1,11 @@
 <%= render 'static_pages/narrow_home' %>
-
-<div id="con" class="container" id="js-continer">
-<h1>Global Page</h1>
-<h3><%= @thing_type_name%></h3>
-<% if(@things.any?)%>
-  <div class="home-things-div">
-    <%= render @things %>
-  </div>
-  <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-<%end%>
+<div class="static-content-div">
+  <h1>Global Page</h1>
+  <h3><%= @thing_type_name%></h3>
+  <% if(@things.any?)%>
+    <div class="home-things-div">
+      <%= render @things %>
+    </div>
+    <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  <%end%>
 </div>
