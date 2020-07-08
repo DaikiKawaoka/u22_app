@@ -1,4 +1,5 @@
   <header class="header">
+  <div class="header-main-div">
     <i class="fab fa-cuttlefish fa-3x title"></i>
 
     <!--検索欄-->
@@ -38,7 +39,7 @@
       <% end %>
 
       <%= link_to current_user do%>
-        <span class="mini-icon-image">
+        <span class="mini-icon-image" title="プロフィール">
           <% if @current_user.image.attached? %>
             <%= image_tag @current_user.display_image2 if @current_user.image.attached? %>
           <% end %>
@@ -53,6 +54,7 @@
         <i class="login">ゲストでログイン</i>
       <% end %>
     <% end %>
+    </div>
   </header>
 
   <div class="flash-css">

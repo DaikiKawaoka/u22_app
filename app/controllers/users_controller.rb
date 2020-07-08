@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   #index,edit,updateの前にlogged_in_userを実行するよのコード
-  before_action :logged_in_user, only: [:index,:edit, :update,
-                           :following, :followers]
+  before_action :logged_in_user, only: [:index ,:edit, :update,
+                           :following, :followers,:show]
 
   before_action :correct_user,   only: [:edit, :update]
 

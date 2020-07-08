@@ -1,15 +1,17 @@
 <% if logged_in? %>
 
 <!--絞り込み -->
-<%= render 'static_pages/narrow_home' %>
-<div class="static-content-div">
-  <h1>Global Page</h1>
-  <h3>All</h3>
-  <% if(@things.any?)%>
-    <div class="home-things-div">
-      <%= render @things %>
+  <div class="static-content-div">
+    <h1>Global Page</h1>
+    <h3>All</h3>
+    <div class="static_pages-div-main">
+    <%= render 'static_pages/narrow_home' %>
+    <% if(@things.any?)%>
+      <div class="home-things-div">
+        <%= render @things %>
+        <%= will_paginate @things,class: "pagination justify-content-center",renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
+      </div>
+    <%end%>
     </div>
-    <%= will_paginate @things,class: "pagination justify-content-center",renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'%>
-  <%end%>
-</div>
+  </div>
 <%end%>

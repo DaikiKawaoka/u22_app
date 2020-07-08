@@ -1,4 +1,4 @@
-<table border="1">
+<table>
   <caption class="icon-image-user-name">
     <%= link_to user_path(thing.user) do %>
     <span class="mini-icon-image">
@@ -9,10 +9,16 @@
     <span><%= user_name_print_thing(thing.user.user_name) %></span>
     <% end %>
   </caption>
+
   <tr>
-    <th>
-      タイトル
-    </th>
+    <td>
+      <% if thing.thingImage.attached? %>
+      <%= image_tag thing.display_image if thing.thingImage.attached? %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
     <td>
       <span class="content"><%= link_to thing.thing_name, thing_path(thing) %></span>
     </td>
@@ -20,23 +26,9 @@
 
   <tr>
     <th>
-      画像
-    </th>
-    <td>
-      <% if thing.thingImage.attached? %>
-      <%= image_tag thing.display_image if thing.thingImage.attached? %>
-      <% else%>
-      なし
-      <% end %>
-    </td>
-  </tr>
-  <tr>
-    <th>
       <% if current_user?(@user) %>
       <%= link_to "削除", thing, method: :delete , data: { confirm: "本当に削除しますか？" } %>
       <% end %>
-    </th>
-    <th>
       <% if current_user?(@user) %>
       <%= link_to "編集", edit_thing_path(thing)%>
       <% end %>

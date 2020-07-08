@@ -1,11 +1,13 @@
-<%= render 'static_pages/narrow_index' %>
 <div class="static-content-div">
   <h1>Management Page</h1>
   <h3><%= @thing_type_name%></h3>
-  <% if(@things.any?)%>
+  <div class="static_pages-div-main">
+  <%= render 'static_pages/narrow_index' %>
+    <% if(@things.any?)%>
     <div class="home-things-div">
       <%= render @things %>
+      <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
     </div>
-    <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
   <%end%>
+  </div>
 </div>

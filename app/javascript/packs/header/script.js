@@ -24,18 +24,4 @@ $(document).ready(function(){
   });
 });
 
-//絞り込みjs
-$(function() {
-  $('.side-menu').hover(
-      function(){
-        $(this).stop(true).animate({'margin-left':'200px' }, 330);
-        $('.container').stop(true).animate({'margin-left':'200px' }, 330);
-      },
-      function () {
-        $(this).animate({'margin-left':'0px'}, 330);
-        $('.container').animate({'margin-left':'0px'}, 330);
-      }
- );
-});
-
 

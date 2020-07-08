@@ -31,8 +31,7 @@
     <div class="profile-thing col-md-8">
 
       <% if @user.things.any? %>
-          <h3>Things (<%= @user.things.count %>)</h3>
-          <div class="home-things-div">
+          <div class="show-things-div">
             <%= render @things %>
           </div>
           <%= will_paginate @things %>

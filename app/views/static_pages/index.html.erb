@@ -1,17 +1,17 @@
 <% if logged_in? %>
   <!--絞り込み -->
-  <%= render 'static_pages/narrow_index' %>
   <div class="static-content-div">
     <h1>Management Page</h1>
     <h3>All</h3>
+    <div class="static_pages-div-main">
+      <%= render 'static_pages/narrow_index' %>
       <% if(@things.any?)%>
         <div class="home-things-div">
           <%= render @things %>
-        </div>
         <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
-      <% else%>
-        <h3>ユーザーをフォローしてみよう！！</h3>
+        </div>
       <%end%>
+      </div>
   </div>
 <%else%>
   <img src='/assets/home-image2.jpg' class="home-image">
