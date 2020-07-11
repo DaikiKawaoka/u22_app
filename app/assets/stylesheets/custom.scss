@@ -644,10 +644,10 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           justify-content: center;
           border-right: 1px solid #ccc;
           .post_user_icon_block {
-            height: 60px;
-            width: 60px;
+            height: 50px;
+            width: 50px;
             img {
-              margin-top: 7px;
+              margin-top: 10px;
               width: 100%;
               border-radius: 50%;
               border: 2px solid #cccccc;
@@ -660,7 +660,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
               margin-top: 20px;
               // padding-right: 100px;
               font-weight: bolder;
-              font-size: 20px;
+              font-size: 15px;
               line-height: 30px;
               font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                 "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
@@ -802,13 +802,13 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           height: 10%;
           border-bottom: 1px solid #cccccc;
           .post_comment_post_user_icon_block {
-            height: 60px;
-            width: 60px;
+            height: 50px;
+            width: 50px;
             margin: auto;
             img {
               margin: 0 20px;
-              height: 60px;
-              width: 60px;
+              height: 50px;
+              width: 50px;
               border-radius: 50%;
               border: 2px solid #cccccc;
             }
@@ -866,8 +866,8 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
                 height: 60px;
                 width: 60px;
                 img {
-                  height: 60px;
-                  width: 60px;
+                  height: 50px;
+                  width: 50px;
                   border-radius: 50%;
                   border: 2px solid #cccccc;
                 }
@@ -880,7 +880,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
                   p {
                     font-weight: bolder;
                     font-size: 15px;
-                    line-height: 30px;
+                    line-height: 20px;
                     font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                       "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
                       "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -896,6 +896,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
                   font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                     "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
                     "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+                    p{margin-bottom: 5px;}
                 }
               }
             }

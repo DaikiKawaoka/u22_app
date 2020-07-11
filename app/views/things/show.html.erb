@@ -6,7 +6,7 @@
               <%= image_tag @user.display_image_profile2 if @user.image.attached? %>
             </div>
             <div class="post_user_name_block">
-              <p name="post_user_name" id="post_user_name"><%= @thing.user.user_name%></p>
+              <p name="post_user_name" id="post_user_name"><%= user_name_print(@thing.user.user_name)%></p>
             </div>
             <div class="post_user_followbtn_block">
               <input
