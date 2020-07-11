@@ -44,6 +44,41 @@ class LikesController < ApplicationController
     end
   end
 
+
+  def create_show
+    unless(guest_user?)
+      @thing = Thing.find(params[:thing_id])
+      unless @thing.iine?(current_user)
+        @thing.iine(current_user)
+        @thing.reload
+        #通知の作成
+        @thing.create_notification_by(current_user)
+        respond_to do |format|
+          format.html { redirect_to request.referrer || root_url }
+          format.js
+        end
+      end
+    else
+      redirect_to "/login"
+    end
+  end
+
+  def destroy_show
+    unless(guest_user?)
+      @thing = Like.find(params[:id]).thing
+      if @thing.iine?(current_user)
+        @thing.uniine(current_user)
+        @thing.reload
+        respond_to do |format|
+          format.html { redirect_to request.referrer || root_url }
+          format.js
+        end
+      end
+    else
+      redirect_to "/login"
+    end
+  end
+
   # def create #いいね
   #   if Like.where(thing_id: params[:thing_id],user_id: @current_user.id).count == 0
   #     like=Like.create(thing_id: params[:thing_id],user_id: @current_user.id)

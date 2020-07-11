@@ -1,131 +1,85 @@
 <div class="thing-show-div">
-  <h1><%=@thing.thing_name%></h1>
+      <div class="content">
+        <div class="main_box">
+          <div class="post_user_box">
+            <div class="post_user_icon_block">
+              <%= image_tag @user.display_image_profile2 if @user.image.attached? %>
+            </div>
+            <div class="post_user_name_block">
+              <p name="post_user_name" id="post_user_name"><%= @thing.user.user_name%></p>
+            </div>
+            <div class="post_user_followbtn_block">
+              <input
+                class="post_follow_button"
+                id="post_follow_button"
+                type="button"
+                value="フォローする"
+              />
+            </div>
+          </div>
+          <div class="post_img_box">
+           <!-- <img src="img.jpg" id="post_img" /> -->
+           <%= image_tag @thing.display_image_show if @thing.thingImage.attached? %>
+          </div>
+          <div class="footer">
+            <div class="post_footer_menu">
+              <div class="star-rating">
+                <div class="star-rating-front rate rate<%= @thing.thing_assessment%>" style="width: 100%;">
+                </div>
+              </div>
 
-  <table border="1" class="thing-show-table">
-    <tr>
-      <th>
-        type
-      </th>
-      <td>
-        <span class="content"><%= @thing.thing_type %></span>
-      </td>
-    </tr>
+              <div class="post_like_box" id="thing-<%= @thing.id %>">
+               <%= render "likes/like", thing: @thing %>
+              </div>
 
-    <tr>
-      <th>
-        画像
-      </th>
-      <td>
-        <% if @thing.thingImage.attached? %>
-        <%= image_tag @thing.display_image if @thing.thingImage.attached? %>
-        <% else%>
-        なし
-        <% end %>
-      </td>
-    </tr>
-
-    <tr>
-      <th>
-        コメント
-      </th>
-      <td>
-        <span class="content"><%= @thing.thing_comment %></span>
-      </td>
-    </tr>
-
-    <tr>
-      <th>
-        評価
-      </th>
-      <td>
-        <span class="content"><%= @thing.thing_assessment %></span>
-      </td>
-    </tr>
-
-    <tr>
-      <th>
-        共有
-      </th>
-      <td>
-        <span class="content"><%= @thing.thing_shear %></span>
-      </td>
-    </tr>
-    <tr>
-    <td colspan="2" id="thing-<%= @thing.id %>">
-    <!-- Likesコントローラではthingのidが必要になるため、Likeビューをパーシャル化する際に、
-Thingをビューに渡してあげる必要があります。-->
-    <%= render "likes/like", thing: @thing %>
-    </td>
-    </tr>
-<!--
-    <tr>
-      <th>
-        お気に入り
-      </th>
-      <td>
-        <span class="content"><%= @thing.thing_favorite %></span>
-      </td>
-    </tr>
-
-    <td colspan="2">
-      <% if @current_user.id != @thing.user.id %>
-      <% if Like.find_by(user_id: @current_user.id,thing_id: @thing.id) %>
-      <%= link_to("/likes/#{@thing.id}/destroy",method: :delete,remote: true) do %>
-      <span class="fa fa-heart like-btn-unlike"></span>
-      <% end %>
-      <% else %>
-      <%= link_to("/likes/#{@thing.id}/create",method: :post,remote: true) do %>
-      <span class="fa fa-heart like-btn"></span>
-      <% end %>
-      <% end %>
-      <% else %>
-      <span class="fa fa-heart like-btn-unlike"></span>
-      <% end %>
-      <%= Like.where(thing_id: @thing.id).count %>
-    </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <% if @thing.user_id == @current_user.id %>
-        <% if Like.find_by(thing_id: @thing.id,user_id: @thing.user_id) %>
-        <%= link_to("/likes/#{@thing.id}/destroy_favorite",method: :delete) do %>
-        <span class="far fa-star favorite"></span>
-        <% end %>
-        <% else %>
-        <%= link_to("/likes/#{@thing.id}/create_favorite",method: :post) do %>
-        <span class="far fa-star not_favorite"></span>
-        <% end %>
-        <% end %>
-        <% end %>
-      </td>
-    </tr>
-    -->
-    <% @comments.each do |comment| %>
-    <tr>
-      <td colspan="2">
-        <span class="mini-icon-image">
-          <% if comment.user.image.attached? %>
-          <%= image_tag comment.user.display_image2 if comment.user.image.attached? %>
-          <% end %>
-        </span>
-        <%= comment.user.user_name %>
-        <%= comment.content %>
-        <%= link_to '削除', thing_comment_path(@thing, comment), method: :delete %>
-        <% end %>
-      <td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <%= form_with model: [@thing, @comment], local: true do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
-
-        <div class='form-group'>
-          <%= f.text_area :content, class: 'form-control',　id:'content',
-         placeholder: "コメントを記入してください" %>
+            </div>
+            <div class="post_text_box">
+              <p>
+                <%= @thing.thing_comment %>
+              </p>
+            </div>
+          </div>
         </div>
+        <div class="post_comment_main">
+          <div class="post_comment_post_box">
+            <%= form_with model: [@thing, @comment], local: true do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+              <div class="post_comment_post_user_icon_block">
+                <%= image_tag @current_user.display_image_profile2 if @current_user.image.attached? %>
+              </div>
+              <%= f.text_area :content, class: 'form-control',　id:'post_comment_textbox',
+              placeholder: "コメントを記入してください" %>
 
-        <%= f.submit "コメントする", class: "btn btn-primary" %>
-        <% end %>
-      </td>
-    </tr>
-</div>
+              <%= f.submit "投稿", class: "post_button" %>
+            <% end %>
+          </div>
+          <div class="post_comment_box">
+            <% @comments.each do |comment| %>
+              <div class="post_comment_block">
+                <div class="post_comment_user_box">
+                  <div class="post_comment_user_icon_block">
+                    <%= image_tag comment.user.display_image_profile2 if comment.user.image.attached? %>
+                  </div>
+                  <div class="post_comment_body">
+                    <div class="post_comment_user_name_block">
+                      <p
+                        name="post_comment_user_name"
+                        id="post_comment_user_name"
+                      >
+                        <%= comment.user.user_name %>
+                      </p>
+                      <p>&nbsp;&nbsp;</p>
+                      <p class="post_comment_time"><%= comment.how_long_ago %></p>
+                    </div>
+                    <div class="post_comment_main">
+                      <p><%= comment.content %></p>
+                      <%= link_to '削除', thing_comment_path(@thing, comment), method: :delete %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

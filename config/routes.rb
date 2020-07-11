@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   # post '/likes/:thing_id/create', to:'likes#create'#いいね
   # delete '/likes/:thing_id/destroy', to:'likes#destroy' #いいねを外す
   # get '/likes/:id', to:'likes#show' #いいね一覧
+
   resources :likes, only: [:create, :destroy,:show]
 
 #/users/1/following的な

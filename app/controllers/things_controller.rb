@@ -7,7 +7,7 @@ class ThingsController < ApplicationController
 
     def show
       @thing = Thing.find(params[:id])
-      user = @thing.user
+      @user = @thing.user
       @comment =Comment.new #新規コメント用
       @comments =@thing.comments #コメント表示用投稿に関連づくコメントの取得
     end

@@ -190,6 +190,46 @@ body {
   height: 60px;
   background: white;
   border-bottom: 1px solid rgb(202, 202, 200);
+
+  /* ホーム */
+.fa-home {
+  text-align: center;
+  color: black;
+  padding-top: 25px;
+}
+
+/* 地球 */
+.fa-globe {
+  text-align: center;
+  height: 100%;
+  color: #000;
+  padding-top: 25px;
+}
+
+/* 追加 */
+.fa-plus-square {
+  text-align: center;
+  height: 100%;
+  color: #000;
+  padding-top: 25px;
+}
+
+/* ハート */
+.fa-heart {
+  text-align: center;
+  height: 100%;
+  color: black;
+  padding-top: 25px;
+}
+
+/* コメント */
+.fa-comment {
+  text-align: center;
+  height: 100%;
+  color: black;
+  padding-top: 25px;
+}
+
 }
 .header-main-div{
   display: flex;
@@ -235,45 +275,6 @@ body {
 .login:hover {
   background: rgb(202, 202, 200);
 }
-/* ホーム */
-.fa-home {
-  text-align: center;
-  color: black;
-  padding-top: 25px;
-}
-
-/* 地球 */
-.fa-globe {
-  text-align: center;
-  height: 100%;
-  color: #000;
-  padding-top: 25px;
-}
-
-/* 追加 */
-.fa-plus-square {
-  text-align: center;
-  height: 100%;
-  color: #000;
-  padding-top: 25px;
-}
-
-/* ハート */
-.fa-heart {
-  text-align: center;
-  height: 100%;
-  color: black;
-  padding-top: 25px;
-}
-
-/* コメント */
-.fa-comment {
-  text-align: center;
-  height: 100%;
-  color: black;
-  padding-top: 25px;
-}
-
 
 // table_css
 .show-things-div{
@@ -613,36 +614,348 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
 }
 
 .things{
-  .thing-show-div{
-    text-align: center;
+  .thing-show-div {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    height: 100vh;
+    // position: fixed;
+    // top: 20px;
+    width: 1000px;
+    .content {
+      background: #fff;
+      // left: 30%;
+      // position: absolute;
+      // top: 50%;
+      // transform: translate(-50%, -50%);
+      width: 950px;
+      margin: 0 auto;
+      height: 100%;
+      // filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.2));
+      border-radius: 3px;
+      display: flex;
+      border: 1px solid #cccccc;
+      .main_box {
+        height: 100%;
+        width: 55%;
+        padding-bottom: 10px;
+        .post_user_box {
+          height: 10%;
+          display: flex;
+          justify-content: center;
+          border-right: 1px solid #ccc;
+          .post_user_icon_block {
+            height: 60px;
+            width: 60px;
+            img {
+              margin-top: 7px;
+              width: 100%;
+              border-radius: 50%;
+              border: 2px solid #cccccc;
+            }
+            margin-right: 10px;
+          }
+          .post_user_name_block {
+            p {
+              width: 300px;
+              margin-top: 20px;
+              // padding-right: 100px;
+              font-weight: bolder;
+              font-size: 20px;
+              line-height: 30px;
+              font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+                "MS PGothic", sans-serif;
+            }
+          }
+          .post_user_followbtn_block {
+            .post_follow_button {
+              margin-top: 25px;
+              margin-left: 30px;
+              border: none;
+              display: inline-block;
+              font-weight: bold;
+              text-decoration: none;
+              color: #55efc4;
+              background-color: transparent;
+              font-size: 1em;
+              line-height: 25px;
+              font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+                "MS PGothic", sans-serif;
+              &:focus {
+                outline: 0;
+                color: rgba($color: #55efc4, $alpha: 0.6);
+              }
+            }
+          }
+        }
+        .post_img_box {
+          height: 70%;
+          width: 100%;
+          border-top: solid 1px #cccccc;
+          border-bottom: solid 1px #cccccc;
+          img {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .footer {
+          height: 19%;
+          display: block;
+          width: 100%;
+          border-right: #cccccc solid 1px;
+          .post_footer_menu {
+            height: 20%;
+            display: flex;
+            .star-rating {
+              position: relative;
+              width: 5em;
+              height: 1em;
+              font-size: 20px;
+              margin-left: 4%;
+              .rate::before,
+              .rate::after{
+              content: '★★★★★';
+              }
+              .rate::before{
+              color: #ccc;
+              }
+              .rate::after{
+              position: absolute;
+              left:0;
+              top:0;
+              color: #f3d680;
+              overflow: hidden;
+              }
+              .rate.rate0::after{
+              width: 0;
+              }
+              .rate.rate1::after{
+              width: 1em;
+              }
+              .rate.rate1-5::after{
+              width: 1.5em;
+              }
+              .rate.rate2::after{
+              width: 2em;
+              }
+              .rate.rate2-5::after{
+              width: 2.5em;
+              }
+              .rate.rate3::after{
+              width: 3em;
+              }
+              .rate.rate3-5::after{
+              width: 3.5em;
+              }
+              .rate.rate4::after{
+              width: 4em;
+              }
+              .rate.rate4-5::after{
+              width: 4.5em;
+              }
+              .rate.rate5::after{
+              width: 5em;
+              }
+            }
+            .post_like_box {
+              margin-top: 5px;
+              margin-left: 67%;
+              .fa{
+                font-size: 25px;
+              }
+              .like-btn-unlike{
+                color: #f8a5c2;
+              }
+              .like-btn{
+                color: #ccc;
+              }
+              .like-count{
+                position: relative;
+                top: -20px;
+                left: 30px;
+              }
+            }
+          }
+          .post_text_box {
+            height: 80%;
+            overflow: auto;
+            margin: 10px;
+            width: 95%;
+            p {
+              text-align: center;
+              font-weight: bolder;
+              font-size: 12px;
+              line-height: 30px;
+              font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+                "MS PGothic", sans-serif;
+            }
+          }
+        }
+      }
+    
+      .post_comment_main {
+        width: 45%;
+        .post_comment_post_box {
+          height: 10%;
+          border-bottom: 1px solid #cccccc;
+          .post_comment_post_user_icon_block {
+            height: 60px;
+            width: 60px;
+            margin: auto;
+            img {
+              margin: 0 20px;
+              height: 60px;
+              width: 60px;
+              border-radius: 50%;
+              border: 2px solid #cccccc;
+            }
+          }
+          form {
+            height: 100%;
+            display: flex;
+            .post_button {
+              border: none;
+              display: inline-block;
+              font-weight: bold;
+              text-decoration: none;
+              color: #55efc4;
+              margin: auto;
+              background-color: transparent;
+              font-size: 1em;
+              line-height: 25px;
+              font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+                "MS PGothic", sans-serif;
+              &:focus {
+                outline: 0;
+                color: rgba($color: #55efc4, $alpha: 0.6);
+              }
+            }
+          }
+          textarea {
+            outline: none;
+            width: 1000px;
+            height: 80%;
+            margin-top: 10px;
+            margin-left: 40px;
+            resize: none;
+            border: none;
+            font-size: 15px;
+            line-height: 25px;
+            font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+              "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+              "MS PGothic", sans-serif;
+          }
+        }
+        .post_comment_box {
+          height: 84%;
+          overflow: auto;
+          .post_comment_block {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            width: 420px;
+            height: auto;
+            .post_comment_user_box {
+              display: flex;
+              .post_comment_user_icon_block {
+                height: 60px;
+                width: 60px;
+                img {
+                  height: 60px;
+                  width: 60px;
+                  border-radius: 50%;
+                  border: 2px solid #cccccc;
+                }
+                margin-right: 10px;
+              }
+              .post_comment_body {
+                display: block;
+                .post_comment_user_name_block {
+                  display: flex;
+                  p {
+                    font-weight: bolder;
+                    font-size: 15px;
+                    line-height: 30px;
+                    font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                      "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
+                      "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+                  }
+                  .post_comment_time {
+                    font-size: 13px;
+                    color: #cccccc;
+                  }
+                }
+                .post_comment_main {
+                  width: auto;
+                  font-size: 14px;
+                  font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
+                    "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-  .thing-show-table{
-    margin-left: auto;
-    margin-right: auto;
+
+  @media screen and (max-width: 1000px) {
+    .content {
+      height: 90%;
+      overflow: auto;
+      width: 500px;
+      display: block;
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #fff;
+        border: none;
+        border-radius: 0 10px 10px 0;
+        box-shadow: inset 0 0 2px #777;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 0 10px 10px 0;
+        border: none;
+      }
+      .main_box {
+        height: 100%;
+        width: 100%;
+        .post_img_box {
+          height: 60%;
+          width: 100%;
+        }
+        .post_user_box {
+          border: none;
+        }
+        .footer {
+          height: 25%;
+          .post_text_box {
+            width: 450px;
+            margin: auto;
+          }
+        }
+      }
+      .post_comment_main {
+        height: auto;
+        width: 100%;
+        margin: auto;
+        .post_comment_post_box {
+          border: 0px;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
   }
-  .home-things-div{
-    display: flex;
-    flex-wrap :wrap;
-  }
-  table{
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  h3{
-    color:rgb(21, 182, 21);
-  }
-  .thing-form-div{
-    width:400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-  }
-  .like-btn {
-    color: #8899A6;
-  }
-  .like-btn-unlike {
-    color: #FF2581;
-  }
+  
 }
 
 
