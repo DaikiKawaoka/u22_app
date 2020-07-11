@@ -1,31 +1,24 @@
 Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
-
   #管理ページ
   root 'static_pages#index'
   get  '/signup',  to: 'users#new'
   #管理ページ絞り込み
   get  "/static_pages/:id/index"  => "static_pages#index_narrow"
-
   #世界ページ
   get "static_pages/home"=> "static_pages#home"
   #世界ページ絞り込み
   get  "/static_pages/:id"  => "static_pages#home_narrow"
-
 #通知ページ
   delete "/notifications/destroy_all" , to: "notifications#destroy_all"
   resources :notifications, only: :index
-
-
-
   resources :users
   get    '/login',   to: 'sessions#new'  #新しいセッションのページ (ログイン)
   post   '/login',   to: 'sessions#create'  #新しいセッションの作成 (ログイン)
   delete '/logout',  to: 'sessions#destroy'  #セッションの削除 (ログアウト)
  #guest_userでログイン
   get  '/guestlogin', to: 'sessions#guestlogin'
-
   resources :things do
     resources :comments, only: [:create, :destroy]  #物へのコメント
   end
@@ -33,9 +26,7 @@ Rails.application.routes.draw do
   # post '/likes/:thing_id/create', to:'likes#create'#いいね
   # delete '/likes/:thing_id/destroy', to:'likes#destroy' #いいねを外す
   # get '/likes/:id', to:'likes#show' #いいね一覧
-
   resources :likes, only: [:create, :destroy,:show]
-
 #/users/1/following的な
   resources :users do
     member do
@@ -45,11 +36,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
 #パスワードをリセットするパス
   resources :password_resets,     only: [:new, :create, :edit, :update]
-
   resources :password_edit,     only: [:edit,:update]
-
   resources :relationships,       only: [:create, :destroy]
-
   # GET	/users	index	users_path すべてのユーザーを一覧するページ
   # GET	/users/1	show	user_path(user) 特定のユーザーを表示するページ
   # GET	/users/new	new	new_user_path ユーザーを新規作成するページ (ユーザー登録)
