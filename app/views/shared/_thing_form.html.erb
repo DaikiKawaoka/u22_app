@@ -11,7 +11,7 @@
     <%= f.text_field :thing_comment %>
 
     <%= f.label :thing_assessment,"評価" %>
-    <%= f.number_field :thing_assessment %>
+    <%= f.select :thing_assessment,[[0,"0"],[0.5,"0-5"],[1,"1"],[1.5,"1-5"],[2,"2"],[2.5,"2-5"],[3,"3"],[3.5,"3-5"],[4,"4"],[4.5,"4-5"],[5,"5"]] %>
 
     <%= f.label :thing_type ,"タイプ"%>
     <%= f.select :thing_type,[['ファッション', 1], ['書籍', 2],['ゲーム',3], ['コスメ', 4],['家電',5], ['食料品', 6],['音楽',7],
