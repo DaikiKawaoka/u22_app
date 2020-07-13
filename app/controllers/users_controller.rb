@@ -10,7 +10,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_url and return unless @user.activated?
     if (current_user?(@user))
-      @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
+      # 自分が投稿したもの
+      # @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
+
+      #いいね一覧
+      thing_array = []
+      likes = Like.where(user_id: params[:id])
+      likes.each{|like|
+        thing_array << like.thing_id
+      }
+      @things = Thing.where(id: thing_array).order(created_at: :asc)
+      @mark="like_tag"
     else
       @things = @user.things.paginate(page: params[:page]).order(created_at: :desc).where(thing_shear: true)
     end
@@ -81,6 +91,27 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def keep
+    @user = User.find(params[:id])
+    @mark="keep_tag"
+    redirect_to root_url and return unless @user.activated?
+    if (current_user?(@user))
+      # 自分が投稿したもの
+      # @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
+
+      #いいね一覧
+      # thing_array = []
+      # likes = Like.where(user_id: params[:id])
+      # likes.each{|like|
+      #   thing_array << like.thing_id
+      # }
+      @things = Thing.where(user_id: current_user.id).order(created_at: :asc)
+      
+    else
+      redirect_to root_url
+    end
+    render "keep"
+  end
   private
 
     def user_params_new

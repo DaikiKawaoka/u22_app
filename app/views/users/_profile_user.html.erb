@@ -1,32 +1,42 @@
 <div class="user-profile">
-        <div class="modal__content">
-         <div class="profile_top">
-            <div class="profile_img_block">
-                <% if @user.image.attached? %>
-                  <%= image_tag @user.display_image_profile2 if @user.image.attached? %>
-                <% end %>
-            </div>
-            <div class="profile_header">
-                <div class="profile_name_block">
-                    <p id="profile_name"><%= name_print(@user.name) %></p>
-                    <p id="profile_user_name"><%= user_name_print(@user.user_name) %></p>
-                </div>
-                <%= render "shared/stats"%> <!--フォロー-->
-                <div class="profile-comment-div">
-                    <p id="profile_comment"><%= @user.user_comment %></p>
-                </div>
-                <div class="profile_body">
-                  <%= render 'follow_form' if logged_in? %>
-                  <% if current_user?(@user) %>
-                      <div class="settei-btn">
-                        <i class="fa fa-2x fa-cog"></i>
-                      </div>
-                  <% end %>
-            </div>
-            </div>
-          </div>
+  <div class="modal__content">
+    <div class="profile_top">
+      <div class="profile_img_block">
+        <% if @user.image.attached? %>
+        <%= image_tag @user.display_image_profile300 if @user.image.attached? %>
+        <% end %>
+      </div>
+      <div class="profile_header">
+        <div class="profile_name_block">
+          <p id="profile_name"><%= name_print(@user.name) %></p>
+          <p id="profile_user_name"><%= user_name_print(@user.user_name) %></p>
         </div>
-        <!--modal__inner-->
+        <%= render "shared/stats"%>
+        <!--フォロー-->
+        <div class="profile-comment-div">
+          <p id="profile_comment"><%= @user.user_comment %></p>
+        </div>
+        <div class="profile_body">
+          <%= render 'follow_form' if logged_in? %>
+          <% if current_user?(@user) %>
+          <div class="settei-btn">
+            <i class="fa fa-2x fa-cog"></i>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <!--modal-->
-
+      <div class="user-show-main">
+      <% if (current_user?(@user)) %>
+        <%= render "/users/show_main"%>
+      <% else %>
+        <% if(@things.any?)%>
+          <div class="home-things-div">
+            <%= render @things %>
+            <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+          </div>
+        <%end%>
+      <% end %>
+      </div>
+  </div>
+</div>

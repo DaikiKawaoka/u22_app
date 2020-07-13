@@ -30,7 +30,7 @@ class Thing < ApplicationRecord
     thingImage.variant(resize_to_fill: [240, 240])
   end
   def display_image_show
-    thingImage.variant(resize_to_fill: [470, 470])
+    thingImage.variant(resize_to_fill: [500, 500])
   end
   # thingImage.variant(resize_to_limit: [240, 240])  画像全体
   # thingImage.variant(resize_to_fill: [240, 240])  中心から正方形で切り取り

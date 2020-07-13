@@ -284,10 +284,16 @@ body {
 }
 
 .home-things-div{
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-wrap :wrap;
+  justify-content: space-between;
   margin-top: 20px;
+  &::after{
+    content:"";
+    display: block;
+    width:33%;
+  }
 }
 table{
   margin-left: 15px;
@@ -976,7 +982,6 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
 }
 
 .user-profile {
-  height: 100vh;
   top: 0;
   width: 1000px;
   .modal__bg {
@@ -989,7 +994,8 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
     padding: 30px 0 40px 0;
     width: 1000px;
     height: 100%;
-    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
+    // filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
+    box-shadow: 0 -10px 5px -3px rgba(0,0,0,0.5);
 
     .profile_top{
       width: 900px;
@@ -1032,7 +1038,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
         word-wrap: break-word;
         font-size: 16px;
         padding: 12px;
-        border: 3px solid #cccccc;
+        // border: 3px solid #cccccc;
         border-radius: 20px;
       }
       .profile-comment-div{
@@ -1119,9 +1125,37 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
          }
       }
     }
-
   }
-
+}
+.user-show-main{
+  width: 900px;
+  margin: 0 auto;
+  .user-main-tag{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: solid #ddd 1px;
+    border-bottom: solid #ddd 1px;
+    span{
+      font-size: 20px;
+      text-align: center;
+      width: 100px;
+    }
+    a{
+      width: 100px;
+      text-align: center;
+      &:hover{
+        color: #000;
+        text-decoration: none;
+      }
+    }
+    .now-tag{
+      border-bottom: black 1px solid;
+    }
+    .like_tag{
+      width: 100px;
+    }
+  }
 }
 //-----------------------------------------------------------------------
 .follow-user-name-h1{

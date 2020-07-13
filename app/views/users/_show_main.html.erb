@@ -1,0 +1,27 @@
+<div class="user-main-tag">
+<%#今どこか確認%>
+<% case @mark%>
+<% when "like_tag" then%>
+  <%= link_to user_path(current_user),{class: "now-tag"} do %>
+    <span>like</span>
+  <% end %>
+  <%= link_to keep_user_path(@user) do%>
+    <span>keep</span>
+  <% end %>
+  <span>aaa</span>
+<% when "keep_tag" then%>
+  <%= link_to user_path(current_user) do %>
+    <span>like</span>
+  <% end %>
+  <%= link_to keep_user_path(@user),{class: "now-tag"}  do%>
+    <span>keep</span>
+  <% end %>
+  <span>aaa</span>
+<% else %>
+
+<% end %>
+
+</div>
+<div class="home-things-div">
+  <%= render @things %>
+</div>

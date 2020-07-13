@@ -16,4 +16,8 @@ class ApplicationRecord < ActiveRecord::Base
     image.variant(resize_to_fill: [240, 240])
   end
 
+  def display_image_profile300
+    image.variant(resize_to_fill: [500, 500])
+  end
+
 end
