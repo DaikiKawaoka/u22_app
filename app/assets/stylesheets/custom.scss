@@ -236,7 +236,6 @@ body {
   margin: 0 auto;
 }
 .header span img{
-  margin-right: 20px;
   margin-top: 15px;
 }
 
@@ -978,39 +977,37 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
 
 .user-profile {
   height: 100vh;
-  position: fixed;
   top: 0;
-  width: 100%;
-
+  width: 1000px;
   .modal__bg {
     height: 100vh;
-    position: absolute;
     width: 100%;
   }
 
   .modal__content {
-
     background: #fff;
-    padding: 80px 40px 40px 40px;
-    position: fixed;
-    width: 35%;
+    padding: 30px 0 40px 0;
+    width: 1000px;
     height: 100%;
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
-    overflow: scroll;
 
+    .profile_top{
+      width: 900px;
+      display: flex;
+      margin: 0 auto;
+    }
+    .profile_img_block{
+      width: 40%;
+    }
     .profile_img_block img {
-      width: 45%;
-      height: 45%;
+      width: 300px;
+      height: 300px;
       display: block;
-      margin: auto;
-      border-radius: 50%;
       border: 3px solid #cccccc;
     }
     .profile_header {
       position: relative;
-      height: 80px;
-      width: 100%;
-
+      width: 50%;
       .profile_name_block{
         p {
           font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
@@ -1021,12 +1018,26 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
         #profile_name {
           padding-top: 9px;
           font-weight: bolder;
-          font-size: 20px;
+          font-size: 30px;
           line-height: 30px;
         }
         #profile_user_name {
+          font-size:25px;
           color: #cccccc;
         }
+      }
+
+      #profile_comment {
+        text-align: center;
+        word-wrap: break-word;
+        font-size: 16px;
+        padding: 12px;
+        border: 3px solid #cccccc;
+        border-radius: 20px;
+      }
+      .profile-comment-div{
+        margin: 10px auto;
+        word-wrap: break-word;
       }
 
       .profile_follow_block {
@@ -1061,15 +1072,14 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
     }
 
     .profile_body{
-      position: relative;
       width: 100%;
       .settei-btn{
         margin: 20px;
         padding: 20px;
         .fa-cog {
           position: absolute;
-          top: 12px;
-          right: 30px;
+          top: 70px;
+          right: -40px;
           color: rgba(128, 128, 128, 0.4);
           cursor: pointer;
           &:hover {
@@ -1107,21 +1117,6 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           position: relative;
           transition: all 0.35s ease-in-out 0.35s;
          }
-      }
-
-      #profile_comment {
-        margin-top: 30px;
-        text-align: center;
-        word-wrap: break-word;
-      }
-      .profile-comment-div{
-        width: 95%;
-        height: 48%;
-        padding: 5%;
-        margin: 20px auto;
-        // border: 3px solid #cccccc;
-        border-radius: 20px;
-        word-wrap: break-word;
       }
     }
 

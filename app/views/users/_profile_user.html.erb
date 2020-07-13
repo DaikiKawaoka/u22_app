@@ -1,5 +1,6 @@
 <div class="user-profile">
         <div class="modal__content">
+         <div class="profile_top">
             <div class="profile_img_block">
                 <% if @user.image.attached? %>
                   <%= image_tag @user.display_image_profile2 if @user.image.attached? %>
@@ -11,30 +12,21 @@
                     <p id="profile_user_name"><%= user_name_print(@user.user_name) %></p>
                 </div>
                 <%= render "shared/stats"%> <!--フォロー-->
-            </div>
-
-            <div class="profile_body">
-            <%= render 'follow_form' if logged_in? %>
-              <% if current_user?(@user) %>
-                  <div class="settei-btn">
-                    <i class="fa fa-2x fa-cog"></i>
-                  </div>
-              <% end %>
                 <div class="profile-comment-div">
                     <p id="profile_comment"><%= @user.user_comment %></p>
                 </div>
+                <div class="profile_body">
+                  <%= render 'follow_form' if logged_in? %>
+                  <% if current_user?(@user) %>
+                      <div class="settei-btn">
+                        <i class="fa fa-2x fa-cog"></i>
+                      </div>
+                  <% end %>
             </div>
+            </div>
+          </div>
         </div>
         <!--modal__inner-->
     </div>
     <!--modal-->
-    <div class="profile-thing col-md-8">
 
-
-      <% if current_user.id == @user.id%>
-        <li><%= link_to "物登録", new_thing_path%></li>
-        <li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
-        <li><%= link_to "パスワード変更",edit_password_edit_path(current_user)%></li>
-        <li><%= link_to "ログアウト", logout_path, method: :delete%></li>
-      <% end %>
-    </div>
