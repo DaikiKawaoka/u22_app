@@ -18,7 +18,8 @@ class Thing < ApplicationRecord
   def iine?(user)
     iine_users.include?(user)
   end
-
+  
+  validates :thingImage, presence: true
   validates :thing_name, presence: true,length: { maximum: 50 }
   validates :thing_comment,length: { maximum: 255 }
   validates :thing_type, presence: true

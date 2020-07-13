@@ -296,6 +296,9 @@ table{
 }
 
 // 全ページcss
+a{
+  color: black;
+}
 
 //ログインしてないhome
 .home-image{
@@ -762,7 +765,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
             }
             .post_like_box {
               margin-top: 5px;
-              margin-left: 67%;
+              margin-left: 260px;
               .fa{
                 font-size: 25px;
               }
@@ -776,6 +779,9 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
                 position: relative;
                 top: -20px;
                 left: 30px;
+              }
+              button{
+                position: absolute;
               }
             }
           }
@@ -1101,31 +1107,6 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           position: relative;
           transition: all 0.35s ease-in-out 0.35s;
          }
-        // &:hover span {
-        //   background: #36b4c7;
-        //   color: #fff;
-        //   transition: all 0.35s ease-in-out 0.35s;
-        // }
-        // &:hover:after {
-        //   right: 0;
-        //   bottom: 0;
-        //   transition: all ease-in-out 0.35s;
-        // }
-        // &:before {
-        //   top: -100%;
-        //   left: -100%;
-        //   content: "";
-        //   width: 100%;
-        //   height: 100%;
-        //   position: absolute;
-        //   background: #36b4c7;
-        //   transition: all 0.35s ease-in-out 0.5s;
-        // }
-        // &:hover:before {
-        //   left: 0;
-        //   top: 0;
-        //   transition: all ease-in-out 0.35s;
-        // }
       }
 
       #profile_comment {
@@ -1211,4 +1192,106 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
 
 
 
+
+.star-heart{
+  display: flex;
+}
+.star-rating {
+  position: relative;
+  margin-left: 4%;
+  .rate{
+    font-size: 20px;
+    width: 110px;
+    height: 20px;
+  }
+  .rate::before,
+  .rate::after{
+  content: '★★★★★';
+  }
+  .rate::before{
+  color: #ccc;
+  }
+  .rate::after{
+  position: absolute;
+  left:0;
+  top:0;
+  color: #f3d680;
+  overflow: hidden;
+  }
+  .rate.rate0::after{
+  width: 0;
+  }
+  .rate.rate0-5::after{
+  width: 0.5em;
+  }
+  .rate.rate1::after{
+  width: 1em;
+  }
+  .rate.rate1-5::after{
+  width: 1.5em;
+  }
+  .rate.rate2::after{
+  width: 2em;
+  }
+  .rate.rate2-5::after{
+  width: 2.5em;
+  }
+  .rate.rate3::after{
+  width: 3em;
+  }
+  .rate.rate3-5::after{
+  width: 3.5em;
+  }
+  .rate.rate4::after{
+  width: 4em;
+  }
+  .rate.rate4-5::after{
+  width: 4.5em;
+  }
+  .rate.rate5::after{
+  width: 5em;
+  }
+}
+
+.post_like_box {
+  margin-top: 5px;
+  margin-left: 67%;
+  .fa{
+    font-size: 25px;
+  }
+  .like-btn{
+    color: #ccc;
+  }
+  .like-count{
+    position: relative;
+    top: -20px;
+    left: 30px;
+  }
+}
+.like{
+.like-color{
+  color: #f8a5c2;
+}
+.button-like{
+    margin-left: 80px;
+    border: none;  /* 枠線を消す */
+    outline: none; /* クリックしたときに表示される枠線を消す */
+    background: transparent; /* 背景の灰色を消す */
+    font-size: 20px;
+    &:hover{
+      //ボタンをホバーしたときの色を消す
+      background-color: #fff;
+    }
+    &:focus {
+      //ボタンを押したときの青色を消す
+      outline: none !important;
+      background-color: #fff;
+    }
+}
+.likes-count{
+  font-size: 13px;
+  position: absolute;
+  top:10px;
+}
+}
 

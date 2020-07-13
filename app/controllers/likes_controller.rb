@@ -17,7 +17,10 @@ class LikesController < ApplicationController
         @thing.iine(current_user)
         @thing.reload
         #通知の作成
-        @thing.create_notification_by(current_user)
+        #いいねした人とものを登録した人が違ったら通知を作成
+        unless(current_user.id == @thing.user.id)
+          @thing.create_notification_by(current_user)
+        end
         respond_to do |format|
           format.html { redirect_to request.referrer || root_url }
           format.js

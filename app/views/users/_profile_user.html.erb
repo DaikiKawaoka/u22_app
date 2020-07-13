@@ -30,12 +30,6 @@
     <!--modal-->
     <div class="profile-thing col-md-8">
 
-      <% if @user.things.any? %>
-          <div class="show-things-div">
-            <%= render @things %>
-          </div>
-          <%= will_paginate @things %>
-        <% end %>
 
       <% if current_user.id == @user.id%>
         <li><%= link_to "物登録", new_thing_path%></li>

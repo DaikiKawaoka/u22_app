@@ -2,9 +2,7 @@
   <caption class="icon-image-user-name">
     <%= link_to user_path(thing.user) do %>
     <span class="mini-icon-image">
-      <% if thing.user.image.attached? %>
       <%= image_tag thing.user.display_image2 if thing.user.image.attached? %>
-      <% end %>
     </span>
     <span><%= user_name_print_thing(thing.user.user_name) %></span>
     <% end %>
@@ -12,17 +10,21 @@
 
   <tr>
     <td>
-      <% if thing.thingImage.attached? %>
+    <%= link_to  thing_path(thing) do%>
       <%= image_tag thing.display_image if thing.thingImage.attached? %>
-      <% end %>
+    <% end%>
     </td>
   </tr>
-
   <tr>
-    <td>
-      <span class="content"><%= link_to thing.thing_name, thing_path(thing) %></span>
-    </td>
-  </tr>
+    <td class="star-rating star-heart">
+      <p class="star-rating-front rate rate<%= thing.thing_assessment%>"></p>
+      <span id="thing-<%= thing.id %>">
+        <!-- Likesコントローラではthingのidが必要になるため、Likeビューをパーシャル化する際に、
+Thingをビューに渡してあげる必要があります。-->
+      <%= render "likes/like", thing: thing %>
+      </span>
+      </td>
+  <tr>
 
   <tr>
     <th>
@@ -33,13 +35,6 @@
       <%= link_to "編集", edit_thing_path(thing)%>
       <% end %>
     </th>
-  </tr>
-  <tr>
-    <td id="thing-<%= thing.id %>">
-      <!-- Likesコントローラではthingのidが必要になるため、Likeビューをパーシャル化する際に、
-Thingをビューに渡してあげる必要があります。-->
-      <%= render "likes/like", thing: thing %>
-    <td>
   </tr>
 </table>
 <br>
