@@ -1302,7 +1302,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
   color: #f8a5c2;
 }
 .button-like{
-    margin-left: 80px;
+    margin-left: 60px;
     border: none;  /* 枠線を消す */
     outline: none; /* クリックしたときに表示される枠線を消す */
     background: transparent; /* 背景の灰色を消す */
@@ -1322,5 +1322,29 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
   position: absolute;
   top:10px;
 }
+}
+.keep{
+  .button-keep{
+    margin-left: 0px;
+    border: none;  /* 枠線を消す */
+    outline: none; /* クリックしたときに表示される枠線を消す */
+    background: transparent; /* 背景の灰色を消す */
+    font-size: 20px;
+    &:hover{
+      //ボタンをホバーしたときの色を消す
+      background-color: #fff;
+    }
+    &:focus {
+      //ボタンを押したときの青色を消す
+      outline: none !important;
+      background-color: #fff;
+    }
+    .glyphicon-bookmark-empty{
+      color: #ccc;
+    }
+    .keep-color{
+      color: rgb(142, 250, 0);
+    }
+  }
 }
 

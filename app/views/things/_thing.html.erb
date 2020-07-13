@@ -17,11 +17,15 @@
   </tr>
   <tr>
     <td class="star-rating star-heart">
+      <!--評価-->
       <p class="star-rating-front rate rate<%= thing.thing_assessment%>"></p>
+      <!--いいね-->
       <span id="thing-<%= thing.id %>">
-        <!-- Likesコントローラではthingのidが必要になるため、Likeビューをパーシャル化する際に、
-Thingをビューに渡してあげる必要があります。-->
       <%= render "likes/like", thing: thing %>
+      </span>
+      <!--keep-->
+      <span id="thing-keep-<%= thing.id %>">
+      <%= render "keeps/keep", thing: thing %>
       </span>
       </td>
   <tr>

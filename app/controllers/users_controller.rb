@@ -15,11 +15,11 @@ class UsersController < ApplicationController
 
       #いいね一覧
       thing_array = []
-      likes = Like.where(user_id: params[:id])
+      likes = Like.where(user_id: params[:id]).order(created_at: :desc)
       likes.each{|like|
         thing_array << like.thing_id
       }
-      @things = Thing.where(id: thing_array).order(created_at: :asc)
+      @things = Thing.where(id: thing_array)
       @mark="like_tag"
     else
       @things = @user.things.paginate(page: params[:page]).order(created_at: :desc).where(thing_shear: true)
@@ -96,17 +96,14 @@ class UsersController < ApplicationController
     @mark="keep_tag"
     redirect_to root_url and return unless @user.activated?
     if (current_user?(@user))
-      # 自分が投稿したもの
-      # @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
-
-      #いいね一覧
-      # thing_array = []
-      # likes = Like.where(user_id: params[:id])
-      # likes.each{|like|
-      #   thing_array << like.thing_id
-      # }
-      @things = Thing.where(user_id: current_user.id).order(created_at: :asc)
-      
+      @things = @user.things.paginate(page: params[:page]).order(created_at: :desc)
+      # keep一覧
+      keep_array = []
+      keeps = Keep.where(user_id: params[:id]).order(created_at: :desc)
+      keeps.each{|keep|
+        keep_array << keep.thing_id
+      }
+      @things = Thing.where(id: keep_array)
     else
       redirect_to root_url
     end

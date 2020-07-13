@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   #いいね機能 ユーザが消えるといいねも消える
   has_many :likes, dependent: :destroy
+  #keep機能　ユーザが消えるといいねも消える
+  has_many :keeps, dependent: :destroy
 
   has_many :passive_relationships, class_name:  "Relationship",
   foreign_key: "followed_id",

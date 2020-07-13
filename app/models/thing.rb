@@ -2,7 +2,7 @@ class Thing < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   validates :user_id, presence: true
-  # default_scope -> { order(created_at: :desc) }
+  #default_scope -> { order(created_at: :desc) }
   has_one_attached :thingImage
   validates :thingImage,   content_type: { in: %w[image/jpeg image/gif image/png image/jpg],
   message: "その画像は使用できません。" },
@@ -13,12 +13,22 @@ class Thing < ApplicationRecord
 
   #いいね機能　thingが消えるといいねも消える
   has_many :likes, dependent: :destroy
+  #(thingにいいねをしたユーザーの一覧)
   has_many :iine_users, through: :likes, source: :user
   # 現在のユーザーがいいねしてたらtrueを返す
   def iine?(user)
     iine_users.include?(user)
   end
-  
+
+  #keep機能　thingが消えるとkeepも消える
+  has_many :keeps, dependent: :destroy
+  #userとkeepの中間テーブル作成　（thingにkeepした一覧）　
+  has_many :keep_users, through: :keeps, source: :user
+  # 現在のユーザーがkeepしてたらtrueを返す
+  def keep?(user)
+    keep_users.include?(user)
+  end
+
   validates :thingImage, presence: true
   validates :thing_name, presence: true,length: { maximum: 50 }
   validates :thing_comment,length: { maximum: 255 }
@@ -54,6 +64,16 @@ class Thing < ApplicationRecord
   # thingのいいねを解除する
   def uniine(user)
     likes.find_by(user_id: user.id).destroy
+  end
+
+  # thingをkeepする
+  def keep(user)
+    keeps.create(user_id: user.id)
+  end
+
+  # thingのkeepを解除する
+  def unkeep(user)
+    keeps.find_by(user_id: user.id).destroy
   end
 
 end

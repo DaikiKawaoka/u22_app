@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'keeps/create'
+  get 'keeps/destroy'
   get 'password_resets/new'
   get 'password_resets/edit'
   #管理ページ
@@ -27,6 +29,11 @@ Rails.application.routes.draw do
   # delete '/likes/:thing_id/destroy', to:'likes#destroy' #いいねを外す
   # get '/likes/:id', to:'likes#show' #いいね一覧
   resources :likes, only: [:create, :destroy,:show]
+
+  # post '/keeps/:thing_id/create', to:'keeps#create'#keepする
+  # delete '/keeps/:thing_id/destroy', to:'keeps#destroy' #keepを外す
+  resources :keeps, only: [:create, :destroy]
+
 #/users/1/following的な
   resources :users do
     member do
