@@ -715,6 +715,11 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           .post_footer_menu {
             height: 20%;
             display: flex;
+            .keep-thing-show{
+              position: relative;
+              margin-top: 5px;
+              right: -95px;
+            }
             .star-rating {
               position: relative;
               margin-left: 4%;

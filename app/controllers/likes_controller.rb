@@ -1,15 +1,6 @@
 class LikesController < ApplicationController
   before_action :logged_in_user
 
-  def show
-    thing_array = []
-    likes = Like.where(user_id: params[:id])
-     likes.each{|like|
-       thing_array << like.thing_id
-   }
-    @things = Thing.where(id: thing_array).order(created_at: :asc)
-  end
-
   def create
     unless(guest_user?)
       @thing = Thing.find(params[:thing_id])

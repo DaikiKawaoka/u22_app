@@ -32,10 +32,10 @@
 
   <tr>
     <th>
-      <% if current_user?(@user) %>
+      <% if current_user?(@now_user) %>
       <%= link_to "削除", thing, method: :delete , data: { confirm: "本当に削除しますか？" } %>
       <% end %>
-      <% if current_user?(@user) %>
+      <% if current_user?(@now_user) %>
       <%= link_to "編集", edit_thing_path(thing)%>
       <% end %>
     </th>

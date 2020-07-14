@@ -23,6 +23,7 @@ class StaticPagesController < ApplicationController
   #管理ページ
   def index
     if current_user
+      @now_user = current_user
       @things=current_user.things.order(created_at: :desc).paginate(page: params[:page], per_page: 15)
     end
   end
@@ -30,6 +31,7 @@ class StaticPagesController < ApplicationController
 #管理絞り込みページ
   def index_narrow
     if current_user
+      @now_user = current_user
       thing_type = params[:id]
       @thing_type_name = check_thing_type(thing_type)
       @things=Thing.where(thing_type: thing_type,user_id: current_user.id).order(created_at: :desc).paginate(page: params[:page], per_page: 15)

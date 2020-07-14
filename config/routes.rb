@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   # post '/likes/:thing_id/create', to:'likes#create'#いいね
   # delete '/likes/:thing_id/destroy', to:'likes#destroy' #いいねを外す
   # get '/likes/:id', to:'likes#show' #いいね一覧
-  resources :likes, only: [:create, :destroy,:show]
+  resources :likes, only: [:create, :destroy]
 
   # post '/keeps/:thing_id/create', to:'keeps#create'#keepする
   # delete '/keeps/:thing_id/destroy', to:'keeps#destroy' #keepを外す

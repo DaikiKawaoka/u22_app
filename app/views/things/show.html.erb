@@ -31,6 +31,10 @@
                <%= render "likes/like", thing: @thing %>
               </div>
 
+              <!--keep-->
+              <span id="thing-keep-<%= @thing.id %>" class="keep-thing-show">
+              <%= render "keeps/keep", thing: @thing %>
+              </span>
             </div>
             <div class="post_text_box">
               <p>
