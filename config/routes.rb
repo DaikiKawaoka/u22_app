@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 #/users/1/following的な
   resources :users do
     member do
-      get :following, :followers,:keep
+      get :following, :followers,:keep,:like
     end
   end
   resources :account_activations, only: [:edit]

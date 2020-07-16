@@ -289,6 +289,9 @@ body {
   flex-wrap :wrap;
   justify-content: space-between;
   margin-top: 20px;
+  .simple-calendar{
+    width: 100%;
+  }
   &::after{
     content:"";
     display: block;
@@ -812,7 +815,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           }
         }
       }
-    
+
       .post_comment_main {
         width: 38%;
         .thing-syousai-div{

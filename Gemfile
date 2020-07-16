@@ -22,6 +22,7 @@ gem 'omniauth-twitter'
 gem 'rmagick', require: 'RMagick'
 gem 'bootsnap',                   '1.4.5', require: false
 gem 'counter_culture'
+gem 'simple_calendar'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

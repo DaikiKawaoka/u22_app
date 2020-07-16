@@ -1,27 +1,51 @@
 <div class="user-main-tag">
 <%#今どこか確認%>
 <% case @mark%>
-<% when "like_tag" then%>
+<% when "calendar_tag" then%>
   <%= link_to user_path(current_user),{class: "now-tag"} do %>
+    <span>calendar</span>
+  <% end %>
+  <%= link_to like_user_path(current_user) do %>
     <span>like</span>
   <% end %>
-  <%= link_to keep_user_path(@user) do%>
+  <%= link_to keep_user_path(current_user) do%>
     <span>keep</span>
   <% end %>
-  <span>aaa</span>
+<% when "like_tag" then%>
+  <%= link_to user_path(current_user) do %>
+    <span>calendar</span>
+  <% end %>
+  <%= link_to like_user_path(current_user),{class: "now-tag"}  do %>
+    <span>like</span>
+  <% end %>
+  <%= link_to keep_user_path(current_user)  do%>
+    <span>keep</span>
+  <% end %>
 <% when "keep_tag" then%>
   <%= link_to user_path(current_user) do %>
+    <span>calendar</span>
+  <% end %>
+  <%= link_to like_user_path(current_user) do %>
     <span>like</span>
   <% end %>
-  <%= link_to keep_user_path(@user),{class: "now-tag"}  do%>
+  <%= link_to keep_user_path(current_user),{class: "now-tag"}  do%>
     <span>keep</span>
   <% end %>
-  <span>aaa</span>
-<% else %>
-
 <% end %>
 
 </div>
 <div class="home-things-div">
+<% case @mark%>
+<% when "calendar_tag" then%>
+  <%= month_calendar(attribute: :created_at, events: @things) do |date, things| %>
+    <%= date.day %>
+    <% things.each do |thing| %>
+      <div>
+        <%= link_to thing.thing_name,thing %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
   <%= render @things %>
+<% end %>
 </div>
