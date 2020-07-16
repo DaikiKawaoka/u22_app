@@ -815,8 +815,22 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
     
       .post_comment_main {
         width: 45%;
+        .thing-syousai-div{
+          height: 20%;
+          div{
+            margin-top: 15px;
+            margin-left: 20px;
+            p{
+              font-size: 18px;
+              font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+                "MS PGothic", sans-serif;
+            }
+          }
+        }
         .post_comment_post_box {
           height: 10%;
+          border-top: 1px solid #cccccc;
           border-bottom: 1px solid #cccccc;
           .post_comment_post_user_icon_block {
             height: 50px;

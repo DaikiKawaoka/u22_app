@@ -34,6 +34,8 @@ class Thing < ApplicationRecord
   validates :thing_comment,length: { maximum: 255 }
   validates :thing_type, presence: true
   validates :thing_assessment, presence: true
+  validates :thing_purchase_place, presence: true,length: { maximum: 30 }
+  validates :thing_price, presence: true
 
   # 表示用のりサイズ済み画像を返す
   def display_image

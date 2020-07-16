@@ -75,11 +75,11 @@ class ThingsController < ApplicationController
     #データベースに登録
     def thing_params_new
       params.require(:thing).permit(:thing_name, :thing_comment,:thing_assessment,:thing_type,:thing_shear,
-                                    :thing_favorite,:thing_price,:thing_maker,:thingImage)
+                                    :thing_price,:thing_maker,:thingImage,:thing_purchase_place,:thing_price,:purchase_date)
     end
 
     def thing_params_update
       params.require(:thing).permit(:thing_name, :thing_comment,:thing_assessment,:thing_type,:thing_shear,
-                                    :thing_favorite,:thing_price,:thing_maker,:thingImage)
+                                    :thing_price,:thing_maker,:thingImage,:thing_purchase_place,:thing_price,:purchase_date)
     end
 end
