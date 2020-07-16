@@ -624,7 +624,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
   .thing-show-div {
     padding-top: 20px;
     padding-bottom: 40px;
-    height: 100vh;
+    // height: 100vh;
     // position: fixed;
     // top: 20px;
     width: 1000px;
@@ -643,7 +643,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       border: 1px solid #cccccc;
       .main_box {
         height: 100%;
-        width: 55%;
+        width: 62%;
         padding-bottom: 10px;
         .post_user_box {
           height: 10%;
@@ -714,7 +714,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           border-right: #cccccc solid 1px;
           .post_footer_menu {
             height: 20%;
-            display: flex;
+            display:flex;
             .keep-thing-show{
               position: relative;
               margin-top: 5px;
@@ -775,9 +775,9 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
             }
             .post_like_box {
               margin-top: 5px;
-              margin-left: 260px;
+              margin-left: 320px;
               .fa{
-                font-size: 25px;
+                font-size: 28px;
               }
               .like-btn-unlike{
                 color: #f8a5c2;
@@ -787,8 +787,8 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
               }
               .like-count{
                 position: relative;
-                top: -20px;
-                left: 30px;
+                top: -18px;
+                left: 50px;
               }
               button{
                 position: absolute;
@@ -814,7 +814,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       }
     
       .post_comment_main {
-        width: 45%;
+        width: 38%;
         .thing-syousai-div{
           height: 20%;
           div{
@@ -884,12 +884,13 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
         .post_comment_box {
           height: 84%;
           overflow: auto;
+          width: 100%;
           .post_comment_block {
             margin-top: 20px;
-            margin-left: auto;
+            margin-left: 20px;
             margin-right: auto;
             margin-bottom: 20px;
-            width: 420px;
+            width: 90%;
             height: auto;
             .post_comment_user_box {
               display: flex;
@@ -906,6 +907,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
               }
               .post_comment_body {
                 display: block;
+                width: 80%;
                 .post_comment_user_name_block {
                   display: flex;
                   p {
@@ -922,8 +924,9 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
                   }
                 }
                 .post_comment_main {
-                  width: auto;
+                  width: 100%;
                   font-size: 14px;
+                  word-wrap: break-word;
                   font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                     "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
                     "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
