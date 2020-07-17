@@ -19,7 +19,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 # Image Uploader
 # gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
+gem 'rmagick'
 gem 'bootsnap',                   '1.4.5', require: false
 gem 'counter_culture'
 gem 'simple_calendar'

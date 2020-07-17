@@ -1121,8 +1121,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           cursor: pointer;
           &:hover {
             color: #36b4c7;
-            transition: 0.5s;
-            transition: all 0.35s ease-in-out 0.2s;
+            transition: 0.2s;
           }
         }
       }
@@ -1379,3 +1378,40 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
   }
 }
 
+//------------------------設定モーダル（userShow）------------------------
+.users{
+
+  .settei-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: none;
+    .settei-modal-main {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    background-color: white;
+    padding: 20px 0 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: auto;
+    text-align: center;
+    filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+      .fa-times {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: rgba(128, 128, 128, 0.4);
+        cursor: pointer;
+      }
+      .fa-times:hover{
+        color: red;
+        transition: 0.2s ;
+      }
+    }
+  }
+}
