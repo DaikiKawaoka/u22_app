@@ -19,14 +19,14 @@
         <div class="profile_body">
           <%= render 'follow_form' if logged_in? %>
           <% if current_user?(@user) %>
-          <div class="settei-btn" id="login-show">
-            <i class="fa fa-2x fa-cog"></i>
+          <div class="settei-btn">
+            <i class="fa fa-2x fa-cog" id="login-show"></i>
           </div>
 
 <div class="settei-modal" id="login-modal">
     <div class="settei-modal-main">
-      <div id="close-modal">
-        <i class="fa fa-2x fa-times"></i>
+      <div>
+        <i class="fa fa-2x fa-times" id="close-modal"></i>
       </div>
       <div>
         <p class="settei-modal-p"><li><%= link_to "物登録", new_thing_path%></li></p>
