@@ -22,7 +22,7 @@
 
       <!--アイテム追加ページへのリンク-->
       <%= link_to new_thing_path,{class: "home-link"} do %>
-        <i class="fas fa-plus-square fa-lg fa-plus-square" title="追加"></i>
+        <i class="fas fa-lg fa-plus-square" title="追加"></i>
       <% end %>
 
       <!--通知マーク-->
@@ -31,7 +31,7 @@
       <% end %>
 
       <%= link_to "/notifications",{class: "home-link"} do %>
-        <i class="fas fa-comment-dots fa-lg fa-comment" title="メッセージ"></i>
+        <i class="fa fa-bell" style="font-size: 18px;"></i>
       <% end %>
 
       <%= link_to current_user do%>

@@ -53,7 +53,8 @@ class Thing < ApplicationRecord
     notification = current_user.active_notifications.new(
       thing_id: id,
       visited_id: user_id,
-      action: "like"
+      action: "like",
+      title: "いいねが届きました"
     )
     notification.save if notification.valid?
   end
