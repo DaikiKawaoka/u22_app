@@ -3,8 +3,8 @@ User.create!(name:  "Guest User",
              email: "example@u22app.jp",
              user_name: "guest_user",
              sex: 1,
-             password:              "albieajasnofmg9048y723bguest_user_example_0505_u22app_osniqehapofvnaioeufpserjniewjaobwjepjapew39026849isy",
-             password_confirmation: "albieajasnofmg9048y723bguest_user_example_0505_u22app_osniqehapofvnaioeufpserjniewjaobwjepjapew39026849isy",
+             password:              "albieajasnofmg904bwjepjapew39026849isy",
+             password_confirmation: "albieajasnofmg904bwjepjapew39026849isy",
              activated: true,
              activated_at: Time.zone.now)
 
