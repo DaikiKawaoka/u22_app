@@ -106,6 +106,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
 )
 thing = Thing.find_by(thing_name:"java2の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5621.jpg"), filename: 'IMG_5621.jpg')
@@ -116,6 +119,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/19,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"SQLの本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5622.jpg"), filename: 'IMG_5622.jpg')
@@ -126,6 +132,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/18,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"応用情報対策の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5623.jpg"), filename: 'IMG_5623.jpg')
@@ -139,6 +148,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"基本情報の本『kitamisiki』")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5624.jpg"), filename: 'IMG_5624.jpg')
@@ -149,6 +161,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"応用情報の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5625.jpg"), filename: 'IMG_5625.jpg')
@@ -159,6 +174,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"応用情報午後の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5626.jpg"), filename: 'IMG_5626.jpg')
@@ -173,6 +191,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"Java1の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5627.jpg"), filename: 'IMG_5627.jpg')
@@ -183,6 +204,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"応用情報テキスト")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5628.jpg"), filename: 'IMG_5628.jpg')
@@ -193,6 +217,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"HTML,CSSの本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5629.jpg"), filename: 'IMG_5629.jpg')
@@ -207,6 +234,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"Ruby on Rails の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5630.jpg"), filename: 'IMG_5630.jpg')
@@ -217,6 +247,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"Androidアプリ開発")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5631.jpg"), filename: 'IMG_5631.jpg')
@@ -227,6 +260,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"面接、ビジネスマナーの本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5632.jpg"), filename: 'IMG_5632.jpg')
@@ -241,6 +277,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"Linuxの本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5633.jpg"), filename: 'IMG_5633.jpg')
@@ -251,6 +290,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"JavaScript の本")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5634.jpg"), filename: 'IMG_5634.jpg')
@@ -261,6 +303,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 thing = Thing.find_by(thing_name:"Linuxのコマンド ")
 thing.thingImage.attach(io: File.open("#{Rails.root}/db/fixtures/IMG_5636.jpg"), filename: 'IMG_5636.jpg')
@@ -275,6 +320,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 
 thing = Thing.find_by(thing_name:"アルゴリズムのテキスト")
@@ -286,6 +334,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 
 thing = Thing.find_by(thing_name:"文章力のテキスト")
@@ -297,6 +348,9 @@ users.things.create!(
   thing_type: 2,
   thing_assessment: 5,
   thing_shear: true,
+  thing_price: 1000,
+  purchase_date: 2020/7/20,
+  thing_purchase_place: "amazon",
   )
 
 thing = Thing.find_by(thing_name:"ネットワークの本 ")
