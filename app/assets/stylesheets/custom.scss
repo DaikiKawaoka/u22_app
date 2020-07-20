@@ -843,16 +843,41 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
         width: 38%;
         .thing-syousai-div{
           height: 20%;
-          div{
-            margin-top: 15px;
-            margin-left: 20px;
-            p{
-              font-size: 18px;
-              font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          table{
+            width: 350px;
+            height: 180px;
+            tr{
+              padding: 0;
+              height: 35px;
+              th{
+                width: 70px;
+                font-size: 18px;
+                font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                 "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
                 "MS PGothic", sans-serif;
+                padding: 0;
+                padding-left: 10px;
+              }
+              td{
+                width: 200px;
+                word-wrap:break-word;
+                font-size: 18px;
+                font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+                "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+                "MS PGothic", sans-serif;
+              }
             }
           }
+          // div{
+          //   margin-top: 15px;
+          //   margin-left: 20px;
+          //   p{
+          //     font-size: 18px;
+          //     font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+          //       "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+          //       "MS PGothic", sans-serif;
+          //   }
+          // }
         }
         .post_comment_post_box {
           height: 10%;
@@ -1434,6 +1459,9 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       .fa-times:hover{
         color: red;
         transition: 0.2s ;
+      }
+      ul{
+        list-style: none;
       }
     }
   }

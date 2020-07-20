@@ -37,18 +37,24 @@
         </div>
         <div class="post_comment_main">
         <div class="thing-syousai-div">
-          <div>
-            <p>タイトル：<%= @thing.thing_name %></p>
-          </div>
-          <div>
-            <p>価格：<%= @thing.thing_price %> 円</p>
-          </div>
-          <div>
-            <p>購入日：<%= @thing.purchase_date %> </p>
-          </div>
-          <div>
-            <p>購入場所：<%= @thing.thing_purchase_place %> </p>
-          </div>
+        <table>
+          <tr>
+            <th>タイトル</th>
+            <td><%= @thing.thing_name %></td>
+          </tr>
+          <tr>
+            <th>価格</th>
+            <td><%= @thing.thing_price %> 円</td>
+          </tr>
+          <tr>
+            <th>購入日</th>
+            <td><%= @thing.purchase_date %> </td>
+          </tr>
+          <tr>
+            <th>購入場所</th>
+            <td><%= @thing.thing_purchase_place %> </td>
+          </tr>
+        </table>
           </div>
           <div class="post_comment_post_box">
             <%= form_with model: [@thing, @comment], local: true do |f| %>

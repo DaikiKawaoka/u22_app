@@ -4,21 +4,27 @@ class CommentsController < ApplicationController
 
   def create
     unless(guest_user?)
-      @comment = current_user.comments.build(comment_params)
-      @comment.thing_id = params[:thing_id]
+      @thing = Thing.find(params[:thing_id])
+      #投稿に紐づいたコメントを作成
+      @comment = @thing.comments.build(comment_params)
+      @comment.user_id = current_user.id
+      @coment_thing = @comment.thing
       if @comment.save
+        #通知の作成
+        @thing.create_notification_comment!(current_user, @comment.id)
         flash[:success] = 'コメントしました'
         redirect_to @comment.thing
       else
         @thing = Thing.find(params[:thing_id])
+        flash[:danger] = 'コメントに失敗しました（空文字または140文字を超えています）'
         @comments = @thing.comments
-        render template: 'things/show'
+        @user = @thing.user
+        redirect_to @thing
       end
     else
       redirect_to "/login"
     end
   end
-
 
   def destroy
     unless(guest_user?)
