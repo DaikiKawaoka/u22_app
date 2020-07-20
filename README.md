@@ -1,24 +1,38 @@
-# README
+# ManagementItemApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ユーザーが持っているitemを登録、管理し他ユーザー共有できるWebアプリケーションです。
 
-Things you may want to cover:
+# DEMO
 
-* Ruby version
 
-* System dependencies
+# Features
 
-* Configuration
+簡単にアイテムを管理することができ、共有したいアイテムは共有できます。
+他のユーザーが共有している物を見ることができるので、欲しい物を見つけることも簡単です。
+高級ブランド品を他ユーザーに自慢するために使ってもらっても構いません。
+登録したアイテムにコメント、いいね、ブックマークをすることができます。
 
-* Database creation
+# 登録できる内容
+・アイテム名
+・写真
+・価格
+・コメント
+・5段回評価
+・購入日
+・購入場所
+・登録日
 
-* Database initialization
+# Requirement
 
-* How to run the test suite
+* ruby on rails 6.0.3
 
-* Services (job queues, cache servers, search engines, etc.)
+# Author
 
-* Deployment instructions
+* 作成者
+  DaikiKawaoka
 
-* ...
+* 所属
+  Kawahara
+
+* E-mail
+  kawadaiki@icloud.com
