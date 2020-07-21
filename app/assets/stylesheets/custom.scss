@@ -672,8 +672,8 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
   .thing-show-div {
     padding-top: 20px;
     padding-bottom: 40px;
-    width: 910px;
-    height: 910px;
+    width: 950px;
+    height: 950px;
     .content {
       background: #fff;
       width: 950px;
@@ -685,7 +685,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       border: 1px solid #cccccc;
       .main_box {
         height: 100%;
-        width: 62%;
+        width: 61%;
         padding-bottom: 10px;
         .post_user_box {
           height: 8%;
@@ -739,14 +739,13 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
           }
         }
         .post_img_box {
-          height: 70%;
-          width: 100%;
+          width: 580px;
+          height: 580px;
           border-top: solid 1px #cccccc;
           border-bottom: solid 1px #cccccc;
-          img {
-            margin: auto;
-            width: 100%;
-            height: 100%;
+          img{
+          width: 579px;
+          height: 579px;
           }
         }
         .footer {
