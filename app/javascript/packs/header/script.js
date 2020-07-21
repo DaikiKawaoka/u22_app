@@ -48,3 +48,7 @@ $(function() {
     reader.readAsDataURL(file);
   });
 });
+// flash フェードアウト
+$(function(){
+  setTimeout("$('.flash').fadeOut('slow')", 2000);
+});

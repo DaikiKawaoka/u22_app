@@ -63,7 +63,7 @@ class ThingsController < ApplicationController
       unless(guest_user?)
         Thing.find(params[:id]).destroy
         flash[:success] = "削除しました。"
-        redirect_to user_path(current_user)
+        redirect_to root_url
       else
         flash[:success] = "ログインしてください。"
         redirect_to "/login"

@@ -10,8 +10,12 @@
           <%= render @things %>
         <%= will_paginate @things, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
         </div>
+      <%else%>
+        <div class="no-item-index-div">
+          <h3>アイテムを登録しよう！</h3>
+        </div>
       <%end%>
-      </div>
+    </div>
   </div>
 <%else%>
   <%= render "no_login"%>
