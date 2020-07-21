@@ -1,4 +1,4 @@
-  <header class="header">
+<header class="header">
   <div class="header-main-div">
     <i class="fab fa-cuttlefish fa-3x title"></i>
 
@@ -7,14 +7,12 @@
       <form method="get" action="/kensaku" class="search_container">
         <input type="search" size="40" placeholder="ユーザー検索" name=<%=:user_name %>>
       </form>
-    <% end %>
-    <!--管理ホーム（ホーム）へのリンク-->
-    <%= link_to root_path,{class: "home-link"} do %>
-      <i class="fas fa-home fa-lg fa-home" title="ホーム"></i>
-    <% end %>
 
+      <!--管理ホーム（ホーム）へのリンク-->
+      <%= link_to root_path,{class: "home-link"} do %>
+        <i class="fas fa-home fa-lg fa-home" title="ホーム"></i>
+      <% end %>
 
-    <% if logged_in? %>
       <!--地球ホームへのリンク-->
       <%= link_to "/static_pages/home",{class: "home-link"} do %>
         <i class="fas fa-globe fa-lg fa-globe" title="グローバル"></i>
@@ -44,14 +42,16 @@
 
 
     <% else %>
-      <i class="login" id="login-show">ログイン</i>
-      <!-- ゲストユーザでログイン -->
-      <%= link_to '/guestlogin' do%>
-        <i class="login">ゲストでログイン</i>
-      <% end %>
+      <div class="no-login-div">
+        <i class="login" id="login-show">ログイン</i>
+        <!-- ゲストユーザでログイン -->
+        <%= link_to '/guestlogin' do%>
+          <i class="login">ゲストでログイン</i>
+        <% end %>
+      </div>
     <% end %>
-    </div>
-  </header>
+  </div>
+</header>
 
   <div class="flash-css">
     <% flash.each do |message_type, message| %>

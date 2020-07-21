@@ -251,11 +251,7 @@ body {
 }
 
 }
-.header-main-div{
-  display: flex;
-  width: 1000px;
-  margin: 0 auto;
-}
+
 .header span img{
   margin-top: 15px;
 }
@@ -285,14 +281,28 @@ body {
 }
 
 /* ログイン */
-.login {
-  text-align: center;
-  color: black;
-  text-decoration: none;
-  padding-top: 22px;
-}
-.login:hover {
-  background: rgb(202, 202, 200);
+.header-main-div{
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  text-align:right ;
+  .no-login-div{
+    width: 300px;
+    margin-left: 700px;
+    height: 45px;
+    .login {
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a{
+      font-size: 20px;
+      margin-left: 20px;
+      text-decoration: none;
+      line-height: 80px;
+    }
+  }
 }
 
 // table_css

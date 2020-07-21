@@ -1,0 +1,30 @@
+<img src='/assets/home-image2.jpg' class="home-image">
+
+  <div class="login-modal-wrapper" id="login-modal">
+    <div class="modal1">
+      <div id="close-modal">
+        <i class="fa fa-2x fa-times"></i>
+      </div>
+      <div id="login-form">
+        <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+          <div class="form-item" id="top-form-item">
+            <%= f.label :email ,"メールアドレス or ユーザネーム" ,class: 'formLabel'%>
+            <%= f.text_field :email, class: 'form-control'%>
+          </div>
+          <div class="form-item">
+            <%= f.label :password ,"パスワード",class: "formLabel"%>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="formCheckBox">
+            <%= f.label :remember_me, class: "inline" do %>
+              <%= f.check_box :remember_me %>
+              <p>登録情報を保存しますか？</p>
+            <% end %>
+          </div>
+          <%= f.submit "ログイン", id: "submit-btn" %>
+        <% end %>
+        <p class="formSinkiBtn">新規登録は <%= link_to "こちら", signup_path %></p>
+        <%= link_to "パスワードを忘れた場合", new_password_reset_path %>
+      </div>
+    </div>
+  </div>
