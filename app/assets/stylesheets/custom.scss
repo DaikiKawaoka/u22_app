@@ -365,8 +365,10 @@ input, textarea, select, .uneditable-input {
 }
 //flash位置調整
 .flash-css{
-  margin-top: 60px;
   width: 100%;
+  position: fixed;
+  z-index: 1;
+  top:60px;
 }
 .alert{
   width: 100%;
@@ -670,21 +672,14 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
   .thing-show-div {
     padding-top: 20px;
     padding-bottom: 40px;
-    // height: 100vh;
-    // position: fixed;
-    // top: 20px;
     width: 910px;
     height: 910px;
     .content {
       background: #fff;
-      // left: 30%;
-      // position: absolute;
-      // top: 50%;
-      // transform: translate(-50%, -50%);
       width: 950px;
       margin: 0 auto;
+      padding-top: 40px;
       height: 100%;
-      // filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.2));
       border-radius: 3px;
       display: flex;
       border: 1px solid #cccccc;
@@ -864,16 +859,18 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
       .post_comment_main {
         width: 38%;
         .thing-syousai-div{
-          height: 20%;
+          height: 150px;
           table{
             width: 350px;
-            height: 180px;
+            height: 150px;
+            tbody{
+              width: 350px;
+              height: 150px;
+            }
             tr{
-              padding: 0;
-              height: 35px;
               th{
                 width: 70px;
-                font-size: 18px;
+                font-size: 15px;
                 font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                 "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
                 "MS PGothic", sans-serif;
@@ -883,10 +880,11 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
               td{
                 width: 200px;
                 word-wrap:break-word;
-                font-size: 18px;
+                font-size: 17px;
                 font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
                 "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
                 "MS PGothic", sans-serif;
+                padding: 0;
               }
             }
           }
@@ -1086,7 +1084,7 @@ div.form-item .form-control:focus{outline: none; border:1px solid #74b9ff; color
 
   .modal__content {
     background: #fff;
-    padding: 30px 0 40px 0;
+    padding: 80px 0 40px 0;
     width: 1000px;
     height: 100%;
     // filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2));
